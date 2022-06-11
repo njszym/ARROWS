@@ -40,13 +40,17 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
 
     # Partial pressures of gaseous species in air
     if atmos == 'air':
-        p_O2 = 21200
-        p_CO2 = 4050
+        p_O2 = 21200.
+        p_CO2 = 4050.
+        p_NH3 = 16.
+        p_H2O = 2300.
 
     # Estimation based on 1e-6 partial pressure
     elif atmos == 'inert':
         p_O2 = 0.1
         p_CO2 = 0.1
+        p_NH3 = 0.1
+        p_H2O = 0.1
 
     else:
         raise Exception('Atmosphere must either be air or inert')
@@ -72,7 +76,7 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
             Ef -= dG
 
         # Rely on hull energy for gaseous species
-        if Composition(formula).reduced_formula in ['CO2', 'O2']:
+        if Composition(formula).reduced_formula in ['CO2', 'O2', 'H2O', 'NH3', 'H3N']:
             return None
 
     else:
@@ -86,11 +90,15 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
     if atmos == 'air':
         p_O2 = 21200
         p_CO2 = 4050
+        p_NH3 = 16.
+        p_H2O = 2300.
 
     # Estimation based on 1e-6 partial pressure
     elif atmos == 'inert':
         p_O2 = 0.1
         p_CO2 = 0.1
+        p_NH3 = 0.1
+        p_H2O = 0.1
 
     else:
         raise Exception('Atmosphere must either be air or inert')
@@ -133,6 +141,22 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
             CO2_energ += 3*get_chempot_correction('CO2', temp, p_CO2)
             CO2_entry = pd.PDEntry(CO2_comp, CO2_energ)
             revised_entries.append(CO2_entry)
+
+        if 'H' in elems:
+            H2O_comp = Composition('H2O')
+            H2O_energ = zero_temp_pd.get_hull_energy(H2O_comp)
+            H2O_energ += 3*get_chempot_correction('H2O', temp, p_H2O)
+            H2O_entry = pd.PDEntry(H2O_comp, H2O_energ)
+            revised_entries.append(H2O_entry)
+
+    if ('N' in elems) and ('H' in elems):
+
+        # NH3
+        NH3_comp = Composition('NH3')
+        NH3_energ = zero_temp_pd.get_hull_energy(NH3_comp)
+        NH3_energ += 4*get_chempot_correction('NH3', temp, p_NH3)
+        NH3_entry = pd.PDEntry(NH3_comp, NH3_energ)
+        revised_entries.append(NH3_entry)
 
     return pd.PhaseDiagram(revised_entries)
 
@@ -187,7 +211,7 @@ def get_chempot_correction(element, temp, pres):
 
     EV_TO_KJ_PER_MOL = 96.4853
 
-    if element not in ['O', 'N', 'Cl', 'F', 'H', 'CO2']:
+    if element not in ['O', 'N', 'Cl', 'F', 'H', 'CO2', 'NH3', 'H2O']:
         return 0
     std_temp = 298.15
     std_pres = 1E5
@@ -203,14 +227,18 @@ def get_chempot_correction(element, temp, pres):
                'Cl': 33.949,
                'F': 31.302,
                'H': 28.836,
-               'CO2': 37.129}
+               'CO2': 37.129,
+               'NH3': 35.640,
+               'H2O': 33.22}
 
     S_dict = {'O': 205.147,
               'N': 191.609,
               'Cl': 223.079,
               'F': 202.789,
               'H': 130.680,
-              'CO2': 213.79}
+              'CO2': 213.79,
+              'NH3': 192.80,
+              'H2O': 194.10}
     Cp_std = Cp_dict[element]
     S_std = S_dict[element]
     PV_correction = ideal_gas_const * temp * np.log(pres / std_pres)
@@ -224,9 +252,13 @@ def get_chempot_correction(element, temp, pres):
     dG /= 1000 * EV_TO_KJ_PER_MOL
 
     # Normalize by number of atoms in the gas molecule
+    if element == 'H2O':
+        dG /= 3
     if element == 'CO2':
         dG /= 3
-    else:
+    if element == 'NH3':
+        dG /= 4
+    if element == 'O':
         dG /= 2
 
     return dG
