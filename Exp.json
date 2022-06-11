@@ -1,0 +1,20 @@
+{"Universal File":
+    {
+    "BaO2, CuCO3, Y2(CO3)3":
+        {
+        "Temperatures":
+            {
+            "600 C":
+                {
+                "products": ["Y2O3_199", "BaCO3_62", "CuO_15"],
+                "product weight fractions": [30, 35.25, 34.75]
+                },
+            "700 C":
+                {
+                "products": ["BaCO3_62", "CuO_15", "Y2O3_199"],
+                "product weight fractions": [49, 42.5, 8.5]
+                }
+            }
+        }
+    }
+}
