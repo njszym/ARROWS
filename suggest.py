@@ -3,42 +3,54 @@ from pymatgen.core.composition import Composition
 from itertools import combinations
 import numpy as np
 import json
+import time
 import csv
 import sys
-import time
+import os
 
 
 if __name__ == '__main__':
 
-    # Load experimental rxn data
-    with open('Exp_Data.json') as f:
-        exp_data = json.load(f)
-    exp_data = exp_data['Universal File']
-
-    # User-defined exploration vs. exploitation
+    verbose = False # Whether to print all info
     explore = True # Default to exploration
     all = False # Stop phase pure target obtained
     for arg in sys.argv:
+        if '--verbose' in arg:
+            verbose = True
         if '--exploit' in arg:
             explore = False
         if '--all' in arg:
             all = True
 
-    # Specify available precursors and desired product phase
-    available_precursors = ['Y2O3', 'Y2C3O9', 'BaO', 'BaO2', 'BaCO3', 'Cu2O', 'CuO', 'CuCO3', 'BaCuO2', 'Ba2Cu3O6', 'Y2Cu2O5']
-    target_product = 'Ba2YCu3O7' # or Y Ba2 Cu3 O6.5
-    target_product = Composition(target_product).reduced_formula
-    allowed_byproducts = [] # No byproducts allowed
-    temps = [600, 700, 800, 900] # Temperatures to sample
-    open_sys = True # Open system (air)
-    enforce_thermo = False # Allows rxns with dG > 0
+    # Load settings
+    with open('Settings.json') as f:
+        settings = json.load(f)
+    available_precursors = settings['Precursors']
+    if settings['Allow Oxidation'] == 'True':
+        available_precursors.append('O2')
+    target_product = Composition(settings['Target']).reduced_formula
+    allowed_byproducts = settings['Allowed Byproducts']
+    temps = settings['Temperatures']
+    open_sys = settings['Open System']
+    enforce_thermo = False # Allow rxns with dG > 0
+
+    # Load experimental rxn data (if any exist)
+    if 'Exp.json' in os.listdir('.'):
+        with open('Exp.json') as f:
+            exp_data = json.load(f)
+        exp_data = exp_data['Universal File']
+    else:
+        print('No experimental data found. Starting from scratch.')
+        exp_data = None
 
     # Build phase diagrams
     pd_dict = energetics.get_pd_dict(available_precursors, temps)
 
+    assert 'Rxn_TD.csv' in os.listdir('.'), 'No reaction data found. Please run gather_rxns first.'
+
     # Load reaction data
     sorted_rxn_info = []
-    with open('Simulated_Rxns.csv') as csv_file:
+    with open('Rxn_TD.csv') as csv_file:
         csv_reader = csv.reader(csv_file)
         i = 0
         for row in csv_reader:
@@ -94,15 +106,29 @@ if __name__ == '__main__':
             # Starting materials
             precursors, initial_amounts = rxn[0], rxn[1]
 
+            # If no experiments have been performed yet, suggest first set
+            if exp_data is None:
+                print('-- Suggested experiment --')
+                print('Precursors: %s' % precursors)
+                print('Temperature: %s C' % T)
+                sys.exit()
+
             # Parse experimental reaction data
             products, final_amounts = exparser.get_products(precursors, T, exp_data)
+
+            # If precursors or temperature not sampled yet, suggest current experiment
+            if products is None:
+                print('-- Suggested experiment --')
+                print('Precursors: %s' % precursors)
+                print('Temperature: %s C' % T)
+                sys.exit()
 
             # If target product is made phase pure, finish run
             if len(products) == 1:
                 sole_product = Composition(products[0]).reduced_formula
                 if sole_product == Composition(target_product).reduced_formula:
                     if not all:
-                        print('Optimum synthesis route identified:')
+                        print('-- Optimal  synthesis route identified --')
                         print('Precursors: %s' % precursors)
                         print('Temperature: %s' % T)
                         sys.exit()
@@ -115,16 +141,8 @@ if __name__ == '__main__':
             mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
                 pd_dict, T, open_sys, enforce_thermo, rxn_database, probed_rxns)
 
-            """
-            # Print user messages
-            pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
-            """
-
             # Add known reactions to the database
             is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
-            """
-            rxn_database.print_info()
-            """
 
             # Check whether new reactions were found
             if is_updated:
@@ -144,7 +162,8 @@ if __name__ == '__main__':
                 pd_dict, T, open_sys, enforce_thermo, rxn_database, probed_rxns)
 
             if mssg == 'Reaction already probed.':
-                print(mssg)
+                if verbose:
+                    print(mssg)
                 continue
 
             # Save precursors to probed routes
@@ -166,12 +185,13 @@ if __name__ == '__main__':
             current_route = set(current_products + current_temp)
             probed_rxns.append(current_route)
 
-            # Print user messages
-            pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
-
             # Add known reactions to the database
             is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
-            rxn_database.print_info()
+
+            # Print messages if verbose
+            if verbose:
+                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
+                rxn_database.print_info()
 
             # Check whether new reactions were found
             if is_updated:
@@ -196,7 +216,8 @@ if __name__ == '__main__':
                 new_products = starting_rxn[4]
                 new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database)
                 if set(new_materials) != set(starting_materials):
-                    print('\nPredicted evolution: %s --> %s' % (starting_materials, new_materials))
+                    if verbose:
+                        print('\nPredicted evolution: %s --> %s' % (starting_materials, new_materials))
                     if target_product in new_materials:
                         ind = new_materials.index(target_product)
                         expec_yield = new_amounts[ind]
@@ -221,5 +242,7 @@ if __name__ == '__main__':
             # Exploitation: prioritize expected target yield and maximal dG from evolved sets
             else:
                 sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], x[-1], -x[-2]))
+
+    print('All possible reactions sampled.')
 
 

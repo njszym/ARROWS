@@ -1,0 +1,8 @@
+{
+    "Precursors" : ["Y2O3", "Y2C3O9", "BaO", "BaO2", "BaCO3", "Cu2O", "CuO", "CuCO3", "BaCuO2", "Ba2Cu3O6", "Y2Cu2O5"],
+    "Target" : "Ba2YCu3O7",
+    "Allowed Byproducts" : ["O2", "CO2"],
+    "Temperatures" : [600, 700, 800, 900],
+    "Open System" : "True",
+    "Allow Oxidation" : "True"
+}

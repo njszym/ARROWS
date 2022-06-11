@@ -12,6 +12,14 @@ def get_products(precursors, temperature, exp_data):
     precursor_key = ', '.join(precursors)
     temp_key = '%s C' % int(temperature)
 
+    # If precursors not sampled yet, return None
+    if precursor_key not in exp_data.keys():
+        return None, None
+
+    # If temperature not sampled yet, return None
+    if temp_key not in exp_data[precursor_key]['Temperatures'].keys():
+        return None, None
+
     # Experimentally observed products
     products = exp_data[precursor_key]['Temperatures'][temp_key]['products']
 

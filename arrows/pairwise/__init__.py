@@ -648,10 +648,6 @@ def pred_evolution(precursors, initial_amounts, rxn_database):
                     bal_info = reactions.get_balanced_coeffs(pair, prods)
                     req_amounts, amounts_formed = bal_info[0], bal_info[1]
 
-       	       	    print('Precursors: %s' % precursors)
-                    print('Starting amounts: %s' % initial_amounts)
-       	       	    print('Rxn: %s --> %s' % (pair, prods))
-
                     # Available amounts
                     avail_amounts = []
                     for cmpd in first_rxn[0]:
@@ -676,9 +672,6 @@ def pred_evolution(precursors, initial_amounts, rxn_database):
                         if cmpd_formula not in ['O2', 'C1 O2']:
                             precursors.append(cmpd_formula)
                             initial_amounts.append(coeff)
-
-                    print('New set: %s' % precursors)
-                    print('New amounts: %s' % initial_amounts)
 
                     # Make dictionary for updated precursor amounts
                     precursor_amounts = {}
