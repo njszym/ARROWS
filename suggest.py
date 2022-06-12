@@ -195,6 +195,7 @@ if __name__ == '__main__':
 
             # Check whether new reactions were found
             if is_updated:
+                rxn_database.save()
                 updated = True
 
         # Inform reaction database that precursors are changing

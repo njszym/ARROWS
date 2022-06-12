@@ -3,6 +3,7 @@ from pymatgen.analysis import interface_reactions
 from arrows import reactions
 from itertools import combinations
 import numpy as np
+import csv
 import sys
 
 
@@ -573,6 +574,30 @@ class rxn_database:
             upper_temp = self.known_rxns[reacs][1][1]
             rxn_str = '%s == %s @ %s-%s C' % (reactants, prods, lower_temp, upper_temp)
             print(rxn_str)
+
+    def save(self, to='PairwiseRxns.csv'):
+        with open(to, 'w+') as datafile:
+            csv_writer = csv.writer(datafile)
+            csv_writer.writerow(['Pairwise reactants', 'Pairwise Products', 'Temperature Range'])
+            for reacs in self.known_rxns.keys():
+                reactants = [Composition(ph).reduced_formula for ph in reacs]
+                reactants = ' + '.join(reactants)
+                if self.known_rxns[reacs][0] != None:
+                    products = self.known_rxns[reacs][0]
+                    products = [Composition(ph).reduced_formula for ph in products]
+                    products = ' + '.join(products)
+                    products = ' %s' % products
+                else:
+                    products = ' None'
+                lower_temp = self.known_rxns[reacs][1][0]
+                upper_temp = self.known_rxns[reacs][1][1]
+                if (lower_temp > 0.0) and (upper_temp < 2000.0):
+                    temp_bounds = ' Reacts between %s-%s C' % (lower_temp, upper_temp)
+                elif (lower_temp > 0.0) and (upper_temp == 2000.0):
+                    temp_bounds = ' Does not react at or below %s C' % lower_temp
+                elif (lower_temp == 0.0) and (upper_temp < 2000.0):
+                    temp_bounds = ' Reacts below %s C' % upper_temp
+                csv_writer.writerow([reactants, products, temp_bounds])
 
     @property
     def is_empty(self):
