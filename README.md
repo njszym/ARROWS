@@ -86,6 +86,7 @@ Temperature: 900 C
 
 After running the specified experiments, the results should be added to the ```Exp.json``` file. An example illustrating the format is given below:
 
+```
 {"Universal File":
     {
     "BaO2, CuCO3, Y2(CO3)3":
@@ -106,6 +107,7 @@ After running the specified experiments, the results should be added to the ```E
         }
     }
 }
+```
 
 By running ```suggest.py``` again, ARROWS will learn from these results an output a new suggestion. This process can be repeated until (1) the target phase is formed without any impurities, or (2) all possible experiments have been exhausted.
 
