@@ -14,6 +14,7 @@ if __name__ == '__main__':
     verbose = False # Whether to print all info
     explore = True # Default to exploration
     all = False # Stop phase pure target obtained
+    enforce_thermo = False # Allow rxns with dG > 0
     for arg in sys.argv:
         if '--verbose' in arg:
             verbose = True
@@ -21,6 +22,10 @@ if __name__ == '__main__':
             explore = False
         if '--all' in arg:
             all = True
+        if '--all' in arg:
+            all = True
+        if '--enforce_thermo' in arg:
+            enforce_thermo = True
 
     # Load settings
     with open('Settings.json') as f:
@@ -32,7 +37,6 @@ if __name__ == '__main__':
     allowed_byproducts = settings['Allowed Byproducts']
     temps = settings['Temperatures']
     open_sys = settings['Open System']
-    enforce_thermo = False # Allow rxns with dG > 0
 
     # Load experimental rxn data (if any exist)
     if 'Exp.json' in os.listdir('.'):
