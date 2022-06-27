@@ -143,7 +143,7 @@ if __name__ == '__main__':
 
             # Perform reaction pathway analysis
             mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
-                pd_dict, T, open_sys, enforce_thermo, rxn_database, probed_rxns)
+                pd_dict, T, allowed_byproducts, open_sys, enforce_thermo, rxn_database, probed_rxns)
 
             # Add known reactions to the database
             is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
@@ -163,7 +163,7 @@ if __name__ == '__main__':
 
             # Perform reaction pathway analysis
             mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
-                pd_dict, T, open_sys, enforce_thermo, rxn_database, probed_rxns)
+                pd_dict, T, allowed_byproducts, open_sys, enforce_thermo, rxn_database, probed_rxns)
 
             if mssg == 'Reaction already probed.':
                 if verbose:

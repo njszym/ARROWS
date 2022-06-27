@@ -198,7 +198,7 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
     return final_set, final_amounts
 
 
-def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, temp, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
+def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, temp, allowed_byproducts, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
     """
     Given a synthesis result, propose possible reaction pathways.
 
@@ -227,6 +227,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     # Ensure consistent formatting of chemical formulae
     precursors = [Composition(cmpd).alphabetical_formula for cmpd in precursors]
     products = [Composition(cmpd).alphabetical_formula for cmpd in products]
+    allowed_byproducts = [Composition(cmpd).alphabetical_formula for cmpd in allowed_byproducts]
 
     # Make dictionary for precursor amounts
     precursor_amounts = {}
@@ -363,6 +364,15 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
             product_sets.append(w_O2)
             product_sets.append(w_CO2)
             product_sets.append(w_both)
+        # Include allowed byproducts
+        solid_byproducts = list(set(allowed_byproducts) - {'C1 O2', 'O2'}) # Already included
+        byproduct_sets = []
+        for n in range(1, len(solid_byproducts) + 1):
+            byproduct_sets += list(combinations(solid_byproducts, n))
+        for existing_set in product_sets.copy():
+            for byp_set in byproduct_sets:
+                w_byp = list(existing_set) + list(byp_set)
+                product_sets.append(w_byp)
 
         # Check for compostional balance between reactant pairs and product sets
         suspected_rxns = []
