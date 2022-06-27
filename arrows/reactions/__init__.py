@@ -11,9 +11,7 @@ def get_balanced_coeffs(reactants, products):
     return coeffs
 
 
-def get_rxn_energy(reactants, products, temp, pd_dict):
-
-    cmpd_pd = pd_dict[temp]
+def get_rxn_energy(reactants, products, temp, cmpd_pd):
 
     if isinstance(products, str):
         products = [products]
