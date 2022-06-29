@@ -24,8 +24,6 @@ if __name__ == '__main__':
             explore = False
         if '--all' in arg:
             all = True
-        if '--all' in arg:
-            all = True
         if '--enforce_thermo' in arg:
             enforce_thermo = True
         if '--greedy' in arg:

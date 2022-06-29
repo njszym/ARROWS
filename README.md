@@ -126,3 +126,22 @@ Y2O3 + BaCO3, None, Does not react at or below 800 C
 O2 + Cu2O, CuO, Reacts below 600 C
 ...
 ```
+
+## Custom options
+
+When suggesting new experiments, several options can be specified at run time: ```suggest.py --options```
+
+Where ```--options``` includes the following:
+
+```--verbose```: Print out detailed information associated with the pairwise reaction analysis.
+
+```--exploit```: This will prioritize synthesis routes with maximal driving force to form the target phase.
+
+```--enforce_thermo```: If this option is specified, only thermodynamically favorable pairwise reactions will be considered.
+
+```--greedy```: If a known pairwise reaction occurs below the minimum temperature, assume it *always* occurs first when the two reactants are present in other precursor sets.
+
+```--pure```: If specified, partial yield of the target phase is not rewarded.
+
+```--all```: Explore all possible synthesis routes, even after an optimal one has been identified.
+
