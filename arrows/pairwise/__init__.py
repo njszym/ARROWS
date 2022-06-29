@@ -279,7 +279,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
                     intermediates = []
                     initial_amounts = []
                     for cmpd, amt in zip(interm_set, interm_amounts):
-                        if cmpd not in ['O2', 'CO2', 'C1 O2']:
+                        if cmpd not in ['O2', 'CO2', 'C1 O2', 'NH3', 'H3N', 'H3 N1', 'H2O', 'H2 O1']:
                             intermediates.append(cmpd)
                             initial_amounts.append(amt)
 
@@ -448,7 +448,7 @@ def inform_user(temp, precursors, products, amounts, mssg, sus_rxn_info, known_p
     print('Precursors: %s' % ', '.join(precursors))
     if intermediates != None:
         intermediates = [Composition(cmpd).reduced_formula for cmpd in intermediates]
-        intermediates = list(set(intermediates) - {'O2', 'CO2'})
+        intermediates = list(set(intermediates) - {'O2', 'CO2', 'NH3', 'H2O', 'H3N'})
         print('Intermediates: %s' % ', '.join(intermediates))
     print('Products: %s' % ', '.join(products))
     amounts = [str(round(amt, 2)) for amt in amounts]
@@ -526,13 +526,21 @@ class rxn_database:
                     if known_phase in prods:
                         # Check if any info is available for these reactants
                         if reacs in self.known_rxns.keys():
+                            """
+                            NOTE TO SELF:
+                            Products may vary with temperature.
+                            For now, I'll give precedent to low-T results.
+                            But need to combine this more carefully.
+                            ...Add to the to-do list...
+                            """
                             self.known_rxns[reacs][2] = 'Local'
                             # If products are new, update the entry
                             if self.known_rxns[reacs][0] is None:
                                 self.known_rxns[reacs][0] = prods
                                 is_updated = True
-                            # Only update temperature if new T < old T
+                            # Only update if new T < old T
                             if temp < self.known_rxns[reacs][1][1]:
+                                self.known_rxns[reacs][0] = prods
                                 self.known_rxns[reacs][1][1] = temp
                                 is_updated = True
                         # If these reactants are new, add them to the database
@@ -617,7 +625,7 @@ class rxn_database:
             return False
 
 
-def pred_evolution(precursors, initial_amounts, rxn_database):
+def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T):
 
     # Placeholder for now
     temp = 1000.0
@@ -655,21 +663,38 @@ def pred_evolution(precursors, initial_amounts, rxn_database):
             known_pairs = [info[0] for info in known_rxns]
             known_temps = [info[-1] for info in known_rxns]
 
+            found_greedy = False
             all_known, first_rxn, degen = True, None, False
             min_rxn_temp = max(known_temps) + 100
             for pair in possible_pairs:
                 if frozenset(pair) not in known_pairs:
-                    all_known = False
+                    if not found_greedy and not greedy:
+                        all_known = False
                 else:
                     rxn = known_rxns[known_pairs.index(frozenset(pair))]
                     rxn_temp = rxn[-1]
-                    # If rxn temp is lower than others *and* products are known
-                    if (rxn_temp < min_rxn_temp) and (rxn[1] != None):
-                        min_rxn_temp = rxn_temp
-                        first_rxn = rxn
-                        degen = False
-                    elif (rxn[-1] == min_rxn_temp) and (rxn[1] != None):
-                        degen = True
+                    # If rxn temp is equal to the lower bound and greedy is True
+                    if (rxn_temp == min_T) and (greedy is True):
+                        # If rxn temp is lower than others *and* products are known
+                        if (rxn_temp < min_rxn_temp) and (rxn[1] != None):
+                            all_known = True
+                            found_greedy = True
+                            min_rxn_temp = rxn_temp
+                            first_rxn = rxn
+                            degen = False
+                        elif (rxn[-1] == min_rxn_temp) and (rxn[1] != None):
+                            degen = True
+                    # Otherwise, all pairwise combinations must be known
+                    else:
+                        rxn = known_rxns[known_pairs.index(frozenset(pair))]
+                        rxn_temp = rxn[-1]
+                        # If rxn temp is lower than others *and* products are known
+                        if (rxn_temp < min_rxn_temp) and (rxn[1] != None):
+                            min_rxn_temp = rxn_temp
+                            first_rxn = rxn
+                            degen = False
+                        elif (rxn[-1] == min_rxn_temp) and (rxn[1] != None):
+                            degen = True
 
             # If both criteria are satisfied, update the set accordingly
             if (all_known == True) and (degen == False) and (first_rxn != None):
@@ -704,7 +729,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database):
                     for (cmpd, coeff) in zip(interm_set, interm_amounts):
                         cmpd_formula = Composition(cmpd).alphabetical_formula
                         # Exclude gaseous byproducts
-                        if cmpd_formula not in ['O2', 'C1 O2']:
+                        if cmpd_formula not in ['O2', 'C1 O2', 'H3 N1', 'H2 O1']:
                             precursors.append(cmpd_formula)
                             initial_amounts.append(coeff)
 

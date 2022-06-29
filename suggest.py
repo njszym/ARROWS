@@ -15,6 +15,8 @@ if __name__ == '__main__':
     explore = True # Default to exploration
     all = False # Stop phase pure target obtained
     enforce_thermo = False # Allow rxns with dG > 0
+    greedy = False # Assume low-T rxns always occur first
+    reward_yield = True # Target partial yield
     for arg in sys.argv:
         if '--verbose' in arg:
             verbose = True
@@ -26,6 +28,10 @@ if __name__ == '__main__':
             all = True
         if '--enforce_thermo' in arg:
             enforce_thermo = True
+        if '--greedy' in arg:
+            greedy = True
+        if '--pure' in arg:
+            reward_yield = False
 
     # Load settings
     with open('Settings.json') as f:
@@ -122,6 +128,10 @@ if __name__ == '__main__':
 
             # If precursors or temperature not sampled yet, suggest current experiment
             if products is None:
+                if verbose:
+                    print('Current Ranking:')
+                    for rxn in sorted_rxn_info:
+                        print(rxn)
                 print('-- Suggested experiment --')
                 print('Precursors: %s' % precursors)
                 print('Temperature: %s C' % T)
@@ -147,6 +157,11 @@ if __name__ == '__main__':
 
             # Add known reactions to the database
             is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
+
+            # Print messages if verbose
+            if verbose:
+                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
+                rxn_database.print_info()
 
             # Check whether new reactions were found
             if is_updated:
@@ -213,13 +228,13 @@ if __name__ == '__main__':
 
             # If so, evolve all precursor sets using the latest information
             evolved_rxn_info = []
-            for starting_rxn in sorted_rxn_info:
+            for rxn_ind, starting_rxn in enumerate(sorted_rxn_info):
                 original_set = starting_rxn[0]
                 original_amounts = starting_rxn[1]
                 starting_materials = starting_rxn[2]
                 starting_amounts = starting_rxn[3]
                 new_products = starting_rxn[4]
-                new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database)
+                new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, min(temps))
                 if set(new_materials) != set(starting_materials):
                     if verbose:
                         print('\nPredicted evolution: %s --> %s' % (starting_materials, new_materials))
@@ -230,7 +245,15 @@ if __name__ == '__main__':
                         energ = 0.0
                     else:
                         expec_yield = 0.0
-                        new_products, energ = reactions.get_dG(new_materials, new_amounts, target_product, open_sys, pd_dict, T)
+                        """
+                        Sometimes, reactions occur that cause you to deviate from the target composition.
+                        For example, you lose some gaseous species that was meant to participate in the synthesis reaction.
+                        In such cases, the desired reaction cannot be balanced. These are therefore excluded from any further consideration.
+                        """
+                        try:
+                            new_products, energ = reactions.get_dG(new_materials, new_amounts, target_product, allowed_byproducts, open_sys, pd_dict, min(temps))
+                        except:
+                            continue
                     all_interfaces = [frozenset(pair) for pair in combinations(new_materials, 2)]
                     known_interfaces = list(rxn_database.as_dict().keys())
                     new_interfaces = set(all_interfaces) - set(known_interfaces)
@@ -240,13 +263,25 @@ if __name__ == '__main__':
                 else:
                     evolved_rxn_info.append(starting_rxn)
 
-            # Exploration: prioritize no. of interfaces in evolved sets
-            if explore:
-                sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], -x[-2], x[-1]))
+            if reward_yield:
 
-            # Exploitation: prioritize expected target yield and maximal dG from evolved sets
+                # Exploration: prioritize no. of interfaces in evolved sets
+                if explore:
+                    sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], -x[-2], x[-1]))
+
+                # Exploitation: prioritize expected target yield and maximal dG from evolved sets
+                else:
+                    sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], x[-1], -x[-2]))
+
             else:
-                sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], x[-1], -x[-2]))
+
+                # Exploration: prioritize no. of interfaces in evolved sets
+                if explore:
+                    sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-2], x[-1]))
+
+                # Exploitation: maximal dG from evolved sets
+                else:
+                    sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (x[-1], -x[-2]))
 
     print('All possible reactions sampled.')
 

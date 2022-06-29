@@ -67,7 +67,7 @@ def get_rxn_energy(reactants, products, temp, cmpd_pd):
     return 1000*(final_energy - starting_energy)
 
 
-def get_dG(initial_cmpds, initial_amounts, targets, open_sys, pd_dict, temp):
+def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys, pd_dict, temp):
     """
     Similar to get_rxn_energy, except this function allows
     linearly dependent precursors to be treated by simply averaging
@@ -118,16 +118,17 @@ def get_dG(initial_cmpds, initial_amounts, targets, open_sys, pd_dict, temp):
         final_soln = trial_soln.copy()
         final_products = targets.copy()
     else:
-        if open_sys:
-            gaseous_byproducts = ['O2', 'CO2']
-            for num_byp in range(1, len(gaseous_byproducts) + 1):
-                possible_byproducts = combinations(gaseous_byproducts, num_byp)
-                for byp_set in possible_byproducts:
-                    all_products = targets + list(byp_set)
-                    trial_soln = get_balanced_coeffs(all_products, [avg_formula])
-                    if not isinstance(trial_soln, str): # If reaction can be balanced
-                        final_soln = trial_soln.copy()
-                        final_products = all_products.copy()
+        allowed_byproducts = [Composition(cmpd).alphabetical_formula for cmpd in allowed_byproducts]
+        allowed_byproducts += ['O2', 'C1 O2'] # Allow gaseous evolution
+        allowed_byproducts = list(set(allowed_byproducts))
+        for num_byp in range(1, len(allowed_byproducts) + 1):
+            possible_byproducts = combinations(allowed_byproducts, num_byp)
+            for byp_set in possible_byproducts:
+                all_products = targets + list(byp_set)
+                trial_soln = get_balanced_coeffs(all_products, [avg_formula])
+                if not isinstance(trial_soln, str): # If reaction can be balanced
+                    final_soln = trial_soln.copy()
+                    final_products = all_products.copy()
 
     """
     Need to include possibility of gaseous reactants!
