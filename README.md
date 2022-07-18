@@ -1,5 +1,7 @@
 # ARROWS
 
+![Alt text](Logo.png?raw=true)
+
 A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase.
 
 ## Installation
