@@ -123,6 +123,19 @@ if __name__ == '__main__':
 
             # Parse experimental reaction data
             products, final_amounts = exparser.get_products(precursors, T, exp_data)
+
+            # If precursors or temperature not sampled yet, suggest current experiment
+            if products is None:
+                if verbose:
+                     print('Current Ranking:')
+                     for rxn in sorted_rxn_info:
+                         print(rxn)
+                print('-- Suggested experiment --')
+                print('Precursors: %s' % precursors)
+                print('Temperature: %s C' % T)
+                sys.exit()
+
+            # Formulate intermediates
             interm = sorted(list(zip(products, final_amounts)))
             interm_phases = tuple([ph[0] for ph in interm])
             interm_amts = tuple([ph[1] for ph in interm])
