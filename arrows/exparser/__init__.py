@@ -33,6 +33,7 @@ def get_products(precursors, temperature, exp_data):
     if np.isclose(sum(weight_fracs), 1, atol=0.01):
         weight_fracs = 100*np.array(weight_fracs)
     assert np.isclose(sum(weight_fracs), 100, atol=5.0), 'Weight fractions sum to %s, but they should sum to 100' % sum(weight_fracs)
+    assert len(products) == len(weight_fracs), 'Number of products (%s) is not equal to number of weight fractions (%s)' % (len(products), len(weight_fracs))
     weight_fracs = [val/100 for val in weight_fracs]
 
     return products, weight_fracs

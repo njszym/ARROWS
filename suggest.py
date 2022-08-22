@@ -75,7 +75,7 @@ if __name__ == '__main__':
                 sorted_rxn_info.append([reactants, amounts, reactants, amounts, products, expec_yield, interfaces, num_interfaces, energ])
             i += 1
 
-    # Exploration: prioritize no. of interfaces
+    # Exploration: prioritize no. of new interfaces
     if explore:
         sorted_rxn_info = sorted(sorted_rxn_info, key=lambda x: (-x[-2], x[-1]))
 
@@ -86,16 +86,15 @@ if __name__ == '__main__':
     # Pairwise rxn database
     rxn_database = pairwise.rxn_database()
 
-    # Possible temperature ordering
+    # Temperature ordering (low to high)
     increasing_temps = sorted(temps)
-    decreasing_temps = increasing_temps.copy()
-    decreasing_temps.reverse()
 
     # Keep track of highest TD driving force
     best_dG = 0.0
 
     # Iterate through each rxn
     probed_rxns = []
+    known_interm = {}
     num_rxns = len(sorted_rxn_info)
     for i in range(num_rxns):
 
@@ -108,71 +107,61 @@ if __name__ == '__main__':
         # Check for updates
         updated = False
 
-        # Iterate through each temperature, high to low
-        for T in decreasing_temps:
+        # If intermediates known
+        redundant = False
 
-            # Starting materials
-            precursors, initial_amounts = rxn[0], rxn[1]
-
-            # If no experiments have been performed yet, suggest first set
-            if exp_data is None:
-                print('-- Suggested experiment --')
-                print('Precursors: %s' % precursors)
-                print('Temperature: %s C' % T)
-                sys.exit()
-
-            # Parse experimental reaction data
-            products, final_amounts = exparser.get_products(precursors, T, exp_data)
-
-            # If precursors or temperature not sampled yet, suggest current experiment
-            if products is None:
-                if verbose:
-                    print('Current Ranking:')
-                    for rxn in sorted_rxn_info:
-                        print(rxn)
-                print('-- Suggested experiment --')
-                print('Precursors: %s' % precursors)
-                print('Temperature: %s C' % T)
-                sys.exit()
-
-            # If target product is made phase pure, finish run
-            if len(products) == 1:
-                sole_product = Composition(products[0]).reduced_formula
-                if sole_product == Composition(target_product).reduced_formula:
-                    if not all:
-                        print('-- Optimal  synthesis route identified --')
-                        print('Precursors: %s' % precursors)
-                        print('Temperature: %s' % T)
-                        sys.exit()
-
-            # If no reaction occured, no need to analyze further
-            if set(products) == set(precursors):
-                continue
-
-            # Perform reaction pathway analysis
-            mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
-                pd_dict, T, allowed_byproducts, open_sys, enforce_thermo, rxn_database, probed_rxns)
-
-            # Add known reactions to the database
-            is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
-
-            # Print messages if verbose
-            if verbose:
-                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
-                rxn_database.print_info()
-
-            # Check whether new reactions were found
-            if is_updated:
-                updated = True
-
-        # Re-do analysis from low to high T, now including known rxns
+        # Iterate through each temperature
         for T in increasing_temps:
 
+            if redundant:
+                if verbose:
+                    print('Redundant: %s' %  rxn[0])
+                continue
+
             # Starting materials
             precursors, initial_amounts = rxn[0], rxn[1]
 
             # Parse experimental reaction data
             products, final_amounts = exparser.get_products(precursors, T, exp_data)
+            interm = sorted(list(zip(products, final_amounts)))
+            interm_phases = tuple([ph[0] for ph in interm])
+            interm_amts = tuple([ph[1] for ph in interm])
+
+            # Check for redundant intermediates at low T
+            if T == min(temps):
+                if interm_phases in known_interm.keys():
+                    if known_interm[interm_phases]['Success'] == False:
+                        for past_amts in known_interm[interm_phases]['Amounts']:
+                            similar = np.isclose(interm_amts, past_amts, atol=0.1) # 10% wf tolerance
+                            if False not in similar:
+                                redundant = True
+                    else:
+                        for past_amts in known_interm[interm_phases]['Amounts']:
+                            similar = np.isclose(interm_amts, past_amts, atol=0.1) # 10% wf tolerance
+                            if False not in similar:
+                                redundant = True
+                                highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
+                                if len(highT_products) == 1:
+                                    if highT_products[0] == target_product:
+                                        print('Redundant success')
+                                        print('Products: %s' % target_product)
+                                        print('Amounts: 1.0')
+                if not redundant:
+                    if interm != None:
+                        if interm_phases in known_interm.keys():
+                            known_interm[interm_phases]['Amounts'].append(interm_amts)
+                            highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
+                            if len(highT_products) == 1:
+                                if highT_products[0] == target_product:
+                                    known_interm[interm_phases]['Success'] = True
+                        else:
+                            known_interm[interm_phases] = {}
+                            known_interm[interm_phases]['Amounts'] = [interm_amts]
+                            known_interm[interm_phases]['Success'] = False
+                            highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
+                            if len(highT_products) == 1:
+                                if highT_products[0] == target_product:
+                                    known_interm[interm_phases]['Success'] = True
 
             # Perform reaction pathway analysis
             mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
