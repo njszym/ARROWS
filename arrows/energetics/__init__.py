@@ -160,7 +160,7 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
 
     return pd.PhaseDiagram(revised_entries)
 
-def get_pd_dict(available_precursors, temperatures):
+def get_pd_dict(available_precursors, temperatures, atmos='air'):
     """
     Build a dictionary containing phase diagrams for the
     given chemical space throughout a range of temperatures.
@@ -181,7 +181,7 @@ def get_pd_dict(available_precursors, temperatures):
     # Build phase diagram dictionary
     pd_dict = dict()
     for temp in temperatures:
-        pd_dict[temp] = make_phase_diagram(entries, elems, temp)
+        pd_dict[temp] = make_phase_diagram(entries, elems, temp, atmos)
 
     return pd_dict
 
