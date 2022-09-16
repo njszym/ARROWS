@@ -35,7 +35,9 @@ if __name__ == '__main__':
     with open('Settings.json') as f:
         settings = json.load(f)
     available_precursors = settings['Precursors']
+    allow_oxidation = False
     if settings['Allow Oxidation'] == 'True':
+        allow_oxidation = True
         available_precursors.append('O2')
     target_product = Composition(settings['Target']).reduced_formula
     allowed_byproducts = settings['Allowed Byproducts']
@@ -262,7 +264,7 @@ if __name__ == '__main__':
                 starting_materials = starting_rxn[2]
                 starting_amounts = starting_rxn[3]
                 new_products = starting_rxn[4]
-                new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, min(temps))
+                new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, min(temps), allow_oxidation)
                 if set(new_materials) != set(starting_materials):
                     if verbose:
                         print('\nPredicted evolution: %s --> %s' % (' + '.join(sorted(starting_materials)), ' + '.join(sorted(new_materials))))

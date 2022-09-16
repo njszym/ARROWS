@@ -625,7 +625,7 @@ class rxn_database:
             return False
 
 
-def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T):
+def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, allow_oxidation):
 
     # Placeholder for now
     temp = 1000.0
@@ -667,6 +667,10 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T):
 
             # Decomposition reactions
             possible_pairs = list(combinations(precursors, 1))
+
+            # Oxidation reactions
+            possible_pairs += [(ph, 'O2') for ph in precursors]
+            possible_pairs += [(ph, 'CO2') for ph in precursors]
 
             # Pairwise reactions
             possible_pairs += list(combinations(precursors, 2))
@@ -723,7 +727,10 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T):
                     # Available amounts
                     avail_amounts = []
                     for cmpd in first_rxn[0]:
-                        avail_amounts.append(precursor_amounts[cmpd])
+                        if cmpd not in ['O2', 'CO2']:
+                            avail_amounts.append(precursor_amounts[cmpd])
+                        else:
+                            avail_amounts.append(1000.0) # Unlimited
 
                     # Calculate changes in reactant amounts and add in new products
                     leftover_cmpds, leftover_amounts = calculate_amounts(pair, avail_amounts, req_amounts, prods, amounts_formed)
