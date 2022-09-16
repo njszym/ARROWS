@@ -129,7 +129,7 @@ if __name__ == '__main__':
                 if verbose:
                      print('Current Ranking:')
                      for rxn in sorted_rxn_info:
-                         print(rxn)
+                         print(rxn[0])
                 print('-- Suggested experiment --')
                 print('Precursors: %s' % precursors)
                 print('Temperature: %s C' % T)
