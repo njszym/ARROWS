@@ -4,12 +4,21 @@ import numpy as np
 
 def get_products(precursors, temperature, exp_data):
 
+    # Modifications must not be made to parent var
+    solid_precursors = precursors.copy()
+
+    # Gaseous phases need not be specified in json
+    if 'O2' in solid_precursors:
+        solid_precursors.remove('O2')
+    if 'CO2' in solid_precursors:
+        solid_precursors.remove('CO2')
+
     # Precursors must be formatted as reduced formulae
-    precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
-    precursors = sorted(precursors)
+    solid_precursors = [Composition(cmpd).reduced_formula for cmpd in solid_precursors]
+    solid_precursors = sorted(solid_precursors)
 
     # Formatting consistent with exp dictionary keys
-    precursor_key = ', '.join(precursors)
+    precursor_key = ', '.join(solid_precursors)
     temp_key = '%s C' % int(temperature)
 
     # If precursors not sampled yet, return None
