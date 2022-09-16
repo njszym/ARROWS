@@ -93,6 +93,7 @@ After running the specified experiments, the results should be added to the ```E
     {
     "BaO2, CuCO3, Y2(CO3)3":
         {
+        "Precursor stoichiometry": [1.0, 3.0, 1.0], 
         "Temperatures":
             {
             "600 C":
