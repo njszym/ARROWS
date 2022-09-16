@@ -1,8 +1,3 @@
-{
-    "Precursors" : ["Y2O3", "Y2C3O9", "BaO", "BaO2", "BaCO3", "Cu2O", "CuO", "CuCO3", "BaCuO2", "Ba2Cu3O6", "Y2Cu2O5"],
-    "Target" : "Ba2YCu3O7",
-    "Allowed Byproducts" : ["O2", "CO2"],
-    "Temperatures" : [600, 700, 800, 900],
-    "Open System" : "True",
-    "Allow Oxidation" : "True"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:e8b6e0909d87bf110d334bc0850b299c7aa6591a7e5c07a775191f385d77e605
+size 296

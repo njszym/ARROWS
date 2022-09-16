@@ -1,8 +1,3 @@
-{
-    "Precursors" :  ["Li2O", "Li2TiO3", "Li4Ti5O12", "TiO2", "P2O5", "Li3PO4", "Li2CO3", "NH4H2PO4", "LiOH", "N2H8HPO4"],
-    "Target" : "LiTiPO5",
-    "Allowed Byproducts" : ["O2", "CO2", "NH3", "H2O"],
-    "Temperatures" : [400, 500, 600, 700],
-    "Open System" : "True",
-    "Allow Oxidation" : "True"
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:9b8aee711737e4f1257c19c21cb84d023a9f7db2f5f2f227950020da07fbc321
+size 310
