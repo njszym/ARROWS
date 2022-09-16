@@ -32,7 +32,7 @@ def get_hull_Ef(formula, cmpd_pd=None):
 
     return (target_energy - competing_energies) / sum_coeffs
 
-def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/MP/MP_stability.json'):
+def get_entry_Ef(formula, temp, atmos='air', data_path='arrows/energetics/MP_Energetics.json'):
     """
     Retrieve entry formation energy from MP.
     Temperature-dependence is calculated via Bartel method.
@@ -87,7 +87,7 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
 
     return Ef
 
-def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njszym/Research/MP/MP_stability.json'):
+def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/energetics/MP_Energetics.json'):
 
     # Round temperature to nearest 100 C
     T = round(temp, -2)
