@@ -15,7 +15,7 @@ if __name__ == '__main__':
     explore = True # Default to exploration
     all = False # Stop phase pure target obtained
     enforce_thermo = False # Allow rxns with dG > 0
-    greedy = False # Assume low-T rxns always occur first
+    greedy = True # Assume low-T rxns always occur first
     reward_yield = True # Target partial yield
     for arg in sys.argv:
         if '--verbose' in arg:
