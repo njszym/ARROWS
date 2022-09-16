@@ -39,6 +39,7 @@ if __name__ == '__main__':
     if settings['Allow Oxidation'] == 'True':
         allow_oxidation = True
         available_precursors.append('O2')
+        available_precursors.append('CO2')
     target_product = Composition(settings['Target']).reduced_formula
     allowed_byproducts = settings['Allowed Byproducts']
     temps = settings['Temperatures']
