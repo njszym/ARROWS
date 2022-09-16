@@ -1,0 +1,8 @@
+{
+    "Precursors" : ["Na2O", "Na2O2", "Na2CO3", "NaOH", "TeO2", "MoO2", "MoO3", "Na2MoO4", "Na2TeO3", "N2H8MoO4", "Na2Mo2O7"],
+    "Target" : "Na2Te3Mo3O16",
+    "Allowed Byproducts" : ["O2", "CO2", "H2O", "NH3"],
+    "Temperatures" : [300, 400],
+    "Open System" : "True",
+    "Allow Oxidation" : "True"
+}
