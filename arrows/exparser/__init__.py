@@ -4,6 +4,30 @@ import numpy as np
 
 def get_products(precursors, temperature, exp_data):
 
+    # Format exp json keys (reduced formulae, ordered alphabetically)
+    initial_keys = list(exp_data.keys()).copy()
+    initial_length = len(initial_keys)
+    for orig_key in initial_keys:
+        if ', ' in orig_key:
+            phasenames = orig_key.split(', ')
+            formulae = [Composition(cmpd).reduced_formula for cmpd in phasenames]
+            ordered_formulae = sorted(formulae)
+            new_key = ', '.join(ordered_formulae)
+            if new_key != orig_key:
+                exp_data[new_key] = exp_data[orig_key]
+                del exp_data[orig_key]
+        elif ',' in orig_key:
+            phasenames = orig_key.split(',')
+            formulae = [Composition(cmpd).reduced_formula for cmpd in phasenames]
+            ordered_formulae = sorted(formulae)
+            new_key = ', '.join(ordered_formulae)
+            if new_key != orig_key:
+                exp_data[new_key] = exp_data[orig_key]
+                del exp_data[orig_key]
+
+    # Ensure no keys were lost
+    assert len(exp_data.keys()) == initial_length, 'Something went wrong with Exp.json formatting'
+
     # Modifications must not be made to parent var
     solid_precursors = precursors.copy()
 
