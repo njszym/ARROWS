@@ -38,6 +38,9 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
     Temperature-dependence is calculated via Bartel method.
     """
 
+    # Round temperature to nearest 100 C
+    T = round(temp, -2)
+
     # Partial pressures of gaseous species in air
     if atmos == 'air':
         p_O2 = 21200.
@@ -62,17 +65,17 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
     with open(data_path) as fname:
         energy_data = json.load(fname)
 
-    assert str(temp) in energy_data.keys(), """Invalid temperature.
+    assert str(T) in energy_data.keys(), """Invalid temperature.
     Only the following are allowed: %s""" % list(energy_data.keys())
 
-    if condensed_formula in energy_data[str(temp)].keys():
-        Ef = energy_data[str(temp)][condensed_formula]['Ef']
+    if condensed_formula in energy_data[str(T)].keys():
+        Ef = energy_data[str(T)][condensed_formula]['Ef']
         elems = [str(el) for el in target_comp.elements]
 
         # Convert Ef to grand potential with open O2
         if 'O' in elems:
             n_O = target_comp.fractional_composition.as_dict()['O']
-            dG = n_O*get_chempot_correction('O', temp, 21200)
+            dG = n_O*get_chempot_correction('O', T, 21200)
             Ef -= dG
 
         # Rely on hull energy for gaseous species
@@ -85,6 +88,9 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='/Users/njszym/Research/M
     return Ef
 
 def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njszym/Research/MP/MP_stability.json'):
+
+    # Round temperature to nearest 100 C
+    T = round(temp, -2)
 
     # Partial pressures of gaseous species in air
     if atmos == 'air':
@@ -105,7 +111,7 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
 
     zero_temp_pd = pd.PhaseDiagram(entries)
 
-    if temp == 0.0:
+    if T == 0:
         return zero_temp_pd
 
     with open(data_path) as fname:
@@ -117,9 +123,9 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
         entry_dict = entry.as_dict()
         ordered_formula = entry.composition.alphabetical_formula
         condensed_formula = ordered_formula.replace(' ', '')
-        if condensed_formula in energy_data[str(temp)].keys():
+        if condensed_formula in energy_data[str(T)].keys():
             E0 = energy_data['0'][condensed_formula]['Ef']
-            Ef = energy_data[str(temp)][condensed_formula]['Ef']
+            Ef = energy_data[str(T)][condensed_formula]['Ef']
             dE = entry.composition.num_atoms*(Ef - E0)
             entry_dict['energy'] += dE
         revised_entries.append(pd.PDEntry.from_dict(entry_dict))
@@ -130,7 +136,7 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
         # O2
         O_comp = Composition('O')
         O_energ = zero_temp_pd.get_hull_energy(O_comp)
-        O_energ += get_chempot_correction('O', temp, p_O2)
+        O_energ += get_chempot_correction('O', T, p_O2)
         O_entry = pd.PDEntry(O_comp, O_energ)
         revised_entries.append(O_entry)
 
@@ -138,14 +144,14 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
         if 'C' in elems:
             CO2_comp = Composition('CO2')
             CO2_energ = zero_temp_pd.get_hull_energy(CO2_comp)
-            CO2_energ += 3*get_chempot_correction('CO2', temp, p_CO2)
+            CO2_energ += 3*get_chempot_correction('CO2', T, p_CO2)
             CO2_entry = pd.PDEntry(CO2_comp, CO2_energ)
             revised_entries.append(CO2_entry)
 
         if 'H' in elems:
             H2O_comp = Composition('H2O')
             H2O_energ = zero_temp_pd.get_hull_energy(H2O_comp)
-            H2O_energ += 3*get_chempot_correction('H2O', temp, p_H2O)
+            H2O_energ += 3*get_chempot_correction('H2O', T, p_H2O)
             H2O_entry = pd.PDEntry(H2O_comp, H2O_energ)
             revised_entries.append(H2O_entry)
 
@@ -154,7 +160,7 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='/Users/njsz
         # NH3
         NH3_comp = Composition('NH3')
         NH3_energ = zero_temp_pd.get_hull_energy(NH3_comp)
-        NH3_energ += 4*get_chempot_correction('NH3', temp, p_NH3)
+        NH3_energ += 4*get_chempot_correction('NH3', T, p_NH3)
         NH3_entry = pd.PDEntry(NH3_comp, NH3_energ)
         revised_entries.append(NH3_entry)
 
