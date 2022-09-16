@@ -1,0 +1,8 @@
+{
+    "Precursors" :  ["Li2O", "Li2TiO3", "Li4Ti5O12", "TiO2", "P2O5", "Li3PO4", "Li2CO3", "NH4H2PO4", "LiOH", "N2H8HPO4"],
+    "Target" : "LiTiPO5",
+    "Allowed Byproducts" : ["O2", "CO2", "NH3", "H2O"],
+    "Temperatures" : [400, 500, 600, 700],
+    "Open System" : "True",
+    "Allow Oxidation" : "True"
+}
