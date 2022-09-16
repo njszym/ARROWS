@@ -98,24 +98,52 @@ if __name__ == '__main__':
     num_rxns = len(sorted_rxn_info)
     for i in range(num_rxns):
 
+        # If intermediates known
+        redundant = False
+
         # Print info
         sys.stdout.flush()
 
         # Test rxn with highest dG
         rxn = sorted_rxn_info[0]
 
+        # Get predicted intermediates
+        interm = sorted(list(zip(rxn[2], rxn[3])))
+        interm_phases = tuple([ph[0] for ph in interm])
+        interm_coeffs = tuple([ph[1] for ph in interm])
+
+        # Convert stoichiometry to weight fraction
+        net_weight = sum([cf*Composition(ph).weight for cf, ph in zip(interm_coeffs, interm_phases)])
+        interm_wts = [cf*Composition(ph).weight/net_weight for cf, ph in zip(interm_coeffs, interm_phases)]
+
+        # Check if predicted intermediates have already been sampled
+        if interm_phases in known_interm.keys():
+            if known_interm[interm_phases]['Success'] == False:
+                for past_wts in known_interm[interm_phases]['Amounts']:
+                    similar = np.isclose(interm_wts, past_wts, atol=0.1) # 10% wf tolerance
+                    if False not in similar:
+                        redundant = True
+            else:
+                for past_wts in known_interm[interm_phases]['Amounts']:
+                    similar = np.isclose(interm_wts, past_wts, atol=0.1) # 10% wf tolerance
+                    if False not in similar:
+                        redundant = True
+                        highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
+                        if len(highT_products) == 1:
+                            if highT_products[0] == target_product:
+                                print('Redundant success')
+                                print('Products: %s' % target_product)
+                                print('Amounts: 1.0')
+
         # Check for updates
         updated = False
-
-        # If intermediates known
-        redundant = False
 
         # Iterate through each temperature
         for T in increasing_temps:
 
             if redundant:
                 if verbose:
-                    print('Redundant: %s' %  rxn[0])
+                    print('Redundant: %s' %  ', '.join(rxn[0]))
                 continue
 
             # Starting materials
@@ -129,7 +157,7 @@ if __name__ == '__main__':
                 if verbose:
                      print('Current Ranking:')
                      for rxn in sorted_rxn_info:
-                         print(rxn[0])
+                         print(', '.join(rxn[0]))
                 print('-- Suggested experiment --')
                 print('Precursors: %s' % precursors)
                 print('Temperature: %s C' % T)
@@ -237,7 +265,7 @@ if __name__ == '__main__':
                 new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, min(temps))
                 if set(new_materials) != set(starting_materials):
                     if verbose:
-                        print('\nPredicted evolution: %s --> %s' % (starting_materials, new_materials))
+                        print('\nPredicted evolution: %s --> %s' % (' + '.join(sorted(starting_materials)), ' + '.join(sorted(new_materials))))
                     if target_product in new_materials:
                         ind = new_materials.index(target_product)
                         expec_yield = new_amounts[ind]

@@ -656,10 +656,22 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T):
             known_rxns = rxn_database.as_sorted_list()
             interm_set = None
 
-            # Check whether:
-            # 1) All pairs are accounted for by global reactions
-            # 2) No reaction temperatures are degenerate
-            possible_pairs = combinations(precursors, 2) # What about decomposition?
+            """
+            Check whether:
+            1) All pairs are accounted for by global reactions
+            2) No reaction temperatures are degenerate
+
+            Unless --greedy is specified, in which case
+            low-T rxns are always assumed to occur.
+            """
+
+            # Decomposition reactions
+            possible_pairs = list(combinations(precursors, 1))
+
+            # Pairwise reactions
+            possible_pairs += list(combinations(precursors, 2))
+
+            # Known reactions
             known_pairs = [info[0] for info in known_rxns]
             known_temps = [info[-1] for info in known_rxns]
 
