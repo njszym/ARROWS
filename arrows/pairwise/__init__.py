@@ -7,38 +7,6 @@ import csv
 import sys
 
 
-def perform_synthesis(precursors, initial_amounts, pd_dict, temp):
-    """
-    Replicate a synthesis performed by mixing a set of precursors at a given temperature.
-    The method is as follows:
-    1) Iteratively work your way up to the final temperature.
-    2) At each temperature step, evolve set based on most favorable pairwise reactions.
-    3) Evolution stops when all interfacial energies fall below the cutoff energy, which depends on temperature.
-    """
-
-    # Minimum driving force required for a reaction to take place at a given temperature
-    cutoff_energ_dict = {1000: -5.0, 950: -17.5, 900: -30.0, 850: -42.5, 800: -55.0, 650: -67.5, 700: -80.0, 650: -92.5, 600: -105.0}
-
-    # Work your way up to the final temperature
-    for temp in np.arange(600, temp+1, 100):
-
-        # Set cutoff energy at current temperature
-        cutoff_energ = cutoff_energ_dict[temp]
-
-        # Phase diagram at specified temperature
-        phase_diagram = pd_dict[temp]
-
-        # Perform pairwise reactions until all phases remain inert
-        while precursors != None:
-            products, final_amounts = precursors.copy(), initial_amounts.copy()
-            precursors, initial_amounts = update_set(precursors, initial_amounts, phase_diagram, temp, cutoff_energ)
-
-        # Set products as precursors for possible reactions at higher temperatures
-        precursors, initial_amounts = products.copy(), final_amounts.copy()
-
-    return products, final_amounts
-
-
 def update_set(precursors, amounts, phase_diagram, temp, cutoff_energ, return_rxn=False):
     """
     Update a set of precursors based on the pairwise reaction with
