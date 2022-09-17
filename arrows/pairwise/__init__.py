@@ -435,8 +435,54 @@ def inform_user(temp, precursors, products, amounts, mssg, sus_rxn_info, known_p
 
 class rxn_database:
 
+    """
+    Note:
+    Inert (non-reaction) temperatures are strict (rxn occurs > T)
+    Whereas reaction temperatures are non-strict (rxn occurs <= T)
+    In other words, lower T < rxn T <= upper T
+    """
+
     def __init__(self):
         self.known_rxns = {}
+
+    def load(self, filepath='PairwiseRxns.csv'):
+
+        with open(filepath) as f:
+
+            # Iterate through each line
+            for i, line in enumerate(f.readlines()):
+
+                # Skip header
+                if i == 0:
+                    continue
+
+                # Load pairwise reactants
+                reacs = line.split(',')[0].split(' + ')
+                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in reacs])
+
+                # Load associated products (if any)
+                prods = line.split(', ')[1].split(' + ')
+                if 'None' not in prods:
+                    prods = frozenset([Composition(cmpd).reduced_formula for cmpd in prods])
+                else:
+                    prods = None
+
+                # Extreme bounds
+                lower_T, upper_T = 0, 2000
+
+                # Load temperature data
+                mssg = line.split(',')[2]
+                if 'Reacts between' in mssg:
+                    T_range = mssg.split()[-2]
+                    lower_T = int(T_range.split('-')[0])
+                    upper_T = int(T_range.split('-')[1])
+                elif 'Reacts below' in mssg:
+                    upper_T = int(mssg.split()[-2])
+                elif 'Does not react' in mssg:
+                    lower_T = int(mssg.split()[-2])
+
+                # Add rxn data to dictionary
+                self.known_rxns[reacs] = [prods, [lower_T, upper_T], 'Global']
 
     def update(self, mssg, sus_rxn_info, known_products, inert_pairs, temp):
 
@@ -484,16 +530,21 @@ class rxn_database:
 
             # Set upper bounds on rxn temperatures
             for sus_rxn in sus_rxn_info:
+
                 # Use frozenset; order does not matter; hashable
                 reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0]])
                 prods = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[1]])
+
                 # Check is suspected reaction produces known phase
                 for known_phase in known_products:
                     known_phase = Composition(known_phase).reduced_formula
+
                     # If so, this reaction is reliable. Add it to rxn database
                     if known_phase in prods:
+
                         # Check if any info is available for these reactants
                         if reacs in self.known_rxns.keys():
+
                             """
                             NOTE TO SELF:
                             Products may vary with temperature.
@@ -501,6 +552,7 @@ class rxn_database:
                             But need to combine this more carefully.
                             ...Add to the to-do list...
                             """
+
                             self.known_rxns[reacs][2] = 'Local'
                             # If products are new, update the entry
                             if self.known_rxns[reacs][0] is None:
@@ -511,16 +563,13 @@ class rxn_database:
                                 self.known_rxns[reacs][0] = prods
                                 self.known_rxns[reacs][1][1] = temp
                                 is_updated = True
+
                         # If these reactants are new, add them to the database
                         else:
                             self.known_rxns[reacs] = [prods, [0, temp], 'Local']
                             is_updated = True
 
         return is_updated
-
-        # Side note: inert (non-reaction) temperatures are strict (rxn occurs > T)
-        # Whereas reaction temperatures are non-strict (rxn occurs <= T)
-        # In other words, lower T < rxn T <= upper T
 
     def inert_pairs(self, temp):
         non_reacs = []

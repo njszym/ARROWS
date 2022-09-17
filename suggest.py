@@ -89,6 +89,10 @@ if __name__ == '__main__':
     # Pairwise rxn database
     rxn_database = pairwise.rxn_database()
 
+    # Load existing pairwise rxn data
+    if 'PairwiseRxns.csv' in os.listdir('.'):
+        rxn_database.load(filepath='PairwiseRxns.csv')
+
     # Temperature ordering (low to high)
     increasing_temps = sorted(temps)
 
