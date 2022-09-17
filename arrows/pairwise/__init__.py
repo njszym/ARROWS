@@ -702,7 +702,11 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
             for pair in possible_pairs:
                 if frozenset(pair) not in known_pairs:
                     if not found_greedy and not greedy:
-                        all_known = False
+                        # Don't penalize the absence of known oxidation/decomposition rxns
+                        # These are already implicit in the known reactions (assuming same atmosphere)
+                        # For example: if MnO reacts with Li2O @ 600 C, it takes precedent over oxidation
+                        if ('O2' not in pair) and ('CO2' not in pair) and (len(pair) > 1):
+                            all_known = False
                 else:
                     rxn = known_rxns[known_pairs.index(frozenset(pair))]
                     rxn_temp = rxn[-1]

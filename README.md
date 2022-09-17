@@ -132,6 +132,8 @@ O2 + Cu2O, CuO, Reacts below 600 C
 
 To utilize previously obtained pairwise reaction data for a new experimental campaign, place the corresponding ```PairwiseRxns.csv``` into the working directory before running ```suggest.py```. The reaction database for this campaign will include all of the known pairwise reactions from the csv file.
 
+Caution: previous pairwise reaction data should only be used when working under the same atmosphere. Products may vary depending on the partial pressures of various gaseous species.
+
 ## Custom options
 
 When suggesting new experiments, several options can be specified at run time: ```suggest.py --options```
