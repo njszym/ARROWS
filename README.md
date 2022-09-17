@@ -39,13 +39,13 @@ Each flag should be customized to fit the desired experiments.
 
 ```Target```: The desired synthesis product.
 
-```Allowed Byproducts```: Any phases that are allowed to form, in addition to the target phase. These often include gaseous phases (e.g., O2 or CO2), but may also be some water-soluble products that are easy to remove post hoc (e.g., NaCl). 
+```Allowed Byproducts```: Any phases that are allowed to form, in addition to the target phase. These often include gaseous phases (O2, CO2, NH3, H2O), but may also be some water-soluble products that are easy to remove post hoc (e.g., NaCl).
 
 ```Temperatures```: A list of temperatures that will be sampled during the synthesis experiments.
 
-```Open System```: Set to True if the experiments will be carried out in air. Otherwise, set to False if under an inert atmosphere (e.g., N2 or Ar). 
+```Open System```: Set to True to account for the possibility of gaseous byproducts (O2 or CO2).
 
-```Allow Oxidation```: Set to True if O2 may be included as a reactant. Otherwise, set to False if oxidation states may only be fixed or reduced (more common for high-temperature experiments under an intert atmosphere). 
+```Allow Oxidation```: Set to True if O2 may be included as a reactant. Otherwise, set to False if oxidation states may only be fixed or reduced (more common for high-temperature experiments under a reducing atmosphere). 
 
 ## Preparing possible precursor sets
 
