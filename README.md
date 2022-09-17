@@ -142,13 +142,13 @@ Where ```--options``` includes the following:
 
 ```--verbose```: Print out detailed information associated with the pairwise reaction analysis.
 
-```--exploit```: This will prioritize synthesis routes with maximal driving force to form the target phase.
+```--explore```: This will prioritize precursor sets with the most new interfaces, as opposed to those with maximal driving force for target formation.
 
 ```--enforce_thermo```: If this option is specified, only thermodynamically favorable pairwise reactions will be considered.
 
 ```--greedy```: If a known pairwise reaction occurs below the minimum temperature, assume it *always* occurs first when the two reactants are present in other precursor sets.
 
-```--pure```: If specified, partial yield of the target phase is not rewarded.
+```--partial_yield```: If specified, prioritize precursor sets that are predicted to form any yield of the target phase, even if not pure.
 
 ```--all```: Explore all possible synthesis routes, even after an optimal one has been identified.
 
