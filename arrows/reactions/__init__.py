@@ -109,7 +109,7 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
     initial_energy /= total_atoms
 
     # Chemical formula for the average composition
-    avg_formula = Composition.from_dict(net_comp).alphabetical_formula
+    avg_formula = Composition.from_dict(net_comp).reduced_formula
 
     # Check for balance with target(s) + byproduct(s)
     final_soln, final_products = None, None
@@ -118,7 +118,7 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
         final_soln = trial_soln.copy()
         final_products = targets.copy()
     else:
-        allowed_byproducts = [Composition(cmpd).alphabetical_formula for cmpd in allowed_byproducts]
+        allowed_byproducts = [Composition(cmpd).reduced_formula for cmpd in allowed_byproducts]
         allowed_byproducts += ['O2', 'C1 O2'] # Allow gaseous evolution
         allowed_byproducts = list(set(allowed_byproducts))
         for num_byp in range(1, len(allowed_byproducts) + 1):

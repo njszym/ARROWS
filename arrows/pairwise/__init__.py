@@ -73,8 +73,8 @@ def update_set(precursors, amounts, phase_diagram, temp, cutoff_energ, return_rx
     if driving_force < cutoff_energ:
 
         # Get pair of compounds that are expected to react
-        reactants = [cmpd.alphabetical_formula for cmpd in top_rxn[3].reactants]
-        products = [cmpd.alphabetical_formula for cmpd in top_rxn[3].products]
+        reactants = [cmpd.reduced_formula for cmpd in top_rxn[3].reactants]
+        products = [cmpd.reduced_formula for cmpd in top_rxn[3].products]
 
         if return_rxn:
             return [reactants, products, driving_force]
@@ -90,7 +90,7 @@ def update_set(precursors, amounts, phase_diagram, temp, cutoff_energ, return_rx
 
         # Calculate changes in reactant amounts and add in new products
         leftover_cmpds, leftover_amounts = calculate_amounts(reactants, avail_amounts, req_amounts, products, product_amounts)
-        leftover_cmpds = [Composition(cmpd).alphabetical_formula for cmpd in leftover_cmpds]
+        leftover_cmpds = [Composition(cmpd).reduced_formula for cmpd in leftover_cmpds]
 
         # Add rxn products to final set
         final_set, final_amounts = [], []
@@ -225,9 +225,9 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     phase_diagram = pd_dict[temp]
 
     # Ensure consistent formatting of chemical formulae
-    precursors = [Composition(cmpd).alphabetical_formula for cmpd in precursors]
-    products = [Composition(cmpd).alphabetical_formula for cmpd in products]
-    allowed_byproducts = [Composition(cmpd).alphabetical_formula for cmpd in allowed_byproducts]
+    precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
+    products = [Composition(cmpd).reduced_formula for cmpd in products]
+    allowed_byproducts = [Composition(cmpd).reduced_formula for cmpd in allowed_byproducts]
 
     # Make dictionary for precursor amounts
     precursor_amounts = {}
@@ -251,8 +251,8 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
             if first_rxn[-1] <= temp:
 
                 # Amounts consumed or produced
-                pair = [Composition(cmpd).alphabetical_formula for cmpd in first_rxn[0]]
-                prods = [Composition(cmpd).alphabetical_formula for cmpd in first_rxn[1]]
+                pair = [Composition(cmpd).reduced_formula for cmpd in first_rxn[0]]
+                prods = [Composition(cmpd).reduced_formula for cmpd in first_rxn[1]]
 
                 # Ensure all reactants are present in the current precursor set
                 if set(pair).issubset(set(precursors)):
@@ -267,7 +267,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
 
                     # Calculate changes in reactant amounts and add in new products
                     leftover_cmpds, leftover_amounts = calculate_amounts(pair, avail_amounts, req_amounts, prods, amounts_formed)
-                    leftover_cmpds = [Composition(cmpd).alphabetical_formula for cmpd in leftover_cmpds]
+                    leftover_cmpds = [Composition(cmpd).reduced_formula for cmpd in leftover_cmpds]
 
                     # Add back in the compounds that weren't involved in the pairwise reaction
                     interm_set, interm_amounts = leftover_cmpds, leftover_amounts
@@ -477,7 +477,7 @@ class rxn_database:
 
         # Set lower bounds on rxn temperatures
         for reacs in inert_pairs:
-            reacs = frozenset([Composition(fm).alphabetical_formula for fm in list(reacs)])
+            reacs = frozenset([Composition(fm).reduced_formula for fm in list(reacs)])
             # Check if inert pair is already known
             if reacs in self.known_rxns.keys():
                 # If so, only update if new T > old T
@@ -494,8 +494,8 @@ class rxn_database:
             # Set upper bounds on rxn temperatures
             for sus_rxn in sus_rxn_info:
                 # Use frozenset; order does not matter; hashable
-                reacs = frozenset([Composition(cmpd).alphabetical_formula for cmpd in sus_rxn[0]])
-                prods = frozenset([Composition(cmpd).alphabetical_formula for cmpd in sus_rxn[1]])
+                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0]])
+                prods = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[1]])
                 # Check if any info is available for these reactants
                 if reacs in self.known_rxns.keys():
                     self.known_rxns[reacs][2] = 'Local'
@@ -517,11 +517,11 @@ class rxn_database:
             # Set upper bounds on rxn temperatures
             for sus_rxn in sus_rxn_info:
                 # Use frozenset; order does not matter; hashable
-                reacs = frozenset([Composition(cmpd).alphabetical_formula for cmpd in sus_rxn[0]])
-                prods = frozenset([Composition(cmpd).alphabetical_formula for cmpd in sus_rxn[1]])
+                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0]])
+                prods = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[1]])
                 # Check is suspected reaction produces known phase
                 for known_phase in known_products:
-                    known_phase = Composition(known_phase).alphabetical_formula
+                    known_phase = Composition(known_phase).reduced_formula
                     # If so, this reaction is reliable. Add it to rxn database
                     if known_phase in prods:
                         # Check if any info is available for these reactants
@@ -631,7 +631,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
     temp = 1000.0
 
     # Ensure consistent formatting of chemical formulae
-    precursors = [Composition(cmpd).alphabetical_formula for cmpd in precursors]
+    precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
 
     # Make dictionary for precursor amounts
     precursor_amounts = {}
@@ -719,8 +719,8 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
                 if first_rxn[-1] <= temp:
 
                     # Amounts consumed or produced
-                    pair = [Composition(cmpd).alphabetical_formula for cmpd in first_rxn[0]]
-                    prods = [Composition(cmpd).alphabetical_formula for cmpd in first_rxn[1]]
+                    pair = [Composition(cmpd).reduced_formula for cmpd in first_rxn[0]]
+                    prods = [Composition(cmpd).reduced_formula for cmpd in first_rxn[1]]
                     bal_info = reactions.get_balanced_coeffs(pair, prods)
                     req_amounts, amounts_formed = bal_info[0], bal_info[1]
 
@@ -734,7 +734,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
 
                     # Calculate changes in reactant amounts and add in new products
                     leftover_cmpds, leftover_amounts = calculate_amounts(pair, avail_amounts, req_amounts, prods, amounts_formed)
-                    leftover_cmpds = [Composition(cmpd).alphabetical_formula for cmpd in leftover_cmpds]
+                    leftover_cmpds = [Composition(cmpd).reduced_formula for cmpd in leftover_cmpds]
 
                     # Add back in the compounds that weren't involved in the pairwise reaction
                     interm_set, interm_amounts = leftover_cmpds, leftover_amounts
@@ -746,7 +746,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
                     # Consider intermediates as new precursor set
                     precursors, initial_amounts = [], []
                     for (cmpd, coeff) in zip(interm_set, interm_amounts):
-                        cmpd_formula = Composition(cmpd).alphabetical_formula
+                        cmpd_formula = Composition(cmpd).reduced_formula
                         # Exclude gaseous byproducts
                         if cmpd_formula not in ['O2', 'C1 O2', 'H3 N1', 'H2 O1']:
                             precursors.append(cmpd_formula)
