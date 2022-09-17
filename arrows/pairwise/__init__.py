@@ -247,7 +247,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
                     intermediates = []
                     initial_amounts = []
                     for cmpd, amt in zip(interm_set, interm_amounts):
-                        if cmpd not in ['O2', 'CO2', 'C1 O2', 'NH3', 'H3N', 'H3 N1', 'H2O', 'H2 O1']:
+                        if cmpd not in ['O2', 'CO2', 'H3N', 'H2O']:
                             intermediates.append(cmpd)
                             initial_amounts.append(amt)
 
@@ -270,7 +270,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     possible_pairs = combinations(precursors, 2)
     for pair in possible_pairs:
         if set(pair).issubset(set(products)):
-            if ('O2' not in pair) and ('C1 O2' not in pair):
+            if ('O2' not in pair) and ('CO2' not in pair):
                 inert_pairs.append(frozenset(pair))
 
     # Check for existing compounds with increased amounts
@@ -289,7 +289,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
 
     # Net products minus gaseous species
     observ_products = list(amount_changes.keys())
-    observ_products = [cmpd for cmpd in observ_products if cmpd not in ['O2', 'C1 O2']]
+    observ_products = [cmpd for cmpd in observ_products if cmpd not in ['O2', 'CO2']]
 
     # If precursors == products, no further analysis necessary
     if len(observ_products) == 0:
@@ -333,7 +333,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
             product_sets.append(w_CO2)
             product_sets.append(w_both)
         # Include allowed byproducts
-        solid_byproducts = list(set(allowed_byproducts) - {'C1 O2', 'O2'}) # Already included
+        solid_byproducts = list(set(allowed_byproducts) - {'O2', 'CO2'}) # Already included
         byproduct_sets = []
         for n in range(1, len(solid_byproducts) + 1):
             byproduct_sets += list(combinations(solid_byproducts, n))
@@ -375,7 +375,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
                 redundant_products.append(cmpd)
 
         # Products with known origin, excluding gaseous phases
-        known_products = list(set(pairwise_products) - set(redundant_products) - {'O2', 'C1 O2', 'CO2'})
+        known_products = list(set(pairwise_products) - set(redundant_products) - {'O2', 'CO2'})
 
         # Finalize and return messages to user
         if (len(mystery_products) == 0) and (len(redundant_products) == 0):
@@ -416,7 +416,7 @@ def inform_user(temp, precursors, products, amounts, mssg, sus_rxn_info, known_p
     print('Precursors: %s' % ', '.join(precursors))
     if intermediates != None:
         intermediates = [Composition(cmpd).reduced_formula for cmpd in intermediates]
-        intermediates = list(set(intermediates) - {'O2', 'CO2', 'NH3', 'H2O', 'H3N'})
+        intermediates = list(set(intermediates) - {'O2', 'CO2', 'H3N', 'H2O'})
         print('Intermediates: %s' % ', '.join(intermediates))
     print('Products: %s' % ', '.join(products))
     amounts = [str(round(amt, 2)) for amt in amounts]
@@ -716,7 +716,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
                     for (cmpd, coeff) in zip(interm_set, interm_amounts):
                         cmpd_formula = Composition(cmpd).reduced_formula
                         # Exclude gaseous byproducts
-                        if cmpd_formula not in ['O2', 'C1 O2', 'H3 N1', 'H2 O1']:
+                        if cmpd_formula not in ['O2', 'CO2', 'H3N', 'H2O']:
                             precursors.append(cmpd_formula)
                             initial_amounts.append(coeff)
 
