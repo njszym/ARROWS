@@ -226,12 +226,26 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
                 if set(pair).issubset(set(precursors)):
 
                     bal_info = reactions.get_balanced_coeffs(pair, prods)
+
+                    # Check for oxidation
+                    ind = 0
+                    solid_pair = pair.copy()
+                    possible_oxidants = [['O2'], ['CO2'], ['O2', 'CO2']]
+                    while isinstance(bal_info, str):
+                        assert ind < len(possible_oxidants), 'Pairwise rxn (%s) cannot be balanced' % ', '.join(solid_pair)
+                        full_pair = solid_pair + possible_oxidants[ind]
+                        bal_info = reactions.get_balanced_coeffs(full_pair, prods)
+                        pair = full_pair.copy()
+                        ind += 1
                     req_amounts, amounts_formed = bal_info[0], bal_info[1]
 
                     # Available amounts
                     avail_amounts = []
                     for cmpd in pair:
-                        avail_amounts.append(precursor_amounts[cmpd])
+                        if cmpd not in ['O2', 'CO2']:
+                            avail_amounts.append(precursor_amounts[cmpd])
+                        else:
+                            avail_amounts.append(1000.0) # Unlimited
 
                     # Calculate changes in reactant amounts and add in new products
                     leftover_cmpds, leftover_amounts = calculate_amounts(pair, avail_amounts, req_amounts, prods, amounts_formed)
@@ -482,7 +496,7 @@ class rxn_database:
                     lower_T = int(mssg.split()[-2])
 
                 # Add rxn data to dictionary
-                self.known_rxns[reacs] = [prods, [lower_T, upper_T], 'Global']
+                self.known_rxns[reacs] = [[prods, [lower_T, upper_T], 'Global']]
 
     def update(self, mssg, sus_rxn_info, known_products, inert_pairs, temp):
 
@@ -491,39 +505,85 @@ class rxn_database:
 
         # Set lower bounds on rxn temperatures
         for reacs in inert_pairs:
-            reacs = frozenset([Composition(fm).reduced_formula for fm in list(reacs)])
-            # Check if inert pair is already known
-            if reacs in self.known_rxns.keys():
-                # If so, only update if new T > old T
-                if temp > self.known_rxns[reacs][1][0]:
-                    self.known_rxns[reacs][1][0] = temp
+
+            # Check inert pairs may take part in a reaction
+            # that was not yet compelte (reactants leftover)
+            all_sus_reacs = []
+            for sus_rxn in sus_rxn_info:
+                sus_reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0] if \
+                    Composition(cmpd).reduced_formula not in ['O2', 'CO2']])
+                all_sus_reacs.append(sus_reacs)
+
+            reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in list(reacs) if \
+                Composition(cmpd).reduced_formula not in ['O2', 'CO2']])
+
+            if reacs not in all_sus_reacs:
+
+                # Check if inert pair is already known
+                if reacs in self.known_rxns.keys():
+                    for i, report in enumerate(self.known_rxns[reacs]):
+                        # Only update if temperature falls within existing bounds
+                        if (temp > self.known_rxns[reacs][i][1][0]) and (temp < self.known_rxns[reacs][i][1][1]):
+                            self.known_rxns[reacs][i][1][0] = temp
+                            is_updated = True
+                else:
+                    # Use 2,000 as a hard upper limit on all rxns
+                    self.known_rxns[reacs] = [[None, [temp, 2000], 'Local']]
                     is_updated = True
-            else:
-                # Use 2,000 as a hard upper limit on all rxns
-                self.known_rxns[reacs] = [None, [temp, 2000], 'Global']
-                is_updated = True
 
         if mssg == 'Reaction pathway fully determined.':
 
             # Set upper bounds on rxn temperatures
             for sus_rxn in sus_rxn_info:
+
                 # Use frozenset; order does not matter; hashable
-                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0]])
+                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0] if \
+                    Composition(cmpd).reduced_formula not in ['O2', 'CO2']])
                 prods = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[1]])
+
                 # Check if any info is available for these reactants
+                new_products = True
                 if reacs in self.known_rxns.keys():
-                    self.known_rxns[reacs][2] = 'Local'
-                    # If products are new, update the entry
-                    if self.known_rxns[reacs][0] is None:
-                        self.known_rxns[reacs][0] = prods
-                        is_updated = True
-                    # Only update temperature if new T < old T
-                    if temp < self.known_rxns[reacs][1][1]:
-                        self.known_rxns[reacs][1][1] = temp
-                        is_updated = True
+
+                    for i, report in enumerate(self.known_rxns[reacs]):
+
+                        # If products are new, update the entry
+                        if report[0] is None:
+                            new_products = False
+                            self.known_rxns[reacs][i][2] = 'Local'
+                            self.known_rxns[reacs][i][0] = prods
+                            self.known_rxns[reacs][i][1][1] = temp
+                            is_updated = True
+
+                        else:
+
+                            if report[0] == prods:
+
+                                new_products = False
+
+                                # Only update temperature if new T < old T
+                                if temp < self.known_rxns[reacs][i][1][1]:
+                                    self.known_rxns[reacs][i][2] = 'Local'
+                                    self.known_rxns[reacs][i][1][1] = temp
+                                    is_updated = True
+
                 # If these reactants are new, add them to the database
                 else:
-                    self.known_rxns[reacs] = [prods, [0, temp], 'Local']
+                    new_products = False
+                    self.known_rxns[reacs] = [[prods, [0, temp], 'Local']]
+                    is_updated = True
+
+                # If reactants are known but products are new, create a new report
+                if new_products:
+                    inert_bound = 0
+                    for report in self.known_rxns[reacs]:
+                        # Use previous reports regarding inert pairs to find lower bound
+                        if (report[0] is None) and (report[1][0] > inert_bound):
+                            inert_bound =  report[1][0]
+                        # Upper bound of previous rxn may be used as lower bound of current one
+                        elif (report[0] is not None) and (report[1][1] > inert_bound):
+                            inert_bound =  report[1][1]
+                    self.known_rxns[reacs].append([prods, [inert_bound, temp], 'Local'])
                     is_updated = True
 
         if mssg == 'Reaction pathway partially determined.':
@@ -532,41 +592,61 @@ class rxn_database:
             for sus_rxn in sus_rxn_info:
 
                 # Use frozenset; order does not matter; hashable
-                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0]])
+                reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0] if \
+                    Composition(cmpd).reduced_formula not in ['O2', 'CO2']])
                 prods = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[1]])
 
-                # Check is suspected reaction produces known phase
+                # Check if suspected reaction produces known phase
                 for known_phase in known_products:
+
                     known_phase = Composition(known_phase).reduced_formula
 
                     # If so, this reaction is reliable. Add it to rxn database
                     if known_phase in prods:
 
                         # Check if any info is available for these reactants
+                        new_products = True
                         if reacs in self.known_rxns.keys():
 
-                            """
-                            NOTE TO SELF:
-                            Products may vary with temperature.
-                            For now, I'll give precedent to low-T results.
-                            But need to combine this more carefully.
-                            ...Add to the to-do list...
-                            """
+                            for i, report in enumerate(self.known_rxns[reacs]):
 
-                            self.known_rxns[reacs][2] = 'Local'
-                            # If products are new, update the entry
-                            if self.known_rxns[reacs][0] is None:
-                                self.known_rxns[reacs][0] = prods
-                                is_updated = True
-                            # Only update if new T < old T
-                            if temp < self.known_rxns[reacs][1][1]:
-                                self.known_rxns[reacs][0] = prods
-                                self.known_rxns[reacs][1][1] = temp
-                                is_updated = True
+                                # If products are new, update the entry
+                                if report[0] is None:
+                                    new_products = False
+                                    self.known_rxns[reacs][i][2] = 'Local'
+                                    self.known_rxns[reacs][i][0] = prods
+                                    self.known_rxns[reacs][i][1][1] = temp
+                                    is_updated = True
+
+                                else:
+
+                                    if report[0] == prods:
+
+                                        new_products = False
+
+                                        # Only update temperature if new T < old T
+                                        if temp < self.known_rxns[reacs][i][1][1]:
+                                            self.known_rxns[reacs][i][2] = 'Local'
+                                            self.known_rxns[reacs][i][1][1] = temp
+                                            is_updated = True
 
                         # If these reactants are new, add them to the database
                         else:
-                            self.known_rxns[reacs] = [prods, [0, temp], 'Local']
+                            new_products = False
+                            self.known_rxns[reacs] = [[prods, [0, temp], 'Local']]
+                            is_updated = True
+
+                        # If reactants are known but products are new, create a new report
+                        if new_products:
+                            inert_bound = 0
+                            for report in self.known_rxns[reacs]:
+                                # Use previous reports regarding inert pairs to find lower bound
+                                if (report[0] is None) and (report[1][0] > inert_bound):
+                                    inert_bound =  report[1][0]
+                                # Upper bound of previous rxn may be used as lower bound of current one
+                                elif (report[0] is not None) and (report[1][1] > inert_bound):
+                                    inert_bound =  report[1][1]
+                            self.known_rxns[reacs].append([prods, [inert_bound, temp], 'Local'])
                             is_updated = True
 
         return is_updated
@@ -574,13 +654,18 @@ class rxn_database:
     def inert_pairs(self, temp):
         non_reacs = []
         for reacs in self.known_rxns.keys():
-            if self.known_rxns[reacs][1][0] >= temp:
+            all_inert = True
+            for report in self.known_rxns[reacs]:
+                if report[1][0] < temp:
+                    all_inert = False
+            if all_inert:
                 non_reacs.append(reacs)
         return non_reacs
 
     def make_global(self):
         for reacs in self.known_rxns.keys():
-            self.known_rxns[reacs][2] = 'Global'
+            for i, report in enumerate(self.known_rxns[reacs]):
+                self.known_rxns[reacs][i][2] = 'Global'
 
     def as_dict(self):
         return self.known_rxns
@@ -588,11 +673,12 @@ class rxn_database:
     def as_sorted_list(self, local=False):
         rxn_list = []
         for reacs in self.known_rxns.keys():
-            if local:
-                if self.known_rxns[reacs][2] == 'Local':
-                    rxn_list.append([reacs, self.known_rxns[reacs][0], self.known_rxns[reacs][1][0], self.known_rxns[reacs][1][1]])
-            else:
-                rxn_list.append([reacs, self.known_rxns[reacs][0], self.known_rxns[reacs][1][0], self.known_rxns[reacs][1][1]])
+            for i, report in enumerate(self.known_rxns[reacs]):
+                if local:
+                    if self.known_rxns[reacs][i][2] == 'Local':
+                        rxn_list.append([reacs, self.known_rxns[reacs][i][0], self.known_rxns[reacs][i][1][0], self.known_rxns[reacs][i][1][1]])
+                else:
+                    rxn_list.append([reacs, self.known_rxns[reacs][i][0], self.known_rxns[reacs][i][1][0], self.known_rxns[reacs][i][1][1]])
         # Sort by temperature
         sorted_rxns = sorted(rxn_list, key=lambda x: x[-1])
         return sorted_rxns
@@ -600,39 +686,41 @@ class rxn_database:
     def print_info(self):
         print('\nKnown reactions:')
         for reacs in self.known_rxns.keys():
-            reactants = ' + '.join(reacs)
-            if self.known_rxns[reacs][0] != None:
-                prods = ' + '.join(self.known_rxns[reacs][0])
-            else:
-                prods = 'Unknown'
-            lower_temp = self.known_rxns[reacs][1][0]
-            upper_temp = self.known_rxns[reacs][1][1]
-            rxn_str = '%s == %s @ %s-%s C' % (reactants, prods, lower_temp, upper_temp)
-            print(rxn_str)
+            for i, report in enumerate(self.known_rxns[reacs]):
+                reactants = ' + '.join(reacs)
+                if self.known_rxns[reacs][i][0] != None:
+                    prods = ' + '.join(self.known_rxns[reacs][i][0])
+                else:
+                    prods = 'Unknown'
+                lower_temp = self.known_rxns[reacs][i][1][0]
+                upper_temp = self.known_rxns[reacs][i][1][1]
+                rxn_str = '%s == %s @ %s-%s C' % (reactants, prods, lower_temp, upper_temp)
+                print(rxn_str)
 
     def save(self, to='PairwiseRxns.csv'):
         with open(to, 'w+') as datafile:
             csv_writer = csv.writer(datafile)
             csv_writer.writerow(['Pairwise reactants', 'Pairwise Products', 'Temperature Range'])
             for reacs in self.known_rxns.keys():
-                reactants = [Composition(ph).reduced_formula for ph in reacs]
-                reactants = ' + '.join(reactants)
-                if self.known_rxns[reacs][0] != None:
-                    products = self.known_rxns[reacs][0]
-                    products = [Composition(ph).reduced_formula for ph in products]
-                    products = ' + '.join(products)
-                    products = ' %s' % products
-                else:
-                    products = ' None'
-                lower_temp = self.known_rxns[reacs][1][0]
-                upper_temp = self.known_rxns[reacs][1][1]
-                if (lower_temp > 0.0) and (upper_temp < 2000.0):
-                    temp_bounds = ' Reacts between %s-%s C' % (lower_temp, upper_temp)
-                elif (lower_temp > 0.0) and (upper_temp == 2000.0):
-                    temp_bounds = ' Does not react at or below %s C' % lower_temp
-                elif (lower_temp == 0.0) and (upper_temp < 2000.0):
-                    temp_bounds = ' Reacts below %s C' % upper_temp
-                csv_writer.writerow([reactants, products, temp_bounds])
+                for i, report in enumerate(self.known_rxns[reacs]):
+                    reactants = [Composition(ph).reduced_formula for ph in reacs]
+                    reactants = ' + '.join(reactants)
+                    if self.known_rxns[reacs][i][0] != None:
+                        products = self.known_rxns[reacs][i][0]
+                        products = [Composition(ph).reduced_formula for ph in products]
+                        products = ' + '.join(products)
+                        products = ' %s' % products
+                    else:
+                        products = ' None'
+                    lower_temp = self.known_rxns[reacs][i][1][0]
+                    upper_temp = self.known_rxns[reacs][i][1][1]
+                    if (lower_temp > 0.0) and (upper_temp < 2000.0):
+                        temp_bounds = ' Reacts between %s-%s C' % (lower_temp, upper_temp)
+                    elif (lower_temp > 0.0) and (upper_temp == 2000.0):
+                        temp_bounds = ' Does not react at or below %s C' % lower_temp
+                    elif (lower_temp == 0.0) and (upper_temp < 2000.0):
+                        temp_bounds = ' Reacts below %s C' % upper_temp
+                    csv_writer.writerow([reactants, products, temp_bounds])
 
     @property
     def is_empty(self):
@@ -743,11 +831,22 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
                     pair = [Composition(cmpd).reduced_formula for cmpd in first_rxn[0]]
                     prods = [Composition(cmpd).reduced_formula for cmpd in first_rxn[1]]
                     bal_info = reactions.get_balanced_coeffs(pair, prods)
+
+                    # Check for oxidation
+                    ind = 0
+                    solid_pair = pair.copy()
+                    possible_oxidants = [['O2'], ['CO2'], ['O2', 'CO2']]
+                    while isinstance(bal_info, str):
+                        assert ind < len(possible_oxidants), 'Pairwise rxn (%s) cannot be balanced' % ', '.join(solid_pair)
+                        full_pair = solid_pair + possible_oxidants[ind]
+                        bal_info = reactions.get_balanced_coeffs(full_pair, prods)
+                        pair = full_pair.copy()
+                        ind += 1
                     req_amounts, amounts_formed = bal_info[0], bal_info[1]
 
                     # Available amounts
                     avail_amounts = []
-                    for cmpd in first_rxn[0]:
+                    for cmpd in pair:
                         if cmpd not in ['O2', 'CO2']:
                             avail_amounts.append(precursor_amounts[cmpd])
                         else:
