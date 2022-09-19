@@ -152,3 +152,4 @@ Where ```--options``` includes the following:
 
 ```--all```: Explore all possible synthesis routes, even after an optimal one has been identified.
 
+```--batch_size=N```: Suggest a batch of (```N```) experiments at each iteration. By default, ARROWS runs sequentially by suggesting only one experiment at a time.
