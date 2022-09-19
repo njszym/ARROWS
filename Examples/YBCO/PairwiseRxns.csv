@@ -1,0 +1,28 @@
+Pairwise reactants,Pairwise Products,Temperature Range
+CuCO3, CuO + CO2, Reacts below 600 C
+Y2O3 + BaCO3, None, Does not react at or below 700 C
+Y2Cu2O5, CuO + Y2O3, Reacts below 700 C
+BaO, BaCO3, Reacts below 600 C
+Y2(CO3)3, CO2 + Y2O3, Reacts below 600 C
+CuCO3 + BaCO3, BaCuO2 + CO2, Reacts below 900 C
+Y2Cu2O5 + BaCO3, Ba2YCu3O7 + BaY2CuO5 + CO2, Reacts between 800-900 C
+BaO2, O2 + BaCO3, Reacts below 600 C
+Cu2O + BaCO3, BaCuO2 + CO2, Reacts below 800 C
+BaCuO2 + Y2O3, BaY2CuO5, Reacts between 800-900 C
+Ba2YCu3O7, BaCuO2 + Y2Cu2O5 + O2, Reacts below 800 C
+Cu2O, CuO, Reacts below 600 C
+CuO + Y2O3, None, Does not react at or below 600 C
+CuO + Y2Cu2O5, None, Does not react at or below 600 C
+BaCuO2 + Y2Cu2O5, Ba2YCu3O7, Reacts below 800 C
+BaCuO2 + Y2(CO3)3, BaY2CuO5 + CO2, Reacts below 900 C
+CuO + BaCO3, None, Does not react at or below 900 C
+Ba2(CuO2)3 + BaCO3, None, Does not react at or below 600 C
+Ba2(CuO2)3 + Y2Cu2O5, CuO + Ba2YCu3O7 + O2, Reacts between 600-900 C
+Ba2(CuO2)3 + Y2O3, CuO + BaY2CuO5 + O2, Reacts between 600-700 C
+Ba2(CuO2)3 + Y2O3, Ba2YCu3O7 + O2, Reacts between 800-900 C
+Ba2(CuO2)3, CuO + O2 + BaCO3, Reacts below 600 C
+Ba2YCu3O7 + BaCO3, BaCuO2 + CO2 + BaY2CuO5 + O2, Reacts below 800 C
+CuO + BaCuO2, Ba2(CuO2)3, Reacts below 600 C
+Ba2(CuO2)3 + BaCuO2, None, Does not react at or below 700 C
+CuO + BaY2CuO5, None, Does not react at or below 800 C
+BaCuO2 + BaY2CuO5, None, Does not react at or below 900 C
