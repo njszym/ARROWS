@@ -754,6 +754,20 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
         # Evolve set until we have insufficient rxn information
         while precursors != None:
 
+            # Avoid cyclic rxn updates
+            """
+            In principle, reaction pathways should not be cyclic.
+            For example, if A + B react to form C at a given temperature,
+            then C should not decompose at the same temperature.
+            In other words, reactions should be directional.
+            But just in case, simply exit the loop if cyclic rxns found.
+            """
+            if set(precursors) in past_precursors:
+                print('\nWarning: cyclic reaction encountered.')
+                break
+            else:
+                past_precursors.append(set(precursors))
+
             # Save for the end
             final_cmpds, final_amounts = precursors.copy(), initial_amounts.copy()
 
@@ -768,6 +782,11 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
 
             Unless --greedy is specified, in which case
             low-T rxns are always assumed to occur.
+
+            This option should be used with caution.
+            A|B might react first in A + B + C,
+            but that does not necessarily imply they
+            will react first in A + B + D.
             """
 
             # Decomposition reactions
