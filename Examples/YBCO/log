@@ -1,0 +1,3168 @@
+
+Temperature: 600
+Precursors: Y2O3, BaO2, CuCO3
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.3, 0.35, 0.35
+No reactions discovered
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+CuCO3 == CuO + CO2
+BaO2 + CuCO3 == BaCO3 + CuO + O2
+
+Known reactions:
+
+Temperature: 700
+Precursors: Y2O3, BaO2, CuCO3
+Products: Y2O3, Ba2(CuO2)3, BaCuO2
+Amounts: 0.21, 0.38, 0.41
+No reactions discovered
+Suspected reactions:
+CuCO3 + BaCuO2 + O2 == Ba2(CuO2)3 + CO2
+BaO2 + CuCO3 == Ba2(CuO2)3 + O2 + CO2
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + CuCO3 == BaCuO2 + O2 + CO2
+
+Known reactions:
+
+Temperature: 800
+Precursors: Y2O3, BaO2, CuCO3
+Products: Ba2YCu3O7, Y2O3
+Amounts: 0.88, 0.12
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+
+Temperature: 900
+Precursors: Y2O3, BaO2, CuCO3
+Products: Ba2YCu3O7, BaY2CuO5, BaCuO2
+Amounts: 0.82, 0.16, 0.02
+No reactions discovered
+Suspected reactions:
+Y2O3 + BaCuO2 == BaY2CuO5
+BaO2 + CuCO3 == BaCuO2 + O2 + CO2
+BaO2 + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2
+
+Known reactions:
+
+Temperature: 600
+Precursors: Y2O3, BaO, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.34, 0.53, 0.14
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+CuCO3 == CuO + CO2
+
+Known reactions:
+
+Temperature: 700
+Precursors: Y2O3, BaO, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.34, 0.53, 0.14
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+CuCO3 == CuO + CO2
+
+Known reactions:
+
+Temperature: 800
+Precursors: Y2O3, BaO, CuCO3
+Products: BaCO3, Ba2YCu3O7, CuO
+Amounts: 0.23, 0.44, 0.33
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+CuCO3 == CuO + CO2
+
+Known reactions:
+
+Temperature: 900
+Precursors: Y2O3, BaO, CuCO3
+Products: Ba2YCu3O7, CuO
+Amounts: 0.48, 0.52
+Reaction pathway partially determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Temperature: 600
+Precursors: BaO2, CuCO3, Y2Cu2O5
+Products: Ba2(CuO2)3, Y2Cu2O5, CuO, BaCO3
+Amounts: 0.5, 0.3, 0.13, 0.07
+No reactions discovered
+Suspected reactions:
+BaO2 + CuO == Ba2(CuO2)3 + O2
+CuCO3 + BaCO3 + O2 == Ba2(CuO2)3 + CO2
+BaCO3 + CuO + O2 == Ba2(CuO2)3 + CO2
+BaO2 + CuCO3 == Ba2(CuO2)3 + O2 + CO2
+BaO2 + CO2 == BaCO3 + O2
+CuCO3 == CuO + CO2
+BaO2 + CuCO3 == Ba2(CuO2)3 + BaCO3 + O2
+BaO2 + CuCO3 == BaCO3 + CuO + O2
+CuCO3 + Ba2(CuO2)3 == BaCO3 + CuO + O2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Temperature: 700
+Precursors: BaO2, CuCO3, Y2Cu2O5
+Products: BaCuO2, BaY2CuO5, Ba2(CuO2)3, Y2Cu2O5
+Amounts: 0.5, 0.35, 0.12, 0.03
+No reactions discovered
+Suspected reactions:
+Y2Cu2O5 + BaCuO2 + O2 == BaY2CuO5 + Ba2(CuO2)3
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + CuCO3 == BaCuO2 + O2 + CO2
+CuCO3 + BaCuO2 + O2 == Ba2(CuO2)3 + CO2
+BaO2 + CuCO3 == Ba2(CuO2)3 + O2 + CO2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + BaCuO2 + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + Ba2(CuO2)3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Temperature: 800
+Precursors: BaO2, CuCO3, Y2Cu2O5
+Products: BaY2CuO5, BaCuO2, Ba2YCu3O7, CuO
+Amounts: 0.49, 0.33, 0.12, 0.07
+No reactions discovered
+Suspected reactions:
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+Y2Cu2O5 + BaCuO2 == BaY2CuO5 + CuO
+CuCO3 == CuO + CO2
+BaO2 + CuO == BaCuO2 + O2
+BaO2 + CuCO3 == BaCuO2 + O2 + CO2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + CuO + O2
+Y2Cu2O5 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + BaCuO2 + O2
+BaO2 + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + Ba2YCu3O7 + O2
+Ba2YCu3O7 == BaY2CuO5 + CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Temperature: 900
+Precursors: BaO2, CuCO3, Y2Cu2O5
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO2, CuCO3
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.3, 0.35, 0.35
+No reactions discovered
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+BaO2 + CuCO3 == BaCO3 + CuO + O2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-900 C
+
+Redundant: Y2(CO3)3, BaO2, CuCO3 @ 700 C
+
+Redundant: Y2(CO3)3, BaO2, CuCO3 @ 800 C
+
+Redundant: Y2(CO3)3, BaO2, CuCO3 @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaCO3, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.39, 0.33, 0.28
+Reaction pathway fully determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Redundant: Y2O3, BaCO3, CuCO3 @ 700 C
+
+Redundant: Y2O3, BaCO3, CuCO3 @ 800 C
+
+Redundant: Y2O3, BaCO3, CuCO3 @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.53, 0.41, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+Y2(CO3)3 + BaO == BaCO3 + Y2O3
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: Y2(CO3)3, BaO, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.53, 0.41, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+Y2(CO3)3 + BaO == BaCO3 + Y2O3
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: Y2(CO3)3, BaO, CuCO3
+Products: BaCO3, Ba2YCu3O7, CuO
+Amounts: 0.27, 0.55, 0.19
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+CuCO3 == CuO + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 900
+Precursors: Y2(CO3)3, BaO, CuCO3
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 600
+Precursors: BaO, CuCO3, Y2Cu2O5
+Products: Y2O3, Ba2(CuO2)3, BaCO3, CuO
+Amounts: 0.55, 0.23, 0.2, 0.03
+No reactions discovered
+Suspected reactions:
+BaO + CuO + O2 == Ba2(CuO2)3
+BaO + CO2 == BaCO3
+BaO + CuCO3 + O2 == Ba2(CuO2)3 + BaCO3
+BaO + Y2Cu2O5 + O2 == Ba2(CuO2)3 + Y2O3
+BaO + CuCO3 == BaCO3 + CuO
+Y2Cu2O5 == CuO + Y2O3
+BaO + CuCO3 + O2 == Ba2(CuO2)3 + CO2
+CuCO3 + BaCO3 + O2 == Ba2(CuO2)3 + CO2
+BaCO3 + CuO + O2 == Ba2(CuO2)3 + CO2
+CuCO3 == CuO + CO2
+Y2Cu2O5 + BaCO3 + O2 == Ba2(CuO2)3 + Y2O3 + CO2
+CuCO3 + Ba2(CuO2)3 == BaCO3 + CuO + O2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: BaO, CuCO3, Y2Cu2O5
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.47, 0.34, 0.18
+Reaction pathway partially determined.
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + CuCO3 == BaCO3 + CuO
+Y2Cu2O5 == CuO + Y2O3
+CuCO3 == CuO + CO2
+Products with known origin: Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+
+Temperature: 800
+Precursors: BaO, CuCO3, Y2Cu2O5
+Intermediates: CuCO3, CuO, Y2O3, BaO
+Products: BaCO3, Ba2YCu3O7, CuO
+Amounts: 0.18, 0.46, 0.36
+Reaction pathway partially determined.
+Suspected reactions:
+BaO + CO2 == BaCO3
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+
+Temperature: 900
+Precursors: BaO, CuCO3, Y2Cu2O5
+Intermediates: CuCO3, BaCO3, CuO, Y2O3
+Products: Ba2YCu3O7, CuO
+Amounts: 0.69, 0.31
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaCO3, CuCO3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.54, 0.21, 0.25
+Reaction pathway fully determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: CuO, Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 600-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+
+Temperature: 700
+Precursors: Y2(CO3)3, BaCO3, CuCO3
+Intermediates: CuCO3, BaCO3, Y2O3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.28, 0.48, 0.24
+Reaction pathway fully determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+
+Temperature: 800
+Precursors: Y2(CO3)3, BaCO3, CuCO3
+Intermediates: CuCO3, BaCO3, Y2O3
+Products: BaCO3, Ba2YCu3O7, CuO
+Amounts: 0.26, 0.53, 0.21
+Reaction pathway partially determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+
+Temperature: 900
+Precursors: Y2(CO3)3, BaCO3, CuCO3
+Intermediates: CuCO3, BaCO3, Y2O3
+Products: Ba2YCu3O7, BaCuO2
+Amounts: 0.72, 0.28
+Reaction pathway partially determined.
+Suspected reactions:
+BaCO3 + CuCO3 == BaCuO2 + CO2
+Products with known origin: BaCuO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+
+Temperature: 600
+Precursors: BaCO3, CuCO3, Y2Cu2O5
+Products: BaCO3, Y2Cu2O5, CuO
+Amounts: 0.67, 0.23, 0.1
+Reaction pathway fully determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: BaCO3, CuCO3, Y2Cu2O5
+Products: Y2Cu2O5, BaCO3, CuO
+Amounts: 0.68, 0.31, 0.01
+Reaction pathway partially determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == Unknown @ 700-2000 C
+
+Temperature: 800
+Precursors: BaCO3, CuCO3, Y2Cu2O5
+Products: BaCO3, CuO, Y2Cu2O5
+Amounts: 0.49, 0.27, 0.24
+Reaction pathway fully determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == Unknown @ 800-2000 C
+
+Temperature: 900
+Precursors: BaCO3, CuCO3, Y2Cu2O5
+Products: CuO, BaY2CuO5, Ba2YCu3O7
+Amounts: 0.62, 0.34, 0.04
+Reaction pathway partially determined.
+Suspected reactions:
+CuCO3 == CuO + CO2
+Y2Cu2O5 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CuO + CO2
+BaCO3 + Y2Cu2O5 + O2 == BaY2CuO5 + Ba2YCu3O7 + CO2
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+
+Temperature: 600
+Precursors: Y2O3, BaO2, Cu2O
+Products: Y2O3, BaCuO2, Ba2(CuO2)3, CuO
+Amounts: 0.5, 0.34, 0.09, 0.08
+No reactions discovered
+Suspected reactions:
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+Cu2O + BaCuO2 + O2 == Ba2(CuO2)3
+CuO + BaCuO2 + O2 == Ba2(CuO2)3
+Cu2O + O2 == CuO
+BaO2 + Cu2O == Ba2(CuO2)3 + BaCuO2
+BaO2 + Cu2O == CuO + BaCuO2
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaO2 + CuO == Ba2(CuO2)3 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+
+Temperature: 700
+Precursors: Y2O3, BaO2, Cu2O
+Products: Y2O3, BaCuO2, BaCO3
+Amounts: 0.28, 0.53, 0.19
+Reaction pathway partially determined.
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+Cu2O + BaCO3 + O2 == BaCuO2 + CO2
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+
+Temperature: 800
+Precursors: Y2O3, BaO2, Cu2O
+Intermediates: Cu2O, BaCO3, Y2O3
+Products: Y2O3, Ba2YCu3O7, BaCuO2
+Amounts: 0.22, 0.37, 0.41
+Reaction pathway partially determined.
+Suspected reactions:
+BaCO3 + Cu2O + O2 == BaCuO2 + CO2
+Products with known origin: BaCuO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+
+Temperature: 900
+Precursors: Y2O3, BaO2, Cu2O
+Intermediates: Cu2O, BaCuO2, Y2O3
+Products: Ba2YCu3O7, BaY2CuO5, BaCuO2
+Amounts: 0.58, 0.26, 0.16
+Reaction pathway partially determined.
+Suspected reactions:
+BaCuO2 + Y2O3 == BaY2CuO5
+Products with known origin: BaY2CuO5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 0-900 C
+
+Temperature: 600
+Precursors: Y2O3, CuCO3, BaCuO2
+Products: BaCuO2, Ba2(CuO2)3, Y2O3, CuO
+Amounts: 0.82, 0.07, 0.07, 0.04
+Reaction pathway partially determined.
+Suspected reactions:
+BaCuO2 + CuO + O2 == Ba2(CuO2)3
+CuCO3 + BaCuO2 + O2 == Ba2(CuO2)3 + CO2
+CuCO3 == CuO + CO2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 600-900 C
+
+Temperature: 700
+Precursors: Y2O3, CuCO3, BaCuO2
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.37, 0.51, 0.12
+No reactions discovered
+Suspected reactions:
+CuCO3 + BaCuO2 == BaCO3 + CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+CuCO3 == CuO + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 600-900 C
+
+Temperature: 800
+Precursors: Y2O3, CuCO3, BaCuO2
+Products: BaCuO2, Y2O3, Ba2YCu3O7
+Amounts: 0.42, 0.23, 0.34
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+
+Temperature: 900
+Precursors: Y2O3, CuCO3, BaCuO2
+Products: Ba2YCu3O7, BaCuO2, BaY2CuO5
+Amounts: 0.6, 0.34, 0.07
+Reaction pathway partially determined.
+Suspected reactions:
+Y2O3 + BaCuO2 == BaY2CuO5
+Products with known origin: BaY2CuO5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+
+Temperature: 600
+Precursors: BaO2, Cu2O, Y2Cu2O5
+Products: BaCuO2, Y2Cu2O5, Ba2(CuO2)3, CuO
+Amounts: 0.57, 0.25, 0.14, 0.04
+No reactions discovered
+Suspected reactions:
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+Cu2O + BaCuO2 + O2 == Ba2(CuO2)3
+CuO + BaCuO2 + O2 == Ba2(CuO2)3
+Cu2O + O2 == CuO
+BaO2 + Cu2O == Ba2(CuO2)3 + BaCuO2
+BaO2 + Cu2O == CuO + BaCuO2
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaO2 + CuO == Ba2(CuO2)3 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+
+Temperature: 700
+Precursors: BaO2, Cu2O, Y2Cu2O5
+Products: BaY2CuO5, BaCuO2, Y2O3, Y2Cu2O5, CuO
+Amounts: 0.41, 0.36, 0.18, 0.03, 0.02
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2Cu2O5 + BaCuO2 == BaY2CuO5 + CuO
+BaO2 + Cu2O == CuO + BaCuO2
+Y2Cu2O5 == CuO + Y2O3
+BaY2CuO5 == BaCuO2 + Y2O3
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + CuO + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + BaCuO2 + O2
+BaO2 + Y2Cu2O5 == BaCuO2 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+
+Temperature: 800
+Precursors: BaO2, Cu2O, Y2Cu2O5
+Products: BaCuO2, Ba2YCu3O7, Y2Cu2O5
+Amounts: 0.3, 0.17, 0.53
+Reaction pathway partially determined.
+Suspected reactions:
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+BaO2 + Cu2O == BaCuO2 + O2
+Ba2YCu3O7 == Y2Cu2O5 + BaCuO2 + O2
+Products with known origin: Y2Cu2O5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 900
+Precursors: BaO2, Cu2O, Y2Cu2O5
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 600
+Precursors: Y2O3, BaO, BaO2, Cu2O
+Products: BaCuO2, CuO, Y2O3, Ba2(CuO2)3
+Amounts: 0.57, 0.19, 0.17, 0.07
+No reactions discovered
+Suspected reactions:
+BaO + Cu2O + O2 == Ba2(CuO2)3
+BaO + CuO + O2 == Ba2(CuO2)3
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+Cu2O + BaCuO2 + O2 == Ba2(CuO2)3
+CuO + BaCuO2 + O2 == Ba2(CuO2)3
+Cu2O + O2 == CuO
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+BaO2 + Cu2O == Ba2(CuO2)3 + BaCuO2
+BaO2 + Cu2O == CuO + BaCuO2
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaO2 + CuO == Ba2(CuO2)3 + O2
+BaO + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 700
+Precursors: Y2O3, BaO, BaO2, Cu2O
+Products: BaCuO2, Y2O3, BaCO3
+Amounts: 0.42, 0.26, 0.32
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+BaO + Cu2O + O2 == BaCuO2
+BaO2 + CO2 == BaCO3 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+Cu2O + BaCO3 + O2 == BaCuO2 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 800
+Precursors: Y2O3, BaO, BaO2, Cu2O
+Products: BaCuO2, Ba2YCu3O7, CuO
+Amounts: 0.29, 0.46, 0.24
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+BaO2 + Cu2O == CuO + BaCuO2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 900
+Precursors: Y2O3, BaO, BaO2, Cu2O
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+
+Temperature: 600
+Precursors: Y2O3, BaO2, BaCO3, Cu2O
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.23, 0.43, 0.34
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-700 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+
+Redundant: Y2O3, BaO2, BaCO3, Cu2O @ 700 C
+
+Redundant: Y2O3, BaO2, BaCO3, Cu2O @ 800 C
+
+Redundant: Y2O3, BaO2, BaCO3, Cu2O @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaO2, CuO
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.3, 0.35, 0.35
+Reaction pathway fully determined.
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+
+Redundant: Y2O3, BaO2, CuO @ 700 C
+
+Redundant: Y2O3, BaO2, CuO @ 800 C
+
+Redundant: Y2O3, BaO2, CuO @ 900 C
+Redundant success
+Products: Ba2YCu3O7
+Amounts: 1.0
+
+Temperature: 600
+Precursors: BaO2, CuO, Y2Cu2O5
+Products: Ba2(CuO2)3, Y2Cu2O5, CuO, BaCO3
+Amounts: 0.5, 0.3, 0.13, 0.07
+Reaction pathway partially determined.
+Suspected reactions:
+BaO2 + CuO == Ba2(CuO2)3 + O2
+CuO + BaCO3 + O2 == Ba2(CuO2)3 + CO2
+BaO2 + CO2 == BaCO3 + O2
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Redundant: BaO2, CuO, Y2Cu2O5 @ 700 C
+
+Redundant: BaO2, CuO, Y2Cu2O5 @ 800 C
+
+Redundant: BaO2, CuO, Y2Cu2O5 @ 900 C
+
+Temperature: 600
+Precursors: BaO2, BaCO3, Cu2O, Y2Cu2O5
+Products: BaCO3, CuO, Y2Cu2O5
+Amounts: 0.27, 0.15, 0.58
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: BaO2, BaCO3, Cu2O, Y2Cu2O5
+Products: BaCO3, CuO, Y2Cu2O5
+Amounts: 0.21, 0.41, 0.38
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: BaO2, BaCO3, Cu2O, Y2Cu2O5
+Products: BaCO3, BaY2CuO5, Ba2YCu3O7, BaCuO2, CuO
+Amounts: 0.39, 0.27, 0.22, 0.07, 0.05
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+Y2Cu2O5 + BaCuO2 == BaY2CuO5 + CuO
+BaO2 + Cu2O == CuO + BaCuO2
+Cu2O + Ba2YCu3O7 == BaY2CuO5 + CuO + BaCuO2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+BaCO3 + CuO == BaCuO2 + CO2
+BaCO3 + Cu2O + O2 == BaCuO2 + CO2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + CuO + O2
+Y2Cu2O5 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + BaCuO2 + O2
+BaO2 + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2 + CO2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + Ba2YCu3O7 + O2
+BaCO3 + Y2Cu2O5 + O2 == BaY2CuO5 + Ba2YCu3O7 + CO2
+Ba2YCu3O7 == BaY2CuO5 + CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 900
+Precursors: BaO2, BaCO3, Cu2O, Y2Cu2O5
+Products: Ba2YCu3O7, BaCO3, BaY2CuO5, CuO
+Amounts: 0.55, 0.2, 0.15, 0.11
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO2 + Y2Cu2O5 == BaY2CuO5 + CuO + O2
+Y2Cu2O5 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CuO + CO2
+BaO2 + Y2Cu2O5 == BaY2CuO5 + Ba2YCu3O7 + O2
+BaCO3 + Y2Cu2O5 + O2 == BaY2CuO5 + Ba2YCu3O7 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 600
+Precursors: BaO, BaO2, Cu2O, Y2Cu2O5
+Products: Y2Cu2O5, Ba2(CuO2)3, CuO, BaCO3
+Amounts: 0.34, 0.26, 0.21, 0.18
+No reactions discovered
+Suspected reactions:
+BaO + Cu2O + O2 == Ba2(CuO2)3
+BaO + CuO + O2 == Ba2(CuO2)3
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+BaO2 + Cu2O + CO2 == Ba2(CuO2)3 + BaCO3
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+BaO2 + CuO == Ba2(CuO2)3 + O2
+Cu2O + BaCO3 + O2 == Ba2(CuO2)3 + CO2
+BaCO3 + CuO + O2 == Ba2(CuO2)3 + CO2
+BaO2 + CO2 == BaCO3 + O2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: BaO, BaO2, Cu2O, Y2Cu2O5
+Products: BaCuO2, Y2Cu2O5, Ba2(CuO2)3
+Amounts: 0.29, 0.43, 0.27
+No reactions discovered
+Suspected reactions:
+BaO + Cu2O + O2 == Ba2(CuO2)3
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+Cu2O + BaCuO2 + O2 == Ba2(CuO2)3
+BaO + Cu2O + O2 == BaCuO2
+BaO2 + Cu2O == Ba2(CuO2)3 + BaCuO2
+BaO + Ba2(CuO2)3 == BaCuO2 + O2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + Ba2(CuO2)3 == BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: BaO, BaO2, Cu2O, Y2Cu2O5
+Products: BaCuO2, Y2Cu2O5, Ba2YCu3O7
+Amounts: 0.38, 0.47, 0.14
+Reaction pathway partially determined.
+Suspected reactions:
+BaO + Cu2O + O2 == BaCuO2
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+BaO2 + Cu2O == BaCuO2 + O2
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+
+Temperature: 900
+Precursors: BaO, BaO2, Cu2O, Y2Cu2O5
+Products: Ba2YCu3O7, BaCuO2, CuO
+Amounts: 0.55, 0.07, 0.38
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+BaO2 + Cu2O == CuO + BaCuO2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+
+Predicted evolution: BaCuO2 + Y2Cu2O5 --> BaCuO2 + CuO + Y2O3
+
+Temperature: 600
+Precursors: Y2(CO3)3, CuCO3, BaCuO2
+Products: BaCO3, CuO, Y2O3, BaCuO2
+Amounts: 0.66, 0.16, 0.12, 0.06
+No reactions discovered
+Suspected reactions:
+CuCO3 + BaCuO2 == BaCO3 + CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 == BaCO3 + CuO + Y2O3
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+
+Temperature: 700
+Precursors: Y2(CO3)3, CuCO3, BaCuO2
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.7, 0.24, 0.06
+No reactions discovered
+Suspected reactions:
+CuCO3 + BaCuO2 == BaCO3 + CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 == BaCO3 + CuO + Y2O3
+CuCO3 == CuO + CO2
+Y2(CO3)3 == Y2O3 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+
+Temperature: 800
+Precursors: Y2(CO3)3, CuCO3, BaCuO2
+Products: BaCO3, Ba2YCu3O7, CuO, BaY2CuO5, BaCuO2
+Amounts: 0.35, 0.22, 0.19, 0.17, 0.06
+No reactions discovered
+Suspected reactions:
+CuCO3 + BaCuO2 == BaCO3 + CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+BaCuO2 + BaY2CuO5 + O2 + CO2 == BaCO3 + Ba2YCu3O7
+Y2(CO3)3 + BaCuO2 == BaY2CuO5 + BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 + O2 == BaCO3 + CuO + Ba2YCu3O7
+Y2(CO3)3 + BaCuO2 == BaY2CuO5 + CO2
+CuCO3 == CuO + CO2
+Y2(CO3)3 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2 + CO2
+Y2(CO3)3 + BaCuO2 + O2 == BaCO3 + Ba2YCu3O7 + CO2
+Y2(CO3)3 + Ba2YCu3O7 == BaY2CuO5 + BaCO3 + CuO + O2
+CuCO3 + Ba2YCu3O7 == BaY2CuO5 + BaCO3 + CuO + O2
+Ba2YCu3O7 + CO2 == BaY2CuO5 + BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+
+Temperature: 900
+Precursors: Y2(CO3)3, CuCO3, BaCuO2
+Products: Ba2YCu3O7, BaCuO2, BaY2CuO5
+Amounts: 0.76, 0.14, 0.1
+Reaction pathway partially determined.
+Suspected reactions:
+Y2(CO3)3 + BaCuO2 == BaY2CuO5 + CO2
+Products with known origin: BaY2CuO5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO2, Cu2O
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.6, 0.23, 0.17
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Redundant: Y2(CO3)3, BaO2, Cu2O @ 700 C
+
+Redundant: Y2(CO3)3, BaO2, Cu2O @ 800 C
+
+Redundant: Y2(CO3)3, BaO2, Cu2O @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO2, BaCO3, Cu2O
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.26, 0.49, 0.24
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: CuO, Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Temperature: 700
+Precursors: Y2(CO3)3, BaO2, BaCO3, Cu2O
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.66, 0.27, 0.08
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Temperature: 800
+Precursors: Y2(CO3)3, BaO2, BaCO3, Cu2O
+Products: BaCO3, Ba2YCu3O7, CuO, Y2O3
+Amounts: 0.39, 0.31, 0.18, 0.12
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: CuO, Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Temperature: 900
+Precursors: Y2(CO3)3, BaO2, BaCO3, Cu2O
+Products: Ba2YCu3O7, CuO, BaCuO2, BaCO3
+Amounts: 0.4, 0.39, 0.14, 0.07
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO2 + Cu2O == CuO + BaCuO2
+BaO2 + Cu2O == BaCuO2 + O2
+BaO2 + CuO == BaCuO2 + O2
+BaCO3 + CuO == BaCuO2 + CO2
+BaCO3 + Cu2O + O2 == BaCuO2 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO, BaO2, Cu2O
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.15, 0.42, 0.42
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaO == BaCO3 + Y2O3
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Redundant: Y2(CO3)3, BaO, BaO2, Cu2O @ 700 C
+
+Redundant: Y2(CO3)3, BaO, BaO2, Cu2O @ 800 C
+
+Redundant: Y2(CO3)3, BaO, BaO2, Cu2O @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO2, CuO
+Products: Y2O3, BaCO3, CuO
+Amounts: 0.3, 0.35, 0.35
+No reactions discovered
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Redundant: Y2(CO3)3, BaO2, CuO @ 700 C
+
+Redundant: Y2(CO3)3, BaO2, CuO @ 800 C
+
+Redundant: Y2(CO3)3, BaO2, CuO @ 900 C
+
+Redundant: Y2O3, BaCO3, CuO @ 600 C
+
+Redundant: Y2O3, BaCO3, CuO @ 700 C
+
+Redundant: Y2O3, BaCO3, CuO @ 800 C
+
+Redundant: Y2O3, BaCO3, CuO @ 900 C
+Reaction already probed.
+
+Redundant: BaCO3, CuO, Y2Cu2O5 @ 700 C
+
+Redundant: BaCO3, CuO, Y2Cu2O5 @ 800 C
+
+Redundant: BaCO3, CuO, Y2Cu2O5 @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaO2, Cu2O, BaCuO2
+Products: BaCuO2, Ba2(CuO2)3, CuO, Y2O3
+Amounts: 0.76, 0.1, 0.08, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+BaO2 + Cu2O + O2 == Ba2(CuO2)3
+Cu2O + BaCuO2 + O2 == Ba2(CuO2)3
+BaCuO2 + CuO + O2 == Ba2(CuO2)3
+Cu2O + O2 == CuO
+BaO2 + CuO == Ba2(CuO2)3 + O2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+
+Redundant: Y2O3, BaO2, Cu2O, BaCuO2 @ 700 C
+
+Redundant: Y2O3, BaO2, Cu2O, BaCuO2 @ 800 C
+
+Redundant: Y2O3, BaO2, Cu2O, BaCuO2 @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaCO3, CuO
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.64, 0.2, 0.16
+Reaction pathway fully determined.
+Suspected reactions:
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-800 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Redundant: Y2(CO3)3, BaCO3, CuO @ 700 C
+
+Redundant: Y2(CO3)3, BaCO3, CuO @ 800 C
+
+Redundant: Y2(CO3)3, BaCO3, CuO @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaO, CuO
+Products: BaCO3, Y2O3, CuO
+Amounts: 0.28, 0.26, 0.46
+Reaction pathway fully determined.
+Suspected reactions:
+BaO + CO2 == BaCO3
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Redundant: Y2O3, BaO, CuO @ 700 C
+
+Redundant: Y2O3, BaO, CuO @ 800 C
+
+Redundant: Y2O3, BaO, CuO @ 900 C
+
+Temperature: 600
+Precursors: BaO, CuO, Y2Cu2O5
+Products: Y2O3, Ba2(CuO2)3, BaCO3, CuO
+Amounts: 0.55, 0.23, 0.2, 0.03
+Reaction pathway partially determined.
+Suspected reactions:
+BaO + CuO + O2 == Ba2(CuO2)3
+BaO + CO2 == BaCO3
+BaO + Y2Cu2O5 + O2 == Ba2(CuO2)3 + Y2O3
+CuO + BaCO3 + O2 == Ba2(CuO2)3 + CO2
+Y2Cu2O5 + BaCO3 + O2 == Ba2(CuO2)3 + Y2O3 + CO2
+Products with known origin: BaCO3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Redundant: BaO, CuO, Y2Cu2O5 @ 700 C
+
+Redundant: BaO, CuO, Y2Cu2O5 @ 800 C
+
+Redundant: BaO, CuO, Y2Cu2O5 @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO2, Cu2O, BaCuO2
+Products: BaCO3, CuO, BaCuO2, Y2O3
+Amounts: 0.49, 0.2, 0.18, 0.12
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 == BaCO3 + CuO + Y2O3
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: Y2(CO3)3, BaO2, Cu2O, BaCuO2
+Products: BaCO3, CuO, BaCuO2, Y2O3
+Amounts: 0.45, 0.36, 0.12, 0.06
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 == BaCO3 + CuO + Y2O3
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 == Y2O3 + CO2
+Y2(CO3)3 + BaO2 == BaCO3 + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: Y2(CO3)3, BaO2, Cu2O, BaCuO2
+Products: BaCO3, Ba2YCu3O7, CuO, BaY2CuO5, BaCuO2
+Amounts: 0.36, 0.2, 0.18, 0.16, 0.1
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+BaO2 + Cu2O + CO2 == BaCO3 + CuO
+BaCuO2 + BaY2CuO5 + O2 + CO2 == BaCO3 + Ba2YCu3O7
+Y2(CO3)3 + BaCuO2 == BaY2CuO5 + BaCO3 + CuO
+Cu2O + Ba2YCu3O7 + CO2 == BaY2CuO5 + BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 + O2 == BaCO3 + CuO + Ba2YCu3O7
+Y2(CO3)3 + BaCuO2 == BaY2CuO5 + CO2
+BaO2 + CO2 == BaCO3 + O2
+Y2(CO3)3 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2 + CO2
+Y2(CO3)3 + BaCuO2 + O2 == BaCO3 + Ba2YCu3O7 + CO2
+Y2(CO3)3 + Ba2YCu3O7 == BaY2CuO5 + BaCO3 + CuO + O2
+Ba2YCu3O7 + CO2 == BaY2CuO5 + BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Temperature: 900
+Precursors: Y2(CO3)3, BaO2, Cu2O, BaCuO2
+Products: Ba2YCu3O7, BaCuO2
+Amounts: 0.64, 0.36
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+
+Temperature: 600
+Precursors: BaCO3, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: BaCO3, Y2Cu2O5, CuO, Ba2(CuO2)3
+Amounts: 0.58, 0.21, 0.2, 0.03
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: BaCO3, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: BaCO3, Y2Cu2O5, CuO
+Amounts: 0.45, 0.38, 0.17
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: BaCO3, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: BaCO3, Y2Cu2O5, BaCuO2, CuO, BaY2CuO5
+Amounts: 0.38, 0.29, 0.18, 0.12, 0.03
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2Cu2O5 + BaCuO2 == BaY2CuO5 + CuO
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaCO3 + CuO == BaCuO2 + CO2
+BaCO3 + Cu2O + O2 == BaCuO2 + CO2
+BaCO3 + Ba2(CuO2)3 == BaCuO2 + O2 + CO2
+Ba2(CuO2)3 + Y2Cu2O5 == BaY2CuO5 + CuO + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == Unknown @ 600-2000 C
+
+Temperature: 900
+Precursors: BaCO3, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: Ba2YCu3O7, BaCO3, CuO
+Amounts: 0.53, 0.33, 0.14
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+
+Predicted evolution: Ba2(CuO2)3 + BaCO3 + Y2Cu2O5 --> Ba2(CuO2)3 + BaCO3 + CuO + Y2O3
+
+Temperature: 600
+Precursors: BaCO3, Ba2(CuO2)3, Y2Cu2O5
+Products: BaCO3, Y2Cu2O5, CuO, Ba2(CuO2)3
+Amounts: 0.58, 0.21, 0.2, 0.03
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+
+Redundant: BaCO3, Ba2(CuO2)3, Y2Cu2O5 @ 700 C
+
+Redundant: BaCO3, Ba2(CuO2)3, Y2Cu2O5 @ 800 C
+
+Redundant: BaCO3, Ba2(CuO2)3, Y2Cu2O5 @ 900 C
+Redundant success
+Products: Ba2YCu3O7
+Amounts: 1.0
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO, CuO
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.53, 0.41, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Y2(CO3)3 + BaO == BaCO3 + Y2O3
+Y2(CO3)3 == Y2O3 + CO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+
+Redundant: Y2(CO3)3, BaO, CuO @ 700 C
+
+Redundant: Y2(CO3)3, BaO, CuO @ 800 C
+
+Redundant: Y2(CO3)3, BaO, CuO @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaCO3, Cu2O, Ba2(CuO2)3
+Products: BaCO3, Y2O3, CuO, Ba2(CuO2)3
+Amounts: 0.58, 0.21, 0.2, 0.03
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: Y2O3, BaCO3, Cu2O, Ba2(CuO2)3
+Products: BaCO3, CuO, Y2O3
+Amounts: 0.68, 0.18, 0.14
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == Unknown @ 600-2000 C
+
+Temperature: 800
+Precursors: Y2O3, BaCO3, Cu2O, Ba2(CuO2)3
+Products: BaY2CuO5, BaCuO2, Y2O3, CuO
+Amounts: 0.67, 0.21, 0.07, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaCO3 + CuO == BaCuO2 + CO2
+BaCO3 + Cu2O + O2 == BaCuO2 + CO2
+BaCO3 + Ba2(CuO2)3 == BaCuO2 + O2 + CO2
+Y2O3 + Ba2(CuO2)3 == BaY2CuO5 + CuO + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+Products with known origin: BaY2CuO5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 600-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+
+Temperature: 900
+Precursors: Y2O3, BaCO3, Cu2O, Ba2(CuO2)3
+Intermediates: Ba2(CuO2)3, BaY2CuO5, Cu2O, CuO, BaCO3
+Products: Ba2YCu3O7, BaCO3, CuO
+Amounts: 0.33, 0.28, 0.39
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+
+Predicted evolution: Ba2(CuO2)3 + Y2O3 --> Ba2(CuO2)3 + BaY2CuO5 + CuO
+
+Temperature: 600
+Precursors: Y2O3, Ba2(CuO2)3
+Products: BaCO3, Y2O3, CuO, Ba2(CuO2)3
+Amounts: 0.41, 0.28, 0.23, 0.09
+Reaction pathway fully determined.
+Suspected reactions:
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Products with known origin: BaCO3, CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+Reaction already probed.
+
+Temperature: 800
+Precursors: Y2O3, Ba2(CuO2)3
+Intermediates: BaCO3, CuO, Y2O3
+Products: CuO, BaY2CuO5, Ba2YCu3O7, BaCuO2
+Amounts: 0.46, 0.41, 0.08, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2 + CO2
+Products with known origin: BaY2CuO5, BaCuO2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 900
+Precursors: Y2O3, Ba2(CuO2)3
+Intermediates: BaCO3, CuO, Y2O3
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 600
+Precursors: BaO, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: Y2Cu2O5, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 700
+Precursors: BaO, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: BaCO3, BaCuO2, Y2Cu2O5, CuO, Y2O3
+Amounts: 0.34, 0.33, 0.17, 0.09, 0.07
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+BaCuO2 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+Y2Cu2O5 == CuO + Y2O3
+BaO + Y2Cu2O5 == BaCuO2 + Y2O3
+BaO + Ba2(CuO2)3 == BaCuO2 + O2
+Cu2O + BaCO3 + O2 == BaCuO2 + CO2
+Ba2(CuO2)3 + BaCO3 == BaCuO2 + O2 + CO2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 800
+Precursors: BaO, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: CuO, BaCO3, Y2Cu2O5, BaCuO2
+Amounts: 0.14, 0.24, 0.34, 0.28
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+BaCuO2 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+BaO + Ba2(CuO2)3 == BaCuO2 + O2
+Cu2O + BaCO3 + O2 == BaCuO2 + CO2
+Ba2(CuO2)3 + BaCO3 == BaCuO2 + O2 + CO2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 900
+Precursors: BaO, Cu2O, Ba2(CuO2)3, Y2Cu2O5
+Products: Ba2YCu3O7
+Amounts: 1.0
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 600
+Precursors: BaO2, Ba2(CuO2)3, Y2Cu2O5
+Products: Y2Cu2O5, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+BaO2 + CO2 == BaCO3 + O2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Redundant: BaO2, Ba2(CuO2)3, Y2Cu2O5 @ 700 C
+
+Redundant: BaO2, Ba2(CuO2)3, Y2Cu2O5 @ 800 C
+
+Redundant: BaO2, Ba2(CuO2)3, Y2Cu2O5 @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaCO3, Cu2O, Ba2(CuO2)3
+Products: BaCO3, Y2O3, CuO, Ba2(CuO2)3
+Amounts: 0.58, 0.21, 0.2, 0.03
+Reaction pathway fully determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: CuO, Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Redundant: Y2(CO3)3, BaCO3, Cu2O, Ba2(CuO2)3 @ 700 C
+
+Redundant: Y2(CO3)3, BaCO3, Cu2O, Ba2(CuO2)3 @ 800 C
+
+Redundant: Y2(CO3)3, BaCO3, Cu2O, Ba2(CuO2)3 @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, BaO, Cu2O, Ba2(CuO2)3
+Products: Y2O3, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 700
+Precursors: Y2O3, BaO, Cu2O, Ba2(CuO2)3
+Products: BaCO3, Y2O3, CuO
+Amounts: 0.56, 0.28, 0.15
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 800
+Precursors: Y2O3, BaO, Cu2O, Ba2(CuO2)3
+Products: BaY2CuO5, Ba2YCu3O7, BaCO3, BaCuO2, CuO
+Amounts: 0.43, 0.18, 0.18, 0.16, 0.05
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaO + CO2 == BaCO3
+BaO + CuO == BaCuO2
+BaO + Cu2O + O2 == BaCuO2
+BaCuO2 + CO2 == CuO + BaCO3
+Cu2O + Ba2(CuO2)3 + CO2 == CuO + BaCO3
+Cu2O + Ba2(CuO2)3 == CuO + BaCuO2
+Y2O3 + BaCuO2 + O2 + CO2 == Ba2YCu3O7 + BaCO3
+BaY2CuO5 + BaCuO2 + O2 + CO2 == Ba2YCu3O7 + BaCO3
+Cu2O + Ba2YCu3O7 + CO2 == BaY2CuO5 + CuO + BaCO3
+Cu2O + Ba2YCu3O7 == BaY2CuO5 + CuO + BaCuO2
+Y2O3 + Ba2(CuO2)3 == Ba2YCu3O7 + O2
+BaO + Ba2(CuO2)3 == BaCuO2 + O2
+Cu2O + BaCO3 + O2 == BaCuO2 + CO2
+Ba2(CuO2)3 + BaCO3 == BaCuO2 + O2 + CO2
+Y2O3 + Ba2(CuO2)3 == BaY2CuO5 + CuO + O2
+Y2O3 + Ba2YCu3O7 == BaY2CuO5 + CuO + O2
+BaO + Ba2YCu3O7 == BaY2CuO5 + BaCuO2 + O2
+Ba2YCu3O7 + BaCO3 == BaY2CuO5 + BaCuO2 + O2 + CO2
+Ba2(CuO2)3 + CO2 == CuO + BaCO3 + O2
+Ba2(CuO2)3 == CuO + BaCuO2 + O2
+Ba2(CuO2)3 + BaY2CuO5 + CO2 == Ba2YCu3O7 + BaCO3 + O2
+Ba2(CuO2)3 + BaY2CuO5 == Ba2YCu3O7 + BaCuO2 + O2
+Ba2YCu3O7 + CO2 == BaY2CuO5 + CuO + BaCO3 + O2
+Ba2YCu3O7 == BaY2CuO5 + CuO + BaCuO2 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 900
+Precursors: Y2O3, BaO, Cu2O, Ba2(CuO2)3
+Products: Ba2YCu3O7
+Amounts: 1.0
+Reaction pathway fully determined.
+Suspected reactions:
+Y2O3 + Ba2(CuO2)3 == Ba2YCu3O7 + O2
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, BaO, Cu2O, Ba2(CuO2)3
+Products: Y2O3, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+No reactions discovered
+Suspected reactions:
+BaO + CO2 == BaCO3
+Cu2O + O2 == CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaO == BaCO3 + Y2O3
+Y2(CO3)3 == Y2O3 + CO2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Y2(CO3)3 + Ba2(CuO2)3 == BaCO3 + CuO + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Redundant: Y2(CO3)3, BaO, Cu2O, Ba2(CuO2)3 @ 700 C
+
+Redundant: Y2(CO3)3, BaO, Cu2O, Ba2(CuO2)3 @ 800 C
+
+Redundant: Y2(CO3)3, BaO, Cu2O, Ba2(CuO2)3 @ 900 C
+Redundant success
+Products: Ba2YCu3O7
+Amounts: 1.0
+
+Temperature: 600
+Precursors: BaO, Ba2(CuO2)3, Y2Cu2O5
+Products: Y2Cu2O5, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+BaO + CO2 == BaCO3
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Products with known origin: CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+
+Redundant: BaO, Ba2(CuO2)3, Y2Cu2O5 @ 700 C
+
+Redundant: BaO, Ba2(CuO2)3, Y2Cu2O5 @ 800 C
+
+Redundant: BaO, Ba2(CuO2)3, Y2Cu2O5 @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, CuO, BaCuO2
+Products: BaCuO2, Ba2(CuO2)3, Y2O3, CuO
+Amounts: 0.82, 0.07, 0.07, 0.04
+Reaction pathway fully determined.
+Suspected reactions:
+CuO + BaCuO2 + O2 == Ba2(CuO2)3
+Products with known origin: Ba2(CuO2)3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 0-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+
+Redundant: Y2O3, CuO, BaCuO2 @ 700 C
+
+Redundant: Y2O3, CuO, BaCuO2 @ 800 C
+
+Redundant: Y2O3, CuO, BaCuO2 @ 900 C
+
+Predicted evolution: BaCuO2 + CuO + Y2O3 --> Ba2(CuO2)3 + CuO + Y2O3
+
+Temperature: 600
+Precursors: BaCuO2, Y2Cu2O5
+Products: BaCuO2, Y2Cu2O5, CuO, BaCO3
+Amounts: 0.58, 0.2, 0.12, 0.12
+Reaction pathway fully determined.
+Suspected reactions:
+BaCuO2 + CO2 == BaCO3 + CuO
+Products with known origin: BaCO3, CuO
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Reaction already probed.
+Reaction already probed.
+
+Temperature: 900
+Precursors: BaCuO2, Y2Cu2O5
+Intermediates: BaCO3, CuO, Y2Cu2O5
+Products: Ba2YCu3O7, BaCuO2
+Amounts: 0.66, 0.34
+Reaction pathway partially determined.
+Suspected reactions:
+Y2Cu2O5 + BaCuO2 + O2 == Ba2YCu3O7
+Products with known origin: Ba2YCu3O7
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, CuO, BaCuO2
+Products: BaCO3, CuO, Y2O3, BaCuO2
+Amounts: 0.66, 0.16, 0.12, 0.06
+Reaction pathway partially determined.
+Suspected reactions:
+Y2(CO3)3 == Y2O3 + CO2
+Products with known origin: Y2O3
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+
+Redundant: Y2(CO3)3, CuO, BaCuO2 @ 700 C
+
+Redundant: Y2(CO3)3, CuO, BaCuO2 @ 800 C
+
+Redundant: Y2(CO3)3, CuO, BaCuO2 @ 900 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, Cu2O, BaCuO2, Ba2(CuO2)3
+Products: Y2O3, BaCO3, Ba2(CuO2)3, CuO
+Amounts: 0.48, 0.36, 0.1, 0.06
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Y2(CO3)3 + BaCuO2 == BaCO3 + CuO + Y2O3
+Y2(CO3)3 == Y2O3 + CO2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Y2(CO3)3 + Ba2(CuO2)3 == BaCO3 + CuO + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+
+Redundant: Y2(CO3)3, Cu2O, BaCuO2, Ba2(CuO2)3 @ 700 C
+
+Redundant: Y2(CO3)3, Cu2O, BaCuO2, Ba2(CuO2)3 @ 800 C
+
+Redundant: Y2(CO3)3, Cu2O, BaCuO2, Ba2(CuO2)3 @ 900 C
+
+Temperature: 600
+Precursors: Y2O3, Cu2O, BaCuO2, Ba2(CuO2)3
+Products: Y2O3, BaCO3, Ba2(CuO2)3, BaCuO2, CuO
+Amounts: 0.35, 0.36, 0.1, 0.13, 0.06
+No reactions discovered
+Suspected reactions:
+Cu2O + O2 == CuO
+BaCuO2 + CO2 == BaCO3 + CuO
+Cu2O + Ba2(CuO2)3 + CO2 == BaCO3 + CuO
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-800 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Ba2(CuO2)3 + BaCuO2 == Unknown @ 600-2000 C
+
+Temperature: 700
+Precursors: Y2O3, Cu2O, BaCuO2, Ba2(CuO2)3
+Products: BaY2CuO5, CuO, Y2O3, BaCuO2, Ba2(CuO2)3
+Amounts: 0.48, 0.21, 0.18, 0.12, 0.03
+Reaction pathway partially determined.
+Suspected reactions:
+Cu2O + O2 == CuO
+Y2O3 + Ba2(CuO2)3 == BaY2CuO5 + CuO + O2
+Products with known origin: BaY2CuO5
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-700 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Ba2(CuO2)3 + BaCuO2 == Unknown @ 700-2000 C
+
+Temperature: 800
+Precursors: Y2O3, Cu2O, BaCuO2, Ba2(CuO2)3
+Intermediates: Ba2(CuO2)3, BaY2CuO5, Cu2O, CuO, BaCuO2
+Products: BaCuO2, BaY2CuO5, CuO, Ba2YCu3O7
+Amounts: 0.47, 0.33, 0.1, 0.09
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-700 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Ba2(CuO2)3 + BaCuO2 == Unknown @ 700-2000 C
+BaY2CuO5 + CuO == Unknown @ 800-2000 C
+BaY2CuO5 + BaCuO2 == Unknown @ 800-2000 C
+
+Temperature: 900
+Precursors: Y2O3, Cu2O, BaCuO2, Ba2(CuO2)3
+Intermediates: Ba2(CuO2)3, BaY2CuO5, Cu2O, CuO, BaCuO2
+Products: Ba2YCu3O7, BaCuO2, BaY2CuO5
+Amounts: 0.81, 0.12, 0.07
+No reactions discovered
+Suspected reactions:
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-700 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Ba2(CuO2)3 + BaCuO2 == Unknown @ 700-2000 C
+BaY2CuO5 + CuO == Unknown @ 800-2000 C
+BaY2CuO5 + BaCuO2 == Unknown @ 900-2000 C
+
+Temperature: 600
+Precursors: Y2(CO3)3, Ba2(CuO2)3
+Products: BaCO3, Y2O3, CuO, Ba2(CuO2)3
+Amounts: 0.41, 0.28, 0.23, 0.09
+No reactions discovered
+Suspected reactions:
+Y2(CO3)3 == Y2O3 + CO2
+Ba2(CuO2)3 + CO2 == BaCO3 + CuO + O2
+Y2(CO3)3 + Ba2(CuO2)3 == BaCO3 + CuO + Y2O3 + O2
+
+Known reactions:
+CuCO3 == CO2 + CuO @ 0-600 C
+BaCO3 + Y2O3 == Unknown @ 700-2000 C
+Y2Cu2O5 == CuO + Y2O3 @ 0-700 C
+BaO == BaCO3 @ 0-600 C
+Y2(CO3)3 == CO2 + Y2O3 @ 0-600 C
+CuCO3 + BaCO3 == CO2 + BaCuO2 @ 0-900 C
+BaCO3 + Y2Cu2O5 == BaY2CuO5 + CO2 + Ba2YCu3O7 @ 800-900 C
+BaO2 == BaCO3 + O2 @ 0-600 C
+Cu2O + BaCO3 == CO2 + BaCuO2 @ 0-800 C
+BaCuO2 + Y2O3 == BaY2CuO5 @ 800-900 C
+Ba2YCu3O7 == BaCuO2 + Y2Cu2O5 + O2 @ 0-800 C
+Cu2O == CuO @ 0-600 C
+CuO + Y2O3 == Unknown @ 600-2000 C
+CuO + Y2Cu2O5 == Unknown @ 600-2000 C
+BaCuO2 + Y2Cu2O5 == Ba2YCu3O7 @ 600-800 C
+BaCuO2 + Y2(CO3)3 == BaY2CuO5 + CO2 @ 0-900 C
+BaCO3 + CuO == Unknown @ 900-2000 C
+Ba2(CuO2)3 + BaCO3 == Unknown @ 600-2000 C
+Ba2(CuO2)3 + Y2Cu2O5 == CuO + Ba2YCu3O7 + O2 @ 600-900 C
+Ba2(CuO2)3 + Y2O3 == BaY2CuO5 + CuO + O2 @ 600-700 C
+Ba2(CuO2)3 + Y2O3 == Ba2YCu3O7 + O2 @ 800-900 C
+Ba2(CuO2)3 == BaCO3 + CuO + O2 @ 0-600 C
+BaCO3 + Ba2YCu3O7 == BaY2CuO5 + CO2 + BaCuO2 + O2 @ 0-800 C
+CuO + BaCuO2 == Ba2(CuO2)3 @ 0-600 C
+BaCuO2 == BaCO3 + CuO @ 0-600 C
+Ba2(CuO2)3 + BaCuO2 == Unknown @ 700-2000 C
+BaY2CuO5 + CuO == Unknown @ 800-2000 C
+BaY2CuO5 + BaCuO2 == Unknown @ 900-2000 C
+
+Redundant: Y2(CO3)3, Ba2(CuO2)3 @ 700 C
+
+Redundant: Y2(CO3)3, Ba2(CuO2)3 @ 800 C
+
+Redundant: Y2(CO3)3, Ba2(CuO2)3 @ 900 C
+
+All possible reactions sampled.

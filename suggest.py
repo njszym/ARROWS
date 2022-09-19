@@ -187,7 +187,7 @@ if __name__ == '__main__':
                         highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
                         if len(highT_products) == 1:
                             if highT_products[0] == target_product:
-                                print('Redundant success')
+                                print('\nRedundant success')
                                 print('Products: %s' % target_product)
                                 print('Amounts: 1.0')
 
@@ -199,7 +199,7 @@ if __name__ == '__main__':
 
             if redundant:
                 if verbose:
-                    print('Redundant: %s' %  ', '.join(rxn[0]))
+                    print('\nRedundant: %s @ %s C' %  (', '.join(rxn[0]), T))
                 continue
 
             # Starting materials
@@ -211,7 +211,7 @@ if __name__ == '__main__':
             # If precursors or temperature not sampled yet, suggest current experiment
             if products is None:
                 if verbose:
-                     print('Current Ranking:')
+                     print('\nCurrent Ranking:')
                      for rxn in sorted_rxn_info:
                          print(', '.join(rxn[0]))
                 print('-- Suggested experiment --')
@@ -365,6 +365,6 @@ if __name__ == '__main__':
             else:
                 sorted_rxn_info = sorted(evolved_rxn_info, key=lambda x: (-x[-4], x[-1], -x[-2]))
 
-    print('All possible reactions sampled.')
+    print('\nAll possible reactions sampled.')
 
 
