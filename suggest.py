@@ -17,6 +17,7 @@ if __name__ == '__main__':
     enforce_thermo = False # Consider pairwise rxns with dG > 0
     greedy = False # Whether to assume low-T rxns occur first
     reward_partial_yield = False # Whether to reward non-pure results
+    batch_size = 1 # Number of suggested experiments per batch
     for arg in sys.argv:
         if '--verbose' in arg:
             verbose = True
@@ -30,6 +31,8 @@ if __name__ == '__main__':
             greedy = True
         if '--partial_yield' in arg:
             reward_partial_yield = True
+        if '--batch' in arg:
+            batch_size = int(arg.split('=')[1])
 
     # Load settings
     with open('Settings.json') as f:
@@ -127,7 +130,7 @@ if __name__ == '__main__':
                 all_interfaces = [frozenset(pair) for pair in combinations(new_materials, 2)]
                 known_interfaces = list(rxn_database.as_dict().keys())
                 new_interfaces = set(all_interfaces) - set(known_interfaces)
-                new_interfaces = [set(interf) for interf in new_interfaces]
+                new_interfces = [set(interf) for interf in new_interfaces]
                 num_interfaces = len(new_interfaces)
                 evolved_rxn_info.append([original_set, original_amounts, new_materials, new_amounts, new_products, expec_yield, new_interfaces, num_interfaces, energ])
             else:
@@ -208,16 +211,39 @@ if __name__ == '__main__':
             # Parse experimental reaction data
             products, final_amounts = exparser.get_products(precursors, T, exp_data)
 
-            # If precursors or temperature not sampled yet, suggest current experiment
+            # If precursors or temperature not sampled yet, suggest new experiment(s)
             if products is None:
+
                 if verbose:
                      print('\nCurrent Ranking:')
                      for rxn in sorted_rxn_info:
                          print(', '.join(rxn[0]))
-                print('-- Suggested experiment --')
-                print('Precursors: %s' % precursors)
-                print('Temperature: %s C' % T)
-                sys.exit()
+
+                if batch_size == 1:
+                    print('\n-- Suggested experiment --')
+                    print('Precursors: %s' % precursors)
+                    print('Temperature: %s C' % T)
+                    sys.exit()
+
+                else:
+                    print('\n-- Suggested experiments --')
+                    num_suggest = 0
+                    print('%s:' % int(num_suggest+1))
+                    print('Precursors: %s' % precursors)
+                    print('Temperature: %s C' % T)
+                    num_suggest += 1
+                    r_ind = 1
+                    while (num_suggest < batch_size) and (r_ind < len(sorted_rxn_info)):
+                        rxn = sorted_rxn_info[r_ind]
+                        precursors = rxn[0]
+                        products, final_amounts = exparser.get_products(precursors, min(increasing_temps), exp_data)
+                        if products is None:
+                            print(int(num_suggest+1))
+                            print('Precursors: %s' % precursors)
+                            print('Temperature: %s C' % T)
+                            num_suggest += 1
+                        r_ind += 1
+                    sys.exit()
 
             # Formulate intermediates
             interm = sorted(list(zip(products, final_amounts)))
