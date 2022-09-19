@@ -751,6 +751,9 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
 
     else:
 
+        # Keep track of rxn pathway
+        past_precursors = []
+
         # Evolve set until we have insufficient rxn information
         while precursors != None:
 
@@ -906,4 +909,11 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
 
     final_cmpds = [Composition(cmpd).reduced_formula for cmpd in final_cmpds]
 
-    return final_cmpds, final_amounts
+    # Remove cmpds that have zero weight fraction remaining
+    actual_cmpds, actual_amounts = [], []
+    for cmpd, amt in zip(final_cmpds, final_amounts):
+        if amt != 0:
+            actual_cmpds.append(cmpd)
+            actual_amounts.append(amt)
+
+    return actual_cmpds, actual_amounts
