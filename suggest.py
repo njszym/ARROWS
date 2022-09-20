@@ -320,6 +320,10 @@ if __name__ == '__main__':
             current_route = set(current_products + current_temp)
             probed_rxns.append(current_route)
 
+            if mssg == 'Only known intermediate reactions occured.':
+                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
+                continue
+
             # Add known reactions to the database
             is_updated = rxn_database.update(mssg, sus_rxn_info, known_products, inert_pairs, T)
 

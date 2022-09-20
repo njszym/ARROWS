@@ -308,9 +308,9 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     # If precursors == products, no further analysis necessary
     if len(observ_products) == 0:
         if intermediates == None:
-            return 'No reactions occured', None, None, None, inert_pairs
+            return 'No reactions occured.', None, None, None, inert_pairs
         else:
-            return 'Only known intermediate reactions occured', None, None, intermediates, inert_pairs
+            return 'Only known intermediate reactions occured.', None, None, intermediates, inert_pairs
 
     # Otherwise, explore suspected reaction pathways
     else:
@@ -504,10 +504,30 @@ class rxn_database:
         is_updated = False
 
         # Set lower bounds on rxn temperatures
+        if mssg == 'No reactions occurred.':
+
+            # Set lower bounds on rxn temperatures
+            for reacs in inert_pairs:
+
+                # Check if inert pair is already known
+                if reacs in self.known_rxns.keys():
+                    for i, report in enumerate(self.known_rxns[reacs]):
+                        # Only update if temperature falls within existing bounds
+                        if (temp > self.known_rxns[reacs][i][1][0]) and (temp < self.known_rxns[reacs][i][1][1]):
+                            self.known_rxns[reacs][i][1][0] = temp
+                            is_updated = True
+                else:
+                    # Use 2,000 as a hard upper limit on all rxns
+                    self.known_rxns[reacs] = [[None, [temp, 2000], 'Local']]
+                    is_updated = True
+
+            return is_updated
+
+        # Check for inert pairs in partial reactions
         for reacs in inert_pairs:
 
-            # Check inert pairs may take part in a reaction
-            # that was not yet compelte (reactants leftover)
+            # Check if inert pairs may have taken part in a reaction
+            # that was not yet complete (reactants leftover)
             all_sus_reacs = []
             for sus_rxn in sus_rxn_info:
                 sus_reacs = frozenset([Composition(cmpd).reduced_formula for cmpd in sus_rxn[0] if \
