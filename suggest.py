@@ -163,8 +163,14 @@ if __name__ == '__main__':
         # Print info
         sys.stdout.flush()
 
-        # Test rxn with highest dG
-        rxn = sorted_rxn_info[0]
+        # Try rxn with highest dG
+        try:
+            rxn = sorted_rxn_info[0]
+
+        # Unless all unique reactions have already been sampled
+        except IndexError:
+            print('\nAll unique reactions sampled.')
+            sys.exit()
 
         # Get predicted intermediates
         interm = sorted(list(zip(rxn[2], rxn[3])))
