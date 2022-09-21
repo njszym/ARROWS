@@ -10,7 +10,13 @@ def get_hull_Ef(formula, cmpd_pd=None):
     Retrieve formation energy of a given chemical formula
     according to its location on the convex hull.
 
-    Note: at some point, I should include T-dependence
+    Args:
+        formula (str): chemical formula.
+        cmpd_pd (pymatgen phase diagram):
+            phase diagram in the composition
+            space containing formula.
+    Returns:
+        final_energ (float): formation energy
     """
 
     target_comp = Composition(formula)
@@ -30,12 +36,26 @@ def get_hull_Ef(formula, cmpd_pd=None):
         sum_coeffs += target_dict[elem]
         competing_energies += cmpd_pd.get_hull_energy(elem_comp)
 
-    return (target_energy - competing_energies) / sum_coeffs
+    final_energ = (target_energy - competing_energies) / sum_coeffs
+
+    return final_energ
 
 def get_entry_Ef(formula, temp, atmos='air', data_path='arrows/energetics/MP_Energetics.json'):
     """
-    Retrieve entry formation energy from MP.
-    Temperature-dependence is calculated via Bartel method.
+    Retrieve the formation energy of a given chemical formula.
+    Zero-temperature energy calculated using DFT (from Materials Project).
+    Temperature-dependence of the energy is estimated via the Bartel method.
+    https://doi.org/10.1038/s41467-018-06682-4
+
+    Args:
+        formula (str): chemical formula.
+        temp (int/float): temperature.
+        atmos (str): air or inert.
+        data_path (str): relative path to
+            the file containing the 0 K
+            energies from MP.
+    Returns:
+        Ef: formation energy.
     """
 
     # Round temperature to nearest 100 C
@@ -88,6 +108,24 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='arrows/energetics/MP_Ene
     return Ef
 
 def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/energetics/MP_Energetics.json'):
+    """
+    Build a pymatgen phase diagram object in the chemical space
+    contained by elems, with energies calculated under
+    the specified temperature and atmosphere.
+
+    Args:
+        entries (list): computed entries for all
+            phases in the space.
+        elems (list): elements bounding the space.
+        temp (int/float): temperature.
+        atmos (str): air or inert.
+        data_path (str): relative path to
+            the file containing the 0 K
+            energies from MP.
+    Returns:
+        final_diag: pymatgen phase diagram
+            containing all entries.
+    """
 
     # Round temperature to nearest 100 C
     T = round(temp, -2)
@@ -164,12 +202,24 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/ener
         NH3_entry = pd.PDEntry(NH3_comp, NH3_energ)
         revised_entries.append(NH3_entry)
 
-    return pd.PhaseDiagram(revised_entries)
+    final_diag = pd.PhaseDiagram(revised_entries)
+
+    return final_diag
 
 def get_pd_dict(available_precursors, temperatures, atmos='air'):
     """
-    Build a dictionary containing phase diagrams for the
-    given chemical space throughout a range of temperatures.
+    Build a dictionary of phase diagrams for the given chemical
+    space throughout a range of temperatures.
+
+    Args:
+        available_precursors (list): a list of chemical formulae
+            corresponding to available precursors.
+        temp (list): temperatures at which to build the
+            phase diagrams.
+        atmos (str): air or inert.
+    Returns:
+        pd_dict: a dictionary of pymatgen phase
+            diagram objects, one at each temperature.
     """
 
     mpr = MPRester('YdSP1Z8Tv8vfrLSaRCWdwp3EWvazS0vf')
@@ -193,6 +243,16 @@ def get_pd_dict(available_precursors, temperatures, atmos='air'):
 
 
 def make_custom_entry(struc, energy):
+    """
+    Make your own PDEntry from a given structure
+    and energy (0 K).
+
+    Args:
+        struc: pymatgen structure object.
+        energy (float): calculated energy.
+    Returns:
+        PDEntry for that structure/energy.
+    """
 
     return pd.PDEntry(struc.composition, energy)
 
