@@ -25,12 +25,12 @@ if __name__ == '__main__':
     # Tabulate precursor sets that balance to produce target
     balanced_sets = searcher.get_precursor_sets(available_precursors, target, allowed_byproducts, max_pc)
 
-    # Calculate reaction energies (at max T)
+    # Calculate reaction energies (at min T)
     rxn_info = []
     for (reactants, products) in balanced_sets:
         precursor_amounts = reactions.get_balanced_coeffs(reactants, products)[0]
         precursor_amounts = [round(val, 3) for val in precursor_amounts]
-        rxn_energ = reactions.get_rxn_energy(reactants, products, max(temps), pd_dict[min(temps)])
+        rxn_energ = reactions.get_rxn_energy(reactants, products, min(temps), pd_dict[min(temps)])
         rxn_info.append([reactants, precursor_amounts, products, rxn_energ])
 
     # Sort rxns from most to least TD favorable
