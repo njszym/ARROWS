@@ -3,6 +3,21 @@ from itertools import combinations
 
 
 def get_precursor_sets(available_precursors, target_products, allowed_byproducts=[], max_pc=None):
+    """
+    Gather all possible precursor sets for a given target from the available materials.
+
+    Args:
+        available_precursors (list): chemical formulae of the compounds that
+            may be used as precursors for the targeted synthesis.
+        target_products (list): chemical formulae of the desired phase(s)
+            to be synthesized.
+        allowed_byproducts (list): chemical formulae of any phases that
+            may be allowed as secondary products, in addition to the target.
+        max_pc (int): maximum number of phases included in each precursor set.
+            By default, this will follow the Gibbs phase rule.
+    Returns:
+        balanced_sets (list): all possible precursor sets.
+    """
 
     # Ensure proper formatting
     if isinstance(target_products, str):
