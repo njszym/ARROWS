@@ -5,6 +5,19 @@ from itertools import combinations
 
 
 def get_balanced_coeffs(reactants, products):
+    """
+    Get stoichiometric coefficients from the chemical
+    reaction involving the specified reactants and products.
+
+    Args:
+        reactants (list): chemical formulae of the reactants.
+        products (list): chemical formulae of the products.
+    Returns:
+        coeffs (list): stoichiometric coefficients of the
+            reactants and products. If reaction cannot be
+            balanced, a message (str) will be returned
+            informing the user why it cannot be balanced.
+    """
 
     coeffs = balancer.main(reactants, products)
 
@@ -12,6 +25,18 @@ def get_balanced_coeffs(reactants, products):
 
 
 def get_rxn_energy(reactants, products, temp, cmpd_pd):
+    """
+    Calculate the reaction energy associated with the
+    transformation from reactants to products.
+
+    Args:
+        reactants (list): chemical formulae of the reactants.
+        products (list): chemical formulae of the products.
+        temp (int/float): temperature.
+        cmpd_pd (pymatgen phase diagram): phase diagram.
+    Returns:
+        Rxn energy in meV/atom.
+    """
 
     if isinstance(products, str):
         products = [products]
@@ -72,6 +97,22 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
     Similar to get_rxn_energy, except this function allows
     linearly dependent precursors to be treated by simply averaging
     over their energies weighted by their amounts.
+
+    Args:
+        initial_cmpds (list): starting materials.
+        initial_amounts (list): stoichiometric coefficients
+            of the starting materials.
+        target (list): target composition(s).
+        allowed_byproducts (list): phases that may be
+            included as secondary products.
+        open_sys (bool): whether to allow oxidation.
+        pd_dict (dict): a dictionary containing the phase
+            diagrams at varied temperature.
+        temp (int/float): current temperature.
+    Returns:
+        final_products (list): phases that are actually
+            produced by the reaction.
+        dG (float): assocaited rxn energy.
     """
 
     if isinstance(targets, str):
