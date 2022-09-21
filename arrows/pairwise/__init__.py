@@ -7,100 +7,20 @@ import csv
 import sys
 
 
-def update_set(precursors, amounts, phase_diagram, temp, cutoff_energ, return_rxn=False):
-    """
-    Update a set of precursors based on the pairwise reaction with
-    the highest TD driving force.
-    """
-
-    # Make dictionary for precursor amounts
-    precursor_amounts = {}
-    for (cmpd, coeff) in zip(precursors, amounts):
-        precursor_amounts[cmpd] = coeff
-
-    # All possible pairs of precursors
-    all_pairs = combinations(precursors, 2)
-
-    # Get most favorable reaction at each interface
-    all_likely_rxns = []
-    for pair in all_pairs:
-        # Exclude reactions with gases
-        if ('O2' not in pair) and ('CO2' not in pair):
-            c1 = Composition(pair[0])
-            c2 = Composition(pair[1])
-            ir = interface_reactions.InterfacialReactivity(c1, c2, phase_diagram)
-            kinks = list(ir.get_kinks())
-            energies = [info[4] for info in kinks]
-            all_likely_rxns.append(kinks[np.argmin(energies)])
-
-    # Get reaction with largest TD driving force
-    energies = [info[4] for info in all_likely_rxns]
-    top_rxn = all_likely_rxns[np.argmin(energies)]
-    driving_force = top_rxn[4]
-
-    if driving_force < cutoff_energ:
-
-        # Get pair of compounds that are expected to react
-        reactants = [cmpd.reduced_formula for cmpd in top_rxn[3].reactants]
-        products = [cmpd.reduced_formula for cmpd in top_rxn[3].products]
-
-        if return_rxn:
-            return [reactants, products, driving_force]
-
-        # Get available amounts of each compound
-        avail_amounts = []
-        for cmpd in reactants:
-            avail_amounts.append(precursor_amounts[cmpd])
-
-        # Amount of each reactant consumed and product produced
-        req_amounts = [abs(val) for val in top_rxn[3].coeffs if val < 0] # Sum to 1
-        product_amounts = [abs(val) for val in top_rxn[3].coeffs if val > 0]
-
-        # Calculate changes in reactant amounts and add in new products
-        leftover_cmpds, leftover_amounts = calculate_amounts(reactants, avail_amounts, req_amounts, products, product_amounts)
-        leftover_cmpds = [Composition(cmpd).reduced_formula for cmpd in leftover_cmpds]
-
-        # Add rxn products to final set
-        final_set, final_amounts = [], []
-        for (cmpd, amount) in zip(leftover_cmpds, leftover_amounts):
-            final_set.append(cmpd)
-            if (cmpd in precursors) and (cmpd not in reactants):
-                combined_amount = amount + precursor_amounts[cmpd]
-                final_amounts.append(combined_amount)
-            else:
-                final_amounts.append(amount)
-
-        # Add non-participating cmpds to final set
-        for cmpd in precursors:
-            if (cmpd not in reactants) and (cmpd not in leftover_cmpds):
-                final_set.append(cmpd)
-                final_amounts.append(precursor_amounts[cmpd])
-
-        return final_set, final_amounts
-
-    else:
-
-        if return_rxn:
-            return None
-        else:
-            return None, None
-
 
 def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_amounts):
     """
-    Used to update compounds involved in a pairwise reaction.
-    Should not be used to update an entire set!
-    For this purpose, update_set() should be used instead.
+    Update the compounds involved in a pairwise reaction.
 
     Args:
-        reactants: cmpds involved in pairwise reaction
-        avail_amounts: stoichiometric coefficients of each
-        req_amounts: coefficients required for the pairwise reaction
-        products: products formed in the pairwise reaction
-        product_amounts: coefficients of the products
+        reactants (list): cmpds involved in pairwise reaction
+        avail_amounts (list): stoichiometric coefficients of each cmpd
+        req_amounts (list): coefficients required for the pairwise reaction
+        products (list): products formed in the pairwise reaction
+        product_amounts (list): coefficients of the products
     Returns:
-        final_set: products + remaining reactants
-        final_amounts: coefficients for the final_set
+        final_set (list): products + remaining reactants
+        final_amounts (list): coefficients for the final_set
     """
 
     # Make dictionary for reactant amounts
@@ -168,18 +88,37 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
 
 def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, temp, allowed_byproducts, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
     """
-    Given a synthesis result, propose possible reaction pathways.
+    Given a synthesis outcome (products) from a set of precursors, propose possible reaction pathways.
+    This analysis includes pairwise reactions, oxidation/reduction reactions, and decomposition.
+    However, it will not account for reactions that take place between 3 or more solid phases.
+    This method is based on previous work, where solid-state rxns are shown to proceed in pairs.
+    For example: https://doi.org/10.1002/adma.202100312
 
     Args:
-        precursors: starting materials in the synthesis procedure
-        initial_amounts: stoichiometric coefficients for precursor amounts
-        products: observed reaction products
-        final_amounts: stoichiometric coefficients for product amounts
-        pd_dict: dictionary containing phase diagram objects in the relevant chemical space
-        temp: temperature at which the synthesis was carried out
-        open_sys: if True, system is open to gaseous byproducts (O2, CO2)
-        enforce_thermo: if True, all proposed rxns must be thermodynamically favorable (dG < 0)
-        rxn_database: dataset containing known rxn information
+        precursors (list): chemical formulae starting materials.
+        initial_amounts (list): stoichiometric coefficients of the precursors.
+        products (list): chemical formulae of the observed reaction products.
+        final_amounts (list): stoichiometric coefficients of the products.
+        pd_dict (dict): dictionary containing the phase diagrams for this
+            chemical space, calculated at varied temperatures.
+        temp (int/float): temperature at which the synthesis was performed.
+        allowed_byproducts (list): phases that may be produced in addition to the target.
+        open_sys: if True, system is open to oxidation/reduction.
+        enforce_thermo (bool): if True, all proposed rxns must be thermodynamically favorable (dG < 0).
+        rxn_database (dict): a dictionary where each key is a pair of reactants,
+            and rxn_database[key] contains the expected reaction temperature
+            and products associated with those reactants.
+        already_probed: a list of reaction that have already been tested.
+    Returns:
+        mssg (str): a message to inform the user what information
+            was learned from this reaction.
+        known_products (list): products with a known origin.
+            In other words, the reactions that led to these products
+            have been completely determined.
+        intermediates (list): intermediate phases formed during
+            the known reactions.
+        inert_pairs (list): pairs of phases that did not react
+            at the current temperature.
     """
 
     # Check if this synthesis route has already been probed
@@ -448,11 +387,16 @@ def inform_user(temp, precursors, products, amounts, mssg, sus_rxn_info, known_p
 
 
 class rxn_database:
-
     """
+    Pairwise reaction database containing:
+    a) Intert pairs: phases that do not react under given conditions.
+    b) Reactive pairs: phases that do react under given conditions.
+       Information is given regarding the range of temperatures
+        these these phases react, as well as the expected products.
+
     Note:
-    Inert (non-reaction) temperatures are strict (rxn occurs > T)
-    Whereas reaction temperatures are non-strict (rxn occurs <= T)
+    Inert (non-reaction) temperature bounds are strict (rxn may only occur > T)
+    Whereas reaction temperatures are non-strict (rxn does occur <= T)
     In other words, lower T < rxn T <= upper T
     """
 
@@ -751,6 +695,28 @@ class rxn_database:
 
 
 def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, allow_oxidation):
+    """
+    Predict the reactions that will occur from a given set of precursors.
+    These predictions are made based on previously observed pairwise reactions
+    that are tabulated within the supplied rxn_database.
+
+    Args:
+        precursors (list): starting materials.
+        initial_amounts (list): weight fractions associated
+            with the starting materials.
+        rxn_database (dict): a dictionary where each key is a pair of reactants,
+            and rxn_database[key] contains the expected reaction temperature
+            and products associated with those reactants.
+        greedy (bool): if True, assume that reactions observed below
+            the minimum temperature will always occur first.
+            Otherwise, predictions will be made only if *all*
+            pairwise rxns are known for a given set of precursors.
+        min_T (int/float): lower temperature bound.
+        allow_oxidation (bool): whether to allow O2/CO2 uptake.
+    Returns:
+        actual_cmpds: predicted reaction products.
+        actual_amounts: associated weight fractions.
+    """
 
     # Placeholder for now
     temp = 1000.0
@@ -804,7 +770,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
             2) No reaction temperatures are degenerate
 
             Unless --greedy is specified, in which case
-            low-T rxns are always assumed to occur.
+            low-T rxns are always assumed to occur first.
 
             This option should be used with caution.
             A|B might react first in A + B + C,
