@@ -262,7 +262,7 @@ def print_final_mssg(precursors, T, increasing_temps, sorted_rxn_info, exp_data,
         while (num_suggest < batch_size) and (r_ind < len(sorted_rxn_info)):
             rxn = sorted_rxn_info[r_ind]
             precursors = rxn[0]
-            products, final_amounts = exparser.get_products(precursors, min(increasing_temps), exp_data)
+            products, final_wts = exparser.get_products(precursors, min(increasing_temps), exp_data)
             if products is None:
                 print(int(num_suggest+1))
                 print('Precursors: %s' % precursors)
@@ -467,14 +467,14 @@ if __name__ == '__main__':
             precursors, initial_amounts = rxn[0], rxn[1]
 
             # Parse experimental reaction data
-            products, final_amounts = exparser.get_products(precursors, T, exp_data)
+            products, final_wts = exparser.get_products(precursors, T, exp_data)
 
             # If precursors or temperature not sampled yet, suggest new experiment(s)
             if products is None:
                 print_final_mssg(precursors, T, increasing_temps, sorted_rxn_info, exp_data, batch_size, verbose)
 
             # Formulate intermediates
-            interm = sorted(list(zip(products, final_amounts)))
+            interm = sorted(list(zip(products, final_wts)))
             interm_phases = tuple([ph[0] for ph in interm])
             interm_wts = tuple([ph[1] for ph in interm])
 
@@ -484,7 +484,7 @@ if __name__ == '__main__':
                 known_interm = update_interm(interm_phases, interm_wts, known_interm, redundant, increasing_temps, exp_data)
 
             # Perform reaction pathway analysis
-            mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_amounts,
+            mssg, sus_rxn_info, known_products, interm, inert_pairs = pairwise.retroanalyze(precursors, initial_amounts, products, final_wts,
                 pd_dict, T, allowed_byproducts, open_sys, enforce_thermo, rxn_database, probed_rxns)
 
             # If this reaction has already been probed, skip it
@@ -498,7 +498,7 @@ if __name__ == '__main__':
 
             # No need to go further if intermediate reactions are already known
             if mssg == 'Only known intermediate reactions occured.':
-                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
+                pairwise.inform_user(T, precursors, products, final_wts, mssg, sus_rxn_info, known_products, interm)
                 continue
 
             # Add known reactions to the database
@@ -506,7 +506,7 @@ if __name__ == '__main__':
 
             # Print messages if verbose
             if verbose:
-                pairwise.inform_user(T, precursors, products, final_amounts, mssg, sus_rxn_info, known_products, interm)
+                pairwise.inform_user(T, precursors, products, final_wts, mssg, sus_rxn_info, known_products, interm)
                 rxn_database.print_info()
 
             # Check whether new reactions were found

@@ -86,7 +86,7 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
     return final_set, final_amounts
 
 
-def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, temp, allowed_byproducts, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
+def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp, allowed_byproducts, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
     """
     Given a synthesis outcome (products) from a set of precursors, propose possible reaction pathways.
     This analysis includes pairwise reactions, oxidation/reduction reactions, and decomposition.
@@ -98,7 +98,7 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
         precursors (list): chemical formulae starting materials.
         initial_amounts (list): stoichiometric coefficients of the precursors.
         products (list): chemical formulae of the observed reaction products.
-        final_amounts (list): stoichiometric coefficients of the products.
+        final_amounts (list): weight fractions of the products.
         pd_dict (dict): dictionary containing the phase diagrams for this
             chemical space, calculated at varied temperatures.
         temp (int/float): temperature at which the synthesis was performed.
@@ -128,6 +128,10 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     if precursors in already_probed:
         return 'Reaction already probed.', None, None, None, []
 
+    # Convert stoichiometry to weight fraction
+    net_weight = sum([cf*Composition(ph).weight for cf, ph in zip(initial_amounts, precursors)])
+    initial_wts = [cf*Composition(ph).weight/net_weight for cf, ph in zip(initial_amounts, precursors)]
+
     # Phase diagram at specified temperature
     phase_diagram = pd_dict[temp]
 
@@ -138,13 +142,13 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
 
     # Make dictionary for precursor amounts
     precursor_amounts = {}
-    for (cmpd, coeff) in zip(precursors, initial_amounts):
-        precursor_amounts[cmpd] = coeff
+    for (cmpd, wt) in zip(precursors, initial_wts):
+        precursor_amounts[cmpd] = wt
 
     # Make dictionary for product amounts
     product_amounts = {}
-    for (cmpd, coeff) in zip(products, final_amounts):
-        product_amounts[cmpd] = coeff
+    for (cmpd, wt) in zip(products, final_wts):
+        product_amounts[cmpd] = wt
 
     intermediates = None
     if not rxn_database.is_empty:
@@ -197,19 +201,20 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
                             interm_set.append(cmpd)
                             interm_amounts.append(precursor_amounts[cmpd])
 
+                    # Update amounts
                     intermediates = []
-                    initial_amounts = []
+                    initial_wts = []
                     for cmpd, amt in zip(interm_set, interm_amounts):
                         if cmpd not in ['O2', 'CO2', 'H3N', 'H2O']:
                             intermediates.append(cmpd)
-                            initial_amounts.append(amt)
+                            initial_wts.append(amt)
 
                     # Consider intermediates as new precursor set
                     precursors = intermediates.copy()
 
                     # Make dictionary for updated precursor amounts
-                    for (cmpd, coeff) in zip(precursors, initial_amounts):
-                        precursor_amounts[cmpd] = coeff
+                    for cmpd, wt in zip(precursors, initial_wts):
+                        precursor_amounts[cmpd] = wt
 
     # Check again if this synthesis route has already been probed
     current_precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
@@ -229,8 +234,8 @@ def retroanalyze(precursors, initial_amounts, products, final_amounts, pd_dict, 
     # Check for existing compounds with increased amounts
     amount_changes = {}
     tol = 0.01 # Allow some tolerance
-    for (start_cmpd, start_coeff) in zip(precursors, initial_amounts):
-        for (end_cmpd, end_coeff) in zip(products, final_amounts):
+    for (start_cmpd, start_coeff) in zip(precursors, initial_wts):
+        for (end_cmpd, end_coeff) in zip(products, final_wts):
             if start_cmpd == end_cmpd:
                 if end_coeff > (start_coeff + tol):
                     amount_changes[start_cmpd] = end_coeff - start_coeff
@@ -391,8 +396,8 @@ class rxn_database:
     Pairwise reaction database containing:
     a) Intert pairs: phases that do not react under given conditions.
     b) Reactive pairs: phases that do react under given conditions.
-       Information is given regarding the range of temperatures
-        these these phases react, as well as the expected products.
+       Information is given regarding the range of temperatures at which
+       these these phases react, as well as the expected products.
 
     Note:
     Inert (non-reaction) temperature bounds are strict (rxn may only occur > T)
@@ -715,7 +720,7 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
         allow_oxidation (bool): whether to allow O2/CO2 uptake.
     Returns:
         actual_cmpds: predicted reaction products.
-        actual_amounts: associated weight fractions.
+        actual_amounts: associated stoichiometric coefficients.
     """
 
     # Placeholder for now
