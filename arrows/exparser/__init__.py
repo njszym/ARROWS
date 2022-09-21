@@ -3,6 +3,22 @@ import numpy as np
 
 
 def get_products(precursors, temperature, exp_data):
+    """
+    Check if exp_data contains results from the specified
+    precursors and synthesis temperature. If so, return the
+    corresponding products and their weight fractions.
+
+    Args:
+        precursors (list): list of starting materials.
+        temperature (int): synthesis temperature (deg. C).
+        exp_data (dict): dictionary containing all available
+            experimental synthesis outcomes.
+    Returns:
+        products (list): chemical formulae of the
+            reaction products.
+        weight_fracs (list): weight fractions of
+            the reaction products.
+    """
 
     # Format exp json keys (reduced formulae, ordered alphabetically)
     initial_keys = list(exp_data.keys()).copy()
@@ -72,6 +88,16 @@ def get_products(precursors, temperature, exp_data):
     return products, weight_fracs
 
 def get_xrd(precursors, temperature, exp_data):
+    """
+    Retrieve X-ray diffraction data.
+
+    Args:
+        precursors (list): list of starting materials.
+        temperature (int): synthesis temperature (deg. C).
+    Returns:
+        x (list): two-theta (degrees).
+        y (list): intensity (raw, unscaled).
+    """
 
     # Precursors must be formatted as reduced formulae
     precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
