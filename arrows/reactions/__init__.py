@@ -38,20 +38,20 @@ def get_rxn_energy(reactants, products, temp, cmpd_pd):
         Rxn energy in meV/atom.
     """
 
+    # Convert products to list, if needed
     if isinstance(products, str):
         products = [products]
-    elif isinstance(products, list):
-        products = products
-    else:
-        raise Exception("""Products must be formatted as string or list""")
 
+    # Get balanced coefficients for rxn
     full_coeffs = get_balanced_coeffs(reactants, products)
 
+    # If rxn cannot be balanced, raise Exception
     if isinstance(full_coeffs, str):
         raise Exception(full_coeffs)
 
-    starting_energy = 0.0
+    # Average energy of reactants
     starting_sum = 0.0
+    starting_energy = 0.0
     for (formula, coeff) in zip(reactants, full_coeffs[0]):
 
         # Get formation energy normalized per atom
@@ -67,10 +67,12 @@ def get_rxn_energy(reactants, products, temp, cmpd_pd):
 
         starting_energy += coeff * Ef
 
+    # Energy normalized per atom
     starting_energy /= starting_sum
 
-    final_energy = 0.0
+    # Average energy of products
     end_sum = 0.0
+    final_energy = 0.0
     for (formula, coeff) in zip(products, full_coeffs[1]):
 
         # Get formation energy normalized per atom
@@ -86,6 +88,7 @@ def get_rxn_energy(reactants, products, temp, cmpd_pd):
 
         final_energy += coeff * Ef
 
+    # Energy normalized per atom
     final_energy /= end_sum
 
     # Return reaction energy in meV/atom
@@ -115,17 +118,20 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
         dG (float): assocaited rxn energy.
     """
 
+    # Convert products to list, if needed
     if isinstance(targets, str):
         targets = [targets]
 
     # Phase diagram at specified temperature
     cmpd_pd = pd_dict[temp]
 
+    # Get average energy of starting materials
+    net_comp = {}
     total_atoms = 0.0
     initial_energy = 0.0
-    net_comp = {}
     for (formula, amount) in zip(initial_cmpds, initial_amounts):
 
+        # Always used reduce formula
         formula = Composition(formula).reduced_formula
 
         # Get formation energy normalized per atom
@@ -160,7 +166,7 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
         final_products = targets.copy()
     else:
         allowed_byproducts = [Composition(cmpd).reduced_formula for cmpd in allowed_byproducts]
-        allowed_byproducts += ['O2', 'CO2'] # Allow gaseous evolution
+        allowed_byproducts += ['O2', 'CO2', 'NH3', 'H2O'] # Allow gaseous evolution
         allowed_byproducts = list(set(allowed_byproducts))
         for num_byp in range(1, len(allowed_byproducts) + 1):
             possible_byproducts = combinations(allowed_byproducts, num_byp)
@@ -171,8 +177,10 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
                     final_soln = trial_soln.copy()
                     final_products = all_products.copy()
 
+    # Enumerate through possible gaseous reactants
+    # Use those that produce a balanced rxn
+    # Here, we only consider O2 or CO2 uptake
     gaseous_reacs = []
-
     trial_soln = get_balanced_coeffs(targets, [avg_formula, 'O2'])
     if not isinstance(trial_soln, str):
         final_soln = trial_soln.copy()
@@ -218,13 +226,15 @@ def get_dG(initial_cmpds, initial_amounts, targets, allowed_byproducts, open_sys
         gaseous_reacs.append('CO2')
         gaseous_reacs.append('O2')
 
+    # If no combination of gaseous byproducts enable a balanced rxn, raise an Error
     assert final_soln != None, 'Precursor update went wrong. Reaction cannot be balanced with targets'
 
+    net_comp = {}
     total_atoms = 0.0
     final_energy = 0.0
-    net_comp = {}
     for (formula, amount) in zip(final_products, final_soln[0]):
 
+        # Always use reduced formula
         formula = Composition(formula).reduced_formula
 
         # Get formation energy normalized per atom

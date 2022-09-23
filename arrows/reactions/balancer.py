@@ -3,6 +3,9 @@ import numpy as np
 
 
 class RxnBalance(object):
+    """
+    Main class used to balance chemical rxns.
+    """
 
     def __init__(self, reactants, products):
 
@@ -11,11 +14,13 @@ class RxnBalance(object):
 
     def balance(self):
 
+        # Get sorted list of elems in reactants
         reac_elems = []
         for cmpd in self.reacs:
             reac_elems += parseElems(cmpd)
         reac_elems = sorted(list(set(reac_elems)))
 
+        # Get sorted list of elems in products
         prod_elems = []
         for cmpd in self.prods:
             prod_elems += parseElems(cmpd)
@@ -32,11 +37,13 @@ class RxnBalance(object):
         if set(reac_elems) != set(prod_elems):
             return [np.array([0]*len(reactants)), 1000]
 
+        # Form vector with length = num elems in reactants
         elem_vec = []
         for cmpd in reactants:
             elem_vec.extend(parseElems(cmpd))
         elem_vec = list(set(elem_vec))
 
+        # Form matrix of reactants coefficients
         reac_mat = []
         i = 0
         for cmpd in reactants:
@@ -51,10 +58,12 @@ class RxnBalance(object):
                     j += 1
             i += 1
 
+        # Check rank of matrix
         rank = np.linalg.matrix_rank(reac_mat)
         if rank < len(reactants): # linearly dependent
             return [np.array([0]*len(reactants)), 1000]
 
+        # Form vector with length = num_elems in products
         prod_vec = [0]*len(elem_vec)
         cmpd_comp = Composition(norm_product).as_dict()
         for elem in cmpd_comp.keys():
@@ -67,9 +76,14 @@ class RxnBalance(object):
         A = np.array(reac_mat).transpose()
         b = np.array(prod_vec)
 
+        # Solve linear system using least squares
         return np.linalg.lstsq(A, b, rcond=None)[0], np.linalg.lstsq(A, b, rcond=None)[1]
 
 def parseElems(formula):
+    """
+    Get unique elements from chemical formula.
+    """
+
     if '(' in formula:
         cmpd_name = ''
         rform = Composition(formula)
@@ -89,6 +103,14 @@ def parseElems(formula):
 
 
 def main(reactants, products):
+    """
+    Determine whether the specified reactants
+    can be balanced to yield the specified products.
+
+    If yes, return balanced coefficients.
+
+    Otherwise, return an appropriate error message.
+    """
 
     num_reacs = len(reactants)
 

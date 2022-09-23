@@ -22,19 +22,10 @@ def get_precursor_sets(available_precursors, target_products, allowed_byproducts
     # Ensure proper formatting
     if isinstance(target_products, str):
         target_products = [target_products]
-    elif isinstance(target_products, list):
-        target_products = target_products
-    else:
-        raise Exception("""Target products must be formatted as string or list""")
-
     if isinstance(allowed_byproducts, str):
         allowed_byproducts = [allowed_byproducts]
-    elif isinstance(allowed_byproducts, list):
-        allowed_byproducts = allowed_byproducts
-    else:
-        raise Exception("""Byproducts must be formatted as string or list""")
 
-    # Get elements in chemical space
+    # Get elems in chemical space
     elem_list = []
     for cmpd in available_precursors:
         elems = reactions.balancer.parseElems(cmpd)
@@ -45,6 +36,8 @@ def get_precursor_sets(available_precursors, target_products, allowed_byproducts
         # Limit set by Gibbs phase rule
         max_pc = len(elems)
 
+    # Enumerate through possible combinations of reactants and products
+    # Identify those that result in a balanced rxn
     balanced_sets = []
     for num_pc in range(2, max_pc + 1):
         possible_sets = combinations(available_precursors, num_pc)

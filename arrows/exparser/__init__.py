@@ -52,6 +52,10 @@ def get_products(precursors, temperature, exp_data):
         solid_precursors.remove('O2')
     if 'CO2' in solid_precursors:
         solid_precursors.remove('CO2')
+    if 'H2O' in solid_precursors:
+        solid_precursors.remove('NH3')
+    if 'NH3' in solid_precursors:
+        solid_precursors.remove('H2O')
 
     # Precursors must be formatted as reduced formulae
     solid_precursors = [Composition(cmpd).reduced_formula for cmpd in solid_precursors]
@@ -110,7 +114,7 @@ def get_xrd(precursors, temperature, exp_data):
     # Make sure experimental data is available
     assert exp_data[precursor_key]['Temperatures'][temp_key]['Experimentally Verified'] is True, 'No XRD available'
 
-    # XRD
+    # xy data for XRD pattern
     x = exp_data[precursor_key]['Temperatures'][temp_key]['XRD']['x']
     y = exp_data[precursor_key]['Temperatures'][temp_key]['XRD']['y']
 

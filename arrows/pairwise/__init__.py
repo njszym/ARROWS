@@ -50,6 +50,7 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
                 consumed_index = index
             index += 1
 
+        # Update which cmpds remain (and how much)
         indices.remove(consumed_index)
         remaining_index = indices[0]
         remaining_cmpd = reactants[remaining_index]
@@ -58,14 +59,14 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
         actual_amount = remaining_amount * sum_avail # Back to non-normalized amount
         reactant_amounts[remaining_cmpd] = actual_amount # Update amount of remaining cmpd
 
-    # Calculate how much products were produced based on how much reactants were consumed
+    # Calculate how much products were produced
     amounts_produced = []
     for (cmpd, coeff) in zip(products, product_amounts):
         avail = coeff*sum_avail*avail_amounts[consumed_index]
         req = sum_req*req_amounts[consumed_index]
         amounts_produced.append(avail/req)
 
-    # Update reactant amounts and add new products
+    # Update reactant amounts based on new products
     for (cmpd, coeff) in zip(products, amounts_produced):
         if cmpd in reactants:
             reactant_amounts[cmpd] += coeff
@@ -88,7 +89,7 @@ def calculate_amounts(reactants, avail_amounts, req_amounts, products, product_a
 
 def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp, allowed_byproducts, open_sys=True, enforce_thermo=False, rxn_database=None, already_probed=[]):
     """
-    Given a synthesis outcome (products) from a set of precursors, propose possible reaction pathways.
+    Given a synthesis outcome (products) from a set of precursors, identify possible reaction pathways.
     This analysis includes pairwise reactions, oxidation/reduction reactions, and decomposition.
     However, it will not account for reactions that take place between 3 or more solid phases.
     This method is based on previous work, where solid-state rxns are shown to proceed in pairs.
@@ -128,7 +129,7 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
     if precursors in already_probed:
         return 'Reaction already probed.', None, None, None, []
 
-    # Convert stoichiometry to weight fraction
+    # Convert stoichiometry to weight fraction (for consistent comparison)
     net_weight = sum([cf*Composition(ph).weight for cf, ph in zip(initial_amounts, precursors)])
     initial_wts = [cf*Composition(ph).weight/net_weight for cf, ph in zip(initial_amounts, precursors)]
 
@@ -153,7 +154,15 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
     intermediates = None
     if not rxn_database.is_empty:
 
-        # Known *local* reactions sorted by temperature
+        """
+        Here we define local rxns as those that were observed
+        from the same precursor set, just at a different temperature.
+
+        In contrast, global rxns are those that were observed
+        from different precursor sets.
+        """
+
+        # Known local reactions sorted by temperature
         known_rxns = rxn_database.as_sorted_list(local=True)
         interm_set = None
         for first_rxn in known_rxns:
@@ -168,9 +177,10 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
                 # Ensure all reactants are present in the current precursor set
                 if set(pair).issubset(set(precursors)):
 
+                    # Get balanced rxn coefficients
                     bal_info = reactions.get_balanced_coeffs(pair, prods)
 
-                    # Check for oxidation
+                    # Check for oxidation (O2, CO2 uptake)
                     ind = 0
                     solid_pair = pair.copy()
                     possible_oxidants = [['O2'], ['CO2'], ['O2', 'CO2']]
@@ -249,14 +259,14 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
     observ_products = list(amount_changes.keys())
     observ_products = [cmpd for cmpd in observ_products if cmpd not in ['O2', 'CO2']]
 
-    # If precursors == products, no further analysis necessary
+    # If precursors == products, no further analysis is necessary
     if len(observ_products) == 0:
         if intermediates == None:
             return 'No reactions occured.', None, None, None, inert_pairs
         else:
             return 'Only known intermediate reactions occured.', None, None, intermediates, inert_pairs
 
-    # Otherwise, explore suspected reaction pathways
+    # Otherwise, explore possible reaction pathways
     else:
 
         # Possible pairwise reactants, including precursors and products
@@ -265,9 +275,12 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
         for cmpd in all_cmpds:
             # Check for decomposition (single reactant)
             interm_sets.append([cmpd])
+
         interm_sets += list(combinations(all_cmpds, 2))
         interm_sets = [list(pair) for pair in interm_sets]
+
         # Gaseous species may participate in pairwise rxns
+        # Here we only consider O2 and/or CO2 uptake
         if open_sys:
             for solid_set in interm_sets.copy():
                 w_O2 = solid_set + ['O2']
@@ -282,6 +295,7 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
         for n in range(1, len(observ_products) + 1):
             product_sets += list(combinations(observ_products, n))
         product_sets = [list(pair) for pair in product_sets]
+
         # Gaesous byproducts may evolve from rxns
         for solid_set in product_sets.copy():
             w_O2 = solid_set + ['O2']
@@ -290,6 +304,7 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
             product_sets.append(w_O2)
             product_sets.append(w_CO2)
             product_sets.append(w_both)
+
         # Include allowed byproducts
         solid_byproducts = list(set(allowed_byproducts) - {'O2', 'CO2'}) # Already included
         byproduct_sets = []
@@ -333,7 +348,7 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
                 redundant_products.append(cmpd)
 
         # Products with known origin, excluding gaseous phases
-        known_products = list(set(pairwise_products) - set(redundant_products) - {'O2', 'CO2'})
+        known_products = list(set(pairwise_products) - set(redundant_products) - {'O2', 'CO2', 'H2O', 'H3N'})
 
         # Finalize and return messages to user
         if (len(mystery_products) == 0) and (len(redundant_products) == 0):
@@ -368,6 +383,10 @@ def sort_by_two(data, key_1=-1, key_2=-2):
 
 
 def inform_user(temp, precursors, products, amounts, mssg, sus_rxn_info, known_products, intermediates):
+    """
+    Print log to screen.
+    """
+
     print('\nTemperature: %s' % temp)
     precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
     products = [Composition(cmpd).reduced_formula for cmpd in products]
@@ -621,6 +640,8 @@ class rxn_database:
         return is_updated
 
     def inert_pairs(self, temp):
+
+        # Pair that don't react at specified T
         non_reacs = []
         for reacs in self.known_rxns.keys():
             all_inert = True
@@ -629,9 +650,17 @@ class rxn_database:
                     all_inert = False
             if all_inert:
                 non_reacs.append(reacs)
+
         return non_reacs
 
     def make_global(self):
+        """
+        Global rxns are those that take place in
+        different precursor sets. All rxns should be
+        made global before looking at a new precursor set.
+        """
+
+        # Change from local to global
         for reacs in self.known_rxns.keys():
             for i, report in enumerate(self.known_rxns[reacs]):
                 self.known_rxns[reacs][i][2] = 'Global'
@@ -640,6 +669,8 @@ class rxn_database:
         return self.known_rxns
 
     def as_sorted_list(self, local=False):
+
+        # Convert rxn database to a sorted list of rxns
         rxn_list = []
         for reacs in self.known_rxns.keys():
             for i, report in enumerate(self.known_rxns[reacs]):
@@ -648,6 +679,7 @@ class rxn_database:
                         rxn_list.append([reacs, self.known_rxns[reacs][i][0], self.known_rxns[reacs][i][1][0], self.known_rxns[reacs][i][1][1]])
                 else:
                     rxn_list.append([reacs, self.known_rxns[reacs][i][0], self.known_rxns[reacs][i][1][0], self.known_rxns[reacs][i][1][1]])
+
         # Sort by temperature
         sorted_rxns = sorted(rxn_list, key=lambda x: x[-1])
         return sorted_rxns
@@ -699,7 +731,7 @@ class rxn_database:
             return False
 
 
-def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, allow_oxidation):
+def pred_evolution(precursors, initial_amounts, rxn_database, greedy, temps, allow_oxidation):
     """
     Predict the reactions that will occur from a given set of precursors.
     These predictions are made based on previously observed pairwise reactions
@@ -723,8 +755,8 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
         actual_amounts: associated stoichiometric coefficients.
     """
 
-    # Placeholder for now
-    temp = 1000.0
+    # Get temperature bounds
+    min_T, max_T = min(temps), max(temps)
 
     # Ensure consistent formatting of chemical formulae
     precursors = [Composition(cmpd).reduced_formula for cmpd in precursors]
@@ -734,8 +766,8 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
     for (cmpd, coeff) in zip(precursors, initial_amounts):
         precursor_amounts[cmpd] = coeff
 
+    # If rxn database is empty, no predictions are made
     final_cmpds, final_amounts = None, None
-
     if rxn_database.is_empty:
         sys.stdout.flush()
         final_cmpds, final_amounts = precursors, initial_amounts
@@ -748,7 +780,6 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
         # Evolve set until we have insufficient rxn information
         while precursors != None:
 
-            # Avoid cyclic rxn updates
             """
             In principle, reaction pathways should not be cyclic.
             For example, if A + B react to form C at a given temperature,
@@ -756,13 +787,14 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
             In other words, reactions should be directional.
             But just in case, simply exit the loop if cyclic rxns found.
             """
+            # If rxn pathway is cyclic, halt process
             if set(precursors) in past_precursors:
                 print('\nWarning: cyclic reaction encountered.')
                 break
             else:
                 past_precursors.append(set(precursors))
 
-            # Save for the end
+            # Save final cmpds for the end
             final_cmpds, final_amounts = precursors.copy(), initial_amounts.copy()
 
             # Known reactions sorted by temperature
@@ -837,8 +869,8 @@ def pred_evolution(precursors, initial_amounts, rxn_database, greedy, min_T, all
             # If both criteria are satisfied, update the set accordingly
             if (all_known == True) and (degen == False) and (first_rxn != None):
 
-                # If reaction is known to occur at or below current temp
-                if first_rxn[-1] <= temp:
+                # If known rxn occurs within the temperature bound
+                if first_rxn[-1] <= max_T:
 
                     # Amounts consumed or produced
                     pair = [Composition(cmpd).reduced_formula for cmpd in first_rxn[0]]

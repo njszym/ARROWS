@@ -19,23 +19,28 @@ def get_hull_Ef(formula, cmpd_pd=None):
         final_energ (float): formation energy
     """
 
+    # Composition of interest
     target_comp = Composition(formula)
 
+    # If no phase diagram is provided, create one based on the given composition
     if cmpd_pd is None:
         all_entries = mpr.get_entries_in_chemsys([str(el) for el in target_comp.elements])
         cmpd_pd = pd.PhaseDiagram(all_entries)
 
+    # Get hull energy at specified composition
     target_energy = cmpd_pd.get_hull_energy(target_comp)
-    target_dict = target_comp.as_dict()
-    competing_energies = 0.0
-    sum_coeffs = 0.0
 
+    # Get energies of elemental references
+    sum_coeffs = 0.0
+    competing_energies = 0.0
+    target_dict = target_comp.as_dict()
     for elem in target_dict.keys():
         elem_formula = '%s%s' % (elem, target_dict[elem])
         elem_comp = Composition(elem_formula)
         sum_coeffs += target_dict[elem]
         competing_energies += cmpd_pd.get_hull_energy(elem_comp)
 
+    # Calculate difference between hull energy and elemental references
     final_energ = (target_energy - competing_energies) / sum_coeffs
 
     return final_energ
@@ -78,24 +83,29 @@ def get_entry_Ef(formula, temp, atmos='air', data_path='arrows/energetics/MP_Ene
     else:
         raise Exception('Atmosphere must either be air or inert')
 
+    # Composition of interest
     target_comp = Composition(formula)
     ordered_formula = target_comp.alphabetical_formula
     condensed_formula = ordered_formula.replace(' ', '')
 
+    # Load energies from MP + Bartel
     with open(data_path) as fname:
         energy_data = json.load(fname)
 
+    # Ensure energy data is available at specified temperature
     assert str(T) in energy_data.keys(), """Invalid temperature.
     Only the following are allowed: %s""" % list(energy_data.keys())
 
     if condensed_formula in energy_data[str(T)].keys():
+
+        # Load formation energy
         Ef = energy_data[str(T)][condensed_formula]['Ef']
         elems = [str(el) for el in target_comp.elements]
 
-        # Convert Ef to grand potential with open O2
+        # Convert Ef to grand potential
         if 'O' in elems:
             n_O = target_comp.fractional_composition.as_dict()['O']
-            dG = n_O*get_chempot_correction('O', T, 21200)
+            dG = n_O*get_chempot_correction('O', T, p_O2)
             Ef -= dG
 
         # Rely on hull energy for gaseous species
@@ -147,11 +157,13 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/ener
     else:
         raise Exception('Atmosphere must either be air or inert')
 
+    # Construct phase diagram at 0 K
     zero_temp_pd = pd.PhaseDiagram(entries)
 
     if T == 0:
         return zero_temp_pd
 
+    # Load energies from MP + Bartel
     with open(data_path) as fname:
         energy_data = json.load(fname)
 
@@ -168,13 +180,13 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/ener
             entry_dict['energy'] += dE
         revised_entries.append(pd.PDEntry.from_dict(entry_dict))
 
-    # Account for temperature-dependence of gaseous species
+    # Account for temperature-dependence of common gaseous species
     if 'O' in elems:
 
         # O2
         O_comp = Composition('O')
         O_energ = zero_temp_pd.get_hull_energy(O_comp)
-        O_energ += get_chempot_correction('O', T, p_O2)
+        O_energ += 2*get_chempot_correction('O', T, p_O2)
         O_entry = pd.PDEntry(O_comp, O_energ)
         revised_entries.append(O_entry)
 
@@ -186,6 +198,7 @@ def make_phase_diagram(entries, elems, temp, atmos='air', data_path='arrows/ener
             CO2_entry = pd.PDEntry(CO2_comp, CO2_energ)
             revised_entries.append(CO2_entry)
 
+        # H2O
         if 'H' in elems:
             H2O_comp = Composition('H2O')
             H2O_energ = zero_temp_pd.get_hull_energy(H2O_comp)
@@ -275,19 +288,20 @@ def get_chempot_correction(element, temp, pres):
         phase at given temperature and pressure.
     """
 
+    # Conversion factor
     EV_TO_KJ_PER_MOL = 96.4853
 
+    # Common gaseous species
     if element not in ['O', 'N', 'Cl', 'F', 'H', 'CO2', 'NH3', 'H2O']:
         return 0
+
+    # Constants
     std_temp = 298.15
     std_pres = 1E5
     ideal_gas_const = 8.3144598
-    # Cp and S at standard state in J/(K.mol). Data from
-    # https://janaf.nist.gov/tables/O-029.html
-    # https://janaf.nist.gov/tables/N-023.html
-    # https://janaf.nist.gov/tables/Cl-073.html
-    # https://janaf.nist.gov/tables/F-054.html
-    # https://janaf.nist.gov/tables/H-050.html
+
+    # Cp and S at standard state in J/(K.mol)
+    # Data from https://janaf.nist.gov/tables
     Cp_dict = {'O': 29.376,
                'N': 29.124,
                'Cl': 33.949,
@@ -296,7 +310,6 @@ def get_chempot_correction(element, temp, pres):
                'CO2': 37.129,
                'NH3': 35.640,
                'H2O': 33.22}
-
     S_dict = {'O': 205.147,
               'N': 191.609,
               'Cl': 223.079,
@@ -305,6 +318,8 @@ def get_chempot_correction(element, temp, pres):
               'CO2': 213.79,
               'NH3': 192.80,
               'H2O': 194.10}
+
+    # Some math
     Cp_std = Cp_dict[element]
     S_std = S_dict[element]
     PV_correction = ideal_gas_const * temp * np.log(pres / std_pres)
@@ -312,9 +327,10 @@ def get_chempot_correction(element, temp, pres):
         + Cp_std * (temp - std_temp) * (1 + np.log(std_temp)) \
         - S_std * (temp - std_temp)
 
+    # Total free energy change
     dG = PV_correction + TS_correction
 
-    # Convert to eV/molecule unit.
+    # Convert to eV/molecule unit
     dG /= 1000 * EV_TO_KJ_PER_MOL
 
     # Normalize by number of atoms in the gas molecule
