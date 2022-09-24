@@ -92,7 +92,7 @@ def update_ranking(rxn_database, sorted_rxn_info, explore=False):
         starting_materials = starting_rxn[2]
         starting_amounts = starting_rxn[3]
         new_products = starting_rxn[4]
-        new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, min(temps), allow_oxidation)
+        new_materials, new_amounts = pairwise.pred_evolution(starting_materials, starting_amounts, rxn_database, greedy, temps, allow_oxidation)
         if set(new_materials) != set(starting_materials):
             if verbose:
                 print('\nPredicted evolution: %s --> %s' % (' + '.join(sorted(starting_materials)), ' + '.join(sorted(new_materials))))
