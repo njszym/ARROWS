@@ -1,6 +1,6 @@
 from pymatgen.core.composition import Composition
 import pymatgen.analysis.phase_diagram as pd
-from mp_api import MPRester
+from mp_api.client import MPRester
 import numpy as np
 import json
 
