@@ -315,6 +315,12 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
                 w_byp = list(existing_set) + list(byp_set)
                 product_sets.append(w_byp)
 
+        # Ensure uniqueness
+        interm_sets = set([frozenset(iset) for iset in interm_sets])
+        interm_sets = [list(iset) for iset in interm_sets]
+        product_sets = set([frozenset(pset) for pset in product_sets])
+        product_sets = [list(pset) for pset in product_sets]
+
         # Check for compostional balance between reactant pairs and product sets
         suspected_rxns = []
         for prod_set in product_sets:
