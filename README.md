@@ -6,7 +6,9 @@ A package designed to guide solid-state synthesis experiments toward maximal yie
 
 ## Installation
 
-First clone the repository:
+First, make sure [git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) is installed.
+
+Once LFS is installed, clone the repository:
 
 ```
 git clone https://github.com/njszym/ARROWS.git
