@@ -50,12 +50,16 @@ def get_products(precursors, temperature, exp_data):
     # Gaseous phases need not be specified in json
     if 'O2' in solid_precursors:
         solid_precursors.remove('O2')
+    if 'N2' in solid_precursors:
+        solid_precursors.remove('N2')
     if 'CO2' in solid_precursors:
         solid_precursors.remove('CO2')
     if 'H2O' in solid_precursors:
         solid_precursors.remove('NH3')
     if 'NH3' in solid_precursors:
         solid_precursors.remove('H2O')
+    if 'NO' in solid_precursors:
+        solid_precursors.remove('NO')
 
     # Precursors must be formatted as reduced formulae
     solid_precursors = [Composition(cmpd).reduced_formula for cmpd in solid_precursors]

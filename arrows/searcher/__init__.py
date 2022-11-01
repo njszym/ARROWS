@@ -2,7 +2,7 @@ from arrows import reactions
 from itertools import combinations
 
 
-def get_precursor_sets(available_precursors, target_products, allowed_byproducts=[], max_pc=None):
+def get_precursor_sets(available_precursors, target_products, allowed_byproducts=[], max_pc=None, allow_oxidation=True):
     """
     Gather all possible precursor sets for a given target from the available materials.
 
@@ -40,7 +40,12 @@ def get_precursor_sets(available_precursors, target_products, allowed_byproducts
     # Identify those that result in a balanced rxn
     balanced_sets = []
     for num_pc in range(2, max_pc + 1):
-        possible_sets = combinations(available_precursors, num_pc)
+        possible_sets = list(combinations(available_precursors, num_pc))
+        if allow_oxidation:
+            ox_sets = []
+            for solid_set in possible_sets.copy():
+                ox_sets.append(list(solid_set) + ['O2'])
+        possible_sets += ox_sets
         for pc_set in possible_sets:
             trial_soln = reactions.get_balanced_coeffs(pc_set, target_products)
             if not isinstance(trial_soln, str): # If reaction can be balanced

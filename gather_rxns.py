@@ -9,8 +9,6 @@ if __name__ == '__main__':
     with open('Settings.json') as f:
         settings = json.load(f)
     available_precursors = settings['Precursors']
-    if settings['Allow Oxidation'] == 'True':
-        available_precursors.append('O2')
     target = settings['Target']
     allowed_byproducts = settings['Allowed Byproducts']
     temps = settings['Temperatures']
@@ -18,12 +16,17 @@ if __name__ == '__main__':
         max_pc = settings['Max Precursors']
     else:
         max_pc = None
+    if settings['Allow Oxidation'] == 'True':
+        allow_oxidation = True
+    else:
+        allow_oxidation = False
+
 
     # Build phase diagrams
     pd_dict = energetics.get_pd_dict(available_precursors, temps)
 
     # Tabulate precursor sets that balance to produce target
-    balanced_sets = searcher.get_precursor_sets(available_precursors, target, allowed_byproducts, max_pc)
+    balanced_sets = searcher.get_precursor_sets(available_precursors, target, allowed_byproducts, max_pc, allow_oxidation)
 
     # Calculate reaction energies (at min T)
     rxn_info = []
@@ -44,5 +47,5 @@ if __name__ == '__main__':
             precursors = ' + '.join(rxn[0])
             amounts = ' + '.join([str(v) for v in rxn[1]])
             products = ' + '.join(rxn[2])
-            energ = rxn[3]
+            energ = round(float(rxn[3]), 2)
             csv_writer.writerow([precursors, amounts, products, energ])
