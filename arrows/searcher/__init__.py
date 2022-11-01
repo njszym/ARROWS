@@ -45,7 +45,7 @@ def get_precursor_sets(available_precursors, target_products, allowed_byproducts
             ox_sets = []
             for solid_set in possible_sets.copy():
                 ox_sets.append(list(solid_set) + ['O2'])
-        possible_sets += ox_sets
+            possible_sets += ox_sets
         for pc_set in possible_sets:
             trial_soln = reactions.get_balanced_coeffs(pc_set, target_products)
             if not isinstance(trial_soln, str): # If reaction can be balanced
