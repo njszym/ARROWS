@@ -2,11 +2,17 @@
 
 ![Alt text](Logo.png?raw=true)
 
-A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase.
+A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase. This package operates under two key assumptions:
+* Solid-state reactions tend to occur in pairs. In other words, a multi-phase mixture will generally react two phases at a time.
+* The most  effective reaction pathway is the one that leads to maximal thermodynamic driving force (ΔG) at the target-forming step.
+
+Based on these two assumptions, ARROWS prioritizes sets of precursors with large ΔG to form a user-specified target when starting a new experimental campaign. After the user has performed these experiments and fed their outcomes back to ARROWS, the package determines whether the attempted synthesis was successful, and if not, it learns which pairwise reactions formed detrimental intermediate phases that consumed the available free energy and therefore the target's formation. In subsequent experimental iterations, ARROWS proposes new sets of precursors that it expects to avoid such intermediates and therefore maintain a larger thermodynamic driving force to form the desired target.
+
+The pairwise reactions learned by ARROWS are stored in a local file that can be transferred between various experimental campaigns, enabling the algorithm to become more efficient as this reaction database grows.
 
 ## Installation
 
-First, make sure [git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) is installed.
+First, make sure [git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage) is installed. This is necessary to download the json file containing temperature-dependent energetics from the Materials Project (MP).
 
 Once LFS is installed, clone the repository:
 
