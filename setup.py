@@ -7,7 +7,7 @@ import os
 setup(
     name='ARROWS',
     version='0.0.1',
-    description='A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase.'
+    description='A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase.',
     author='Nathan J. Szymanski',
     author_email='nathan_szymanski@berkeley.edu',
     python_requires='>=3.9.0',
