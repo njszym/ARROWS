@@ -302,17 +302,19 @@ def update_interm(interm_phases, interm_wts, known_interm, redundant, increasing
             if interm_phases in known_interm.keys():
                 known_interm[interm_phases]['Amounts'].append(interm_wts)
                 highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
-                if len(highT_products) == 1:
-                    if highT_products[0] == target_product:
-                        known_interm[interm_phases]['Success'] = True
+                if highT_products != None:
+                    if len(highT_products) == 1:
+                        if highT_products[0] == target_product:
+                            known_interm[interm_phases]['Success'] = True
             else:
                 known_interm[interm_phases] = {}
                 known_interm[interm_phases]['Amounts'] = [interm_wts]
                 known_interm[interm_phases]['Success'] = False
                 highT_products, highT_amounts = exparser.get_products(precursors, increasing_temps[-1], exp_data)
-                if len(highT_products) == 1:
-                    if highT_products[0] == target_product:
-                        known_interm[interm_phases]['Success'] = True
+                if highT_products != None:
+                    if len(highT_products) == 1:
+                        if highT_products[0] == target_product:
+                            known_interm[interm_phases]['Success'] = True
 
     return known_interm
 
