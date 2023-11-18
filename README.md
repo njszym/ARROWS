@@ -2,7 +2,7 @@
 
 ![Alt text](Logo.png?raw=true)
 
-A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase. This package operates under two key assumptions:
+A package designed to guide solid-state synthesis experiments toward maximal yield of a target phase. As described in the [corresponding publication](https://doi.org/10.1038/s41467-023-42329-9), this package operates under two key assumptions:
 * Solid-state reactions tend to occur in pairs. In other words, a multi-phase mixture will generally react two phases at a time.
 * The most  effective reaction pathway is the one that leads to maximal thermodynamic driving force (ΔG) at the target-forming step.
 
