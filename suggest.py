@@ -499,7 +499,7 @@ if __name__ == '__main__':
             probed_rxns = update_probed_rxns(precursors, T, interm, products, probed_rxns)
 
             # No need to go further if intermediate reactions are already known
-            if mssg == 'Only known intermediate reactions occured.':
+            if mssg == 'Only known intermediate reactions occurred.':
                 pairwise.inform_user(T, precursors, products, final_wts, mssg, sus_rxn_info, known_products, interm)
                 continue
 
@@ -534,5 +534,4 @@ if __name__ == '__main__':
             sorted_rxn_info = update_ranking(rxn_database, sorted_rxn_info, explore)
 
     print('\nAll possible reactions sampled.')
-
 

@@ -262,9 +262,9 @@ def retroanalyze(precursors, initial_amounts, products, final_wts, pd_dict, temp
     # If precursors == products, no further analysis is necessary
     if len(observ_products) == 0:
         if intermediates == None:
-            return 'No reactions occured.', None, None, None, inert_pairs
+            return 'No reactions occurred.', None, None, None, inert_pairs
         else:
-            return 'Only known intermediate reactions occured.', None, None, intermediates, inert_pairs
+            return 'Only known intermediate reactions occurred.', None, None, intermediates, inert_pairs
 
     # Otherwise, explore possible reaction pathways
     else:
